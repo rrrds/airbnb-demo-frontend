@@ -2,27 +2,19 @@ import React from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
-  background: #ffffff;
-  border: 1px solid rgba(72, 72, 72, 0.2);
-  box-sizing: border-box;
-  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
-  border-radius: 4px;
-
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 `;
 
 const Img = styled.img`
-  max-height: 100%;
+  max-width: 100%;
 `;
 
 const Body = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 17px;
+  font-size: 15px;
   color: #383838;
-
-  padding: 27px 24px;
 
   flex: 1 1 auto;
   -webkit-box-pack: start;
@@ -34,8 +26,11 @@ const Body = styled.div`
 export default function(props) {
   return (
     <Card>
-      <Img image={props.image} src={props.image} />
-      <Body>{props.text}</Body>
+      <Img src={props.item.image} />
+      <Body>
+        ${props.item.price} {props.item.text}
+      </Body>
+      <Body>{props.item.reviews} reviews</Body>
     </Card>
   );
 }

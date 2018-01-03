@@ -1,9 +1,0 @@
-@font-face {
-  font-family: Circular;
-  src: url("./fonts/Circular_Air-Bold.woff") format("woff"),
-    url("./fonts/Circular_Air-Book.woff") format("woff"),
-    url("./fonts/Circular_Air-Light.woff") format("woff"),
-    url("./fonts/Circular_Air-Bold.ttf") format("truetype"),
-    url("./fonts/Circular_Air-Book.ttf") format("truetype"),
-    url("./fonts/Circular_Air-Light.ttf") format("truetype");
-}
