@@ -7,25 +7,35 @@ const Card = styled.div`
   box-sizing: border-box;
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
   border-radius: 4px;
+
+  display: flex;
+  flex-direction: row;
 `;
 
-const Img = styled.div`
-  background: url(${props => props.image}) center center no-repeat / contain;
-  height: 72px;
+const Img = styled.img`
+  max-height: 100%;
 `;
 
-const Text = styled.div`
+const Body = styled.div`
   font-family: Circular;
   line-height: normal;
   font-size: 17px;
   color: #383838;
+
+  padding: 27px 24px;
+
+  flex: 1 1 auto;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: start;
 `;
 
 export default function(props) {
   return (
     <Card>
-      <Img image={props.image} />
-      <Text>{props.text}</Text>
+      <Img image={props.image} src={props.image} />
+      <Body>{props.text}</Body>
     </Card>
   );
 }
