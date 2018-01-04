@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-const Card = styled.div`
+import Stars from "./Stars";
+
+const Card = styled.a`
   display: flex;
   flex-direction: column;
 `;
@@ -23,17 +25,52 @@ const Body = styled.div`
   text-align: start;
 `;
 
+const Info = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 15px;
+  color: #383838;
+  font-weight: bold;
+
+  text-align: left;
+  margin-top: 8px;
+`;
+
+const SubInfo = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 15px;
+  color: #383838;
+
+  text-align: left;
+  margin-top: 2px;
+`;
+
+const Rating = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 12px;
+  color: #383838;
+
+  margin-top: 6px;
+`;
+
 export default function(props) {
   return (
     <Card>
       <Img src={props.item.image} />
-      <Body>
+      <Info>
         ${props.item.price} {props.item.text}
-      </Body>
-      <Body>
-        {props.item.type} - {props.item.beds} beds
-      </Body>
-      <Body>{props.item.host}</Body>
+      </Info>
+      <SubInfo>
+        {props.item.type} &middot; {props.item.beds} beds
+      </SubInfo>
+      <Rating>
+        <Stars />
+        {props.item.host}
+      </Rating>
     </Card>
   );
 }

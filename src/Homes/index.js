@@ -15,7 +15,7 @@ export default function() {
       text: "La Salentina, see, nature & relax",
       price: 82,
       rating: 4,
-      host: "97 · Superhost",
+      host: "97 &middot; Superhost",
       type: "Entire house",
       beds: 9
     },
@@ -24,7 +24,7 @@ export default function() {
       text: "Your private 3 bedr. riad and exclusi…",
       price: 82,
       rating: 4,
-      host: "161 · Superhost",
+      host: "161 &middot; Superhost",
       type: "Entire house",
       beds: 5
     },
@@ -33,7 +33,7 @@ export default function() {
       text: "Dreamy Tropical Tree House",
       price: 200,
       rating: 5,
-      host: "364 · Superhost",
+      host: "364 &middot; Superhost",
       type: "Entire treehouse",
       beds: 1
     }
