@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Card = styled.div`
+const Card = styled.a`
   display: flex;
   flex-direction: column;
 `;
@@ -15,10 +15,10 @@ const Body = styled.div`
   line-height: normal;
   font-size: 15px;
   color: #383838;
+  font-weight: bold;
+  margin-top: 8px;
 
   flex: 1 1 auto;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
   justify-content: flex-start;
   text-align: start;
 `;
