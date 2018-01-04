@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Card = styled.div`
+const Card = styled.a`
   display: flex;
   flex-direction: column;
 `;
@@ -23,13 +23,49 @@ const Body = styled.div`
   text-align: start;
 `;
 
+const Type = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #383838;
+
+  margin-top: 12px;
+  text-align: left;
+`;
+
+const Name = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 18px;
+  font-weight: bold;
+  color: #383838;
+
+  margin-top: 2px;
+  text-align: left;
+`;
+
+const Price = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 18px;
+  mix-blend-mode: normal;
+  opacity: 0.9;
+  font-weight: bold;
+  color: #383838;
+
+  margin-top: 2px;
+  text-align: left;
+`;
+
 export default function(props) {
   return (
     <Card>
       <Img src={props.item.image} />
-      <Body>{props.item.type}</Body>
-      <Body>{props.item.name}</Body>
-      <Body>About ${props.item.price} per person</Body>
+      <Type>{props.item.type}</Type>
+      <Name>{props.item.name}</Name>
+      <Price>About ${props.item.price} per person</Price>
     </Card>
   );
 }
