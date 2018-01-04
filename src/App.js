@@ -3,6 +3,7 @@ import { Grid } from "react-flexbox-grid";
 import Header from "./Header";
 import Explore from "./Explore";
 import Experiences from "./Experiences";
+import Homes from "./Homes";
 import "./App.css";
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
         <Grid>
           <Explore />
           <Experiences />
+          <Homes />
         </Grid>
       </div>
     );
