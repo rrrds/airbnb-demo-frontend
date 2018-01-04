@@ -4,6 +4,7 @@ import Header from "./Header";
 import Explore from "./Explore";
 import Experiences from "./Experiences";
 import Homes from "./Homes";
+import Reservations from "./Reservations";
 import "./App.css";
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
           <Explore />
           <Experiences />
           <Homes />
+          <Reservations />
         </Grid>
       </div>
     );
