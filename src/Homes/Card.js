@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import Stars from "./Stars";
+import Stars from "../Stars";
 
 const Card = styled.a`
   display: flex;
