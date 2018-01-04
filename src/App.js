@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Grid } from "react-flexbox-grid";
 import Header from "./Header";
 import Explore from "./Explore";
 import Experiences from "./Experiences";
@@ -9,10 +10,10 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <div className="container">
+        <Grid>
           <Explore />
           <Experiences />
-        </div>
+        </Grid>
       </div>
     );
   }

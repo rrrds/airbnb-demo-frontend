@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Grid, Row, Col } from "react-flexbox-grid";
 
 import Logo from "./Logo";
 import Search from "./Search";
@@ -18,15 +19,17 @@ export default function() {
     <Wrapper>
       <div className="container">
         <HeaderRow className="row middle-lg between-lg">
-          <div className="col-lg-1">
+          <Col lg={1}>
             <Logo />
-          </div>
-          <div className="col-lg-5 start-lg">
-            <Search />
-          </div>
-          <div className="col-lg-6 end-lg">
+          </Col>
+          <Col lg={5}>
+            <Row start="lg">
+              <Search />
+            </Row>
+          </Col>
+          <Col lg={6} end="lg">
             <Nav />
-          </div>
+          </Col>
         </HeaderRow>
       </div>
     </Wrapper>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Grid, Row, Col } from "react-flexbox-grid";
 import { TitleH2 } from "../styled";
 
 import Card from "./Card";
@@ -10,22 +11,22 @@ import image3 from "./3.png";
 export default function() {
   return (
     <div>
-      <div className="row start-lg">
-        <div className="col-lg">
+      <Row start="lg">
+        <Col lg={12}>
           <TitleH2>Explore Airbnb</TitleH2>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-lg">
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={4}>
           <Card text="Homes" image={image1} />
-        </div>
-        <div className="col-lg">
+        </Col>
+        <Col lg={4}>
           <Card text="Experiences" image={image2} />
-        </div>
-        <div className="col-lg">
+        </Col>
+        <Col lg={4}>
           <Card text="Restaurants" image={image3} />
-        </div>
-      </div>
+        </Col>
+      </Row>
     </div>
   );
 }

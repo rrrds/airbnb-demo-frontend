@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Row, Col } from "react-flexbox-grid";
 import { TitleH2 } from "../styled";
 
 import Card from "./Card";
@@ -41,19 +42,19 @@ export default function() {
   ];
 
   const listItems = items.map((item, index) => (
-    <div key={index.toString()} className="col-lg">
+    <Col key={index.toString()} lg={3}>
       <Card item={item} />
-    </div>
+    </Col>
   ));
 
   return (
     <div>
-      <div className="row start-lg">
-        <div className="col-lg">
+      <Row start="lg">
+        <Col lg={12}>
           <TitleH2>Experiences</TitleH2>
-        </div>
-      </div>
-      <div className="row">{listItems}</div>
+        </Col>
+      </Row>
+      <Row>{listItems}</Row>
     </div>
   );
 }
