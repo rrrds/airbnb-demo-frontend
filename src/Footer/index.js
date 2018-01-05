@@ -6,8 +6,9 @@ import facebook from "./social/facebook.svg";
 import twitter from "./social/twitter.svg";
 import instagram from "./social/instagram.svg";
 import smallLogo from "./small_logo.svg";
+import arrowDown from "./arrow-down.svg";
 
-const Wrapper = styled.div`
+const FooterBlock = styled.div`
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
   padding-top: 48px;
   margin-top: 64px;
@@ -57,6 +58,12 @@ const Select = styled.select`
   border: 1px solid rgba(72, 72, 72, 0.2);
   box-sizing: border-box;
   border-radius: 4px;
+  appearance: none;
+
+  background-image: url(${arrowDown});
+  background-position: right 16px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
 `;
 
 const FooterLink = styled.a`
@@ -97,7 +104,7 @@ const FlexCol = styled(Col)`
 
 export default function() {
   return (
-    <Wrapper>
+    <FooterBlock>
       <Grid>
         <Row>
           <Col lg={3}>
@@ -167,6 +174,6 @@ export default function() {
           </Col>
         </StyledRow>
       </Grid>
-    </Wrapper>
+    </FooterBlock>
   );
 }
