@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Col } from "react-flexbox-grid";
-import { TitleH2 } from "../styled";
+import { TitleH2, HeaderRow } from "../styled";
+import SeeAll from "../SeeAll";
 
 import Card from "./Card";
 import image1 from "./1.png";
@@ -45,11 +46,14 @@ export default function() {
 
   return (
     <div>
-      <Row start="lg">
-        <Col lg={12}>
+      <HeaderRow between="lg" middle="lg">
+        <Col lg={11} start>
           <TitleH2>Popular reservations around the world</TitleH2>
         </Col>
-      </Row>
+        <Col lg={1} end>
+          <SeeAll />
+        </Col>
+      </HeaderRow>
       <Row>{listItems}</Row>
     </div>
   );
