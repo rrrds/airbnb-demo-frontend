@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { Row, Col } from "react-flexbox-grid";
 import { TitleH2, HeaderRow } from "../styled";
 import SeeAll from "../SeeAll";
@@ -49,10 +48,10 @@ export default function() {
   return (
     <div>
       <HeaderRow between="lg" middle="lg">
-        <Col lg={11} start>
+        <Col lg={11}>
           <TitleH2>Homes</TitleH2>
         </Col>
-        <Col lg={1} end>
+        <Col lg={1}>
           <SeeAll />
         </Col>
       </HeaderRow>

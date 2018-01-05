@@ -20,7 +20,7 @@ const Body = styled.div`
 
   flex: 1 1 auto;
   justify-content: flex-start;
-  text-align: start;
+  text-align: left;
 `;
 
 export default function(props) {

@@ -28,7 +28,7 @@ const Body = styled.div`
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  text-align: start;
+  text-align: left;
 `;
 
 export default function(props) {

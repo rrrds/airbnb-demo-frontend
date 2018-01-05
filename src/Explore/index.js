@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import { Row, Col } from "react-flexbox-grid";
 import { TitleH2, HeaderRow } from "../styled";
 
@@ -12,7 +11,7 @@ export default function() {
   return (
     <div>
       <HeaderRow between="lg" middle="lg">
-        <Col lg={12} start>
+        <Col lg={12}>
           <TitleH2>Explore Airbnb</TitleH2>
         </Col>
       </HeaderRow>
