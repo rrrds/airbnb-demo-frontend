@@ -10,40 +10,40 @@ import image4 from "./4.png";
 import image5 from "./5.png";
 import image6 from "./6.png";
 
+const destinations = [
+  {
+    image: image1,
+    name: "Paris"
+  },
+  {
+    image: image2,
+    name: "Miami"
+  },
+  {
+    image: image3,
+    name: "Miami"
+  },
+  {
+    image: image4,
+    name: "Cape town"
+  },
+  {
+    image: image5,
+    name: "Seoul"
+  },
+  {
+    image: image6,
+    name: "Los Angeles"
+  }
+];
+
+const destinationsList = destinations.map((destination, index) => (
+  <Col key={index.toString()} lg={2}>
+    <Card destination={destination} />
+  </Col>
+));
+
 export default function() {
-  const items = [
-    {
-      image: image1,
-      name: "Paris"
-    },
-    {
-      image: image2,
-      name: "Miami"
-    },
-    {
-      image: image3,
-      name: "Miami"
-    },
-    {
-      image: image4,
-      name: "Cape town"
-    },
-    {
-      image: image5,
-      name: "Seoul"
-    },
-    {
-      image: image6,
-      name: "Los Angeles"
-    }
-  ];
-
-  const listItems = items.map((item, index) => (
-    <Col key={index.toString()} lg={2}>
-      <Card item={item} />
-    </Col>
-  ));
-
   return (
     <div>
       <HeaderRow between="lg" middle="lg">
@@ -52,7 +52,7 @@ export default function() {
         </Col>
       </HeaderRow>
       <CarouselRow>
-        {listItems}
+        {destinationsList}
         <CarouselArrow />
       </CarouselRow>
     </div>

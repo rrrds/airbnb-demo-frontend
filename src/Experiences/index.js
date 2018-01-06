@@ -9,44 +9,44 @@ import image2 from "./2.png";
 import image3 from "./3.png";
 import image4 from "./4.png";
 
+const experiences = [
+  {
+    image: image1,
+    text: "Forest therapy",
+    price: 29,
+    rating: 4,
+    reviews: 44
+  },
+  {
+    image: image2,
+    text: "Whale watching",
+    price: 69,
+    rating: 4,
+    reviews: 46
+  },
+  {
+    image: image3,
+    text: "Table Mountain Summit, Cable Car Down",
+    price: 69,
+    rating: 4,
+    reviews: 44
+  },
+  {
+    image: image4,
+    text: "Salsa Night",
+    price: 50,
+    rating: 4,
+    reviews: 44
+  }
+];
+
+const experiencesList = experiences.map((experience, index) => (
+  <Col key={index.toString()} lg={3}>
+    <Card experience={experience} />
+  </Col>
+));
+
 export default function() {
-  const items = [
-    {
-      image: image1,
-      text: "Forest therapy",
-      price: 29,
-      rating: 4,
-      reviews: 44
-    },
-    {
-      image: image2,
-      text: "Whale watching",
-      price: 69,
-      rating: 4,
-      reviews: 46
-    },
-    {
-      image: image3,
-      text: "Table Mountain Summit, Cable Car Down",
-      price: 69,
-      rating: 4,
-      reviews: 44
-    },
-    {
-      image: image4,
-      text: "Salsa Night",
-      price: 50,
-      rating: 4,
-      reviews: 44
-    }
-  ];
-
-  const listItems = items.map((item, index) => (
-    <Col key={index.toString()} lg={3}>
-      <Card item={item} />
-    </Col>
-  ));
-
   return (
     <div>
       <HeaderRow between="lg" middle="lg">
@@ -58,7 +58,7 @@ export default function() {
         </Col>
       </HeaderRow>
       <CarouselRow>
-        {listItems}
+        {experiencesList}
         <CarouselArrow />
       </CarouselRow>
     </div>

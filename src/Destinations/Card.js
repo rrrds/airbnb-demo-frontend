@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { CardLink } from "../styled";
 
-const Img = styled.img`
+const CardImg = styled.img`
   max-width: 100%;
 `;
 
-const Body = styled.div`
+const CardBody = styled.div`
   font-family: CircularAir;
   line-height: normal;
   font-size: 15px;
@@ -22,8 +22,8 @@ const Body = styled.div`
 export default function(props) {
   return (
     <CardLink>
-      <Img src={props.item.image} />
-      <Body>{props.item.name}</Body>
+      <CardImg src={props.destination.image} />
+      <CardBody>{props.destination.name}</CardBody>
     </CardLink>
   );
 }

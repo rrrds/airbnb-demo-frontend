@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { CardLink } from "../styled";
 import Stars from "../Stars";
 
-const Img = styled.img`
+const CardImg = styled.img`
   max-width: 100%;
 `;
 
@@ -37,14 +37,14 @@ const Reviews = styled.span`
 export default function(props) {
   return (
     <CardLink>
-      <Img src={props.item.image} />
+      <CardImg src={props.experience.image} />
       <DetailsRow>
-        <Price>${props.item.price}</Price>
-        {props.item.text}
+        <Price>${props.experience.price}</Price>
+        {props.experience.text}
       </DetailsRow>
       <DetailsRowFlex>
         <Stars />
-        <Reviews>{props.item.reviews} reviews</Reviews>
+        <Reviews>{props.experience.reviews} reviews</Reviews>
       </DetailsRowFlex>
     </CardLink>
   );

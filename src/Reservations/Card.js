@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { CardLink } from "../styled";
 
-const Img = styled.img`
+const CardImg = styled.img`
   max-width: 100%;
 `;
 
@@ -46,10 +46,10 @@ const Price = styled.div`
 export default function(props) {
   return (
     <CardLink>
-      <Img src={props.item.image} />
-      <Type>{props.item.type}</Type>
-      <Name>{props.item.name}</Name>
-      <Price>About ${props.item.price} per person</Price>
+      <CardImg src={props.reservation.image} />
+      <Type>{props.reservation.type}</Type>
+      <Name>{props.reservation.name}</Name>
+      <Price>About ${props.reservation.price} per person</Price>
     </CardLink>
   );
 }

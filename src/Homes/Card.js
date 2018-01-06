@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { CardLink } from "../styled";
 import Stars from "../Stars";
 
-const Img = styled.img`
+const CardImg = styled.img`
   max-width: 100%;
 `;
 
@@ -43,16 +43,16 @@ const Rating = styled.div`
 export default function(props) {
   return (
     <CardLink>
-      <Img src={props.item.image} />
+      <CardImg src={props.home.image} />
       <Info>
-        ${props.item.price} {props.item.text}
+        ${props.home.price} {props.home.text}
       </Info>
       <SubInfo>
-        {props.item.type} &middot; {props.item.beds} beds
+        {props.home.type} &middot; {props.home.beds} beds
       </SubInfo>
       <Rating>
         <Stars />
-        {props.item.host}
+        {props.home.host}
       </Rating>
     </CardLink>
   );
