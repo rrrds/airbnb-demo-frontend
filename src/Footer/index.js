@@ -14,30 +14,20 @@ const FooterBlock = styled.div`
   margin-top: 64px;
 `;
 
+const FooterNav = styled.nav`
+  text-align: left;
+`;
+
+const FooterNavTitle = styled.h5`
+  font-size: 15px;
+  padding: 0;
+  margin: 0 0 16px 0;
+`;
+
 const StyledRow = styled(Row)`
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
   margin-top: 48px;
   padding: 32px 0;
-`;
-
-const UnstyledList = styled.ul`
-  padding-left: 0;
-  margin: 0;
-  list-style: none;
-  text-align: left;
-`;
-
-const ListItem = styled.li`
-  font-size: 15px;
-  color: #636363;
-  cursor: pointer;
-  padding: 4px 0;
-`;
-
-const HeadListItem = ListItem.extend`
-  font-weight: bold;
-  padding: 0 0 16px 0;
-  cursor: auto;
 `;
 
 const Select = styled.select`
@@ -60,6 +50,13 @@ const Select = styled.select`
   background-size: 16px;
 `;
 
+const Link = styled.a`
+  font-size: 15px;
+  color: #636363;
+  display: block;
+  padding: 4px 0;
+`;
+
 const FooterLink = styled.a`
   font-size: 15px;
   text-align: right;
@@ -71,7 +68,6 @@ const Social = styled.img`
   width: 24px;
   height: 24px;
   vertical-align: middle;
-  cursor: pointer;
 `;
 
 const Copyright = styled.span`
@@ -108,36 +104,36 @@ export default function() {
             </Row>
           </Col>
           <Col lgOffset={1}>
-            <UnstyledList>
-              <HeadListItem>Airbnb</HeadListItem>
-              <ListItem>About us</ListItem>
-              <ListItem>Careers</ListItem>
-              <ListItem>Press</ListItem>
-              <ListItem>Policies</ListItem>
-              <ListItem>Help</ListItem>
-              <ListItem>Diversity & Belonging</ListItem>
-            </UnstyledList>
+            <FooterNav>
+              <FooterNavTitle>Airbnb</FooterNavTitle>
+              <Link href="#">About us</Link>
+              <Link href="#">Careers</Link>
+              <Link href="#">Press</Link>
+              <Link href="#">Policies</Link>
+              <Link href="#">Help</Link>
+              <Link href="#">Diversity & Belonging</Link>
+            </FooterNav>
           </Col>
           <Col lgOffset={1}>
-            <UnstyledList>
-              <HeadListItem>Discover</HeadListItem>
-              <ListItem>Trust & Safety</ListItem>
-              <ListItem>Travel Credit</ListItem>
-              <ListItem>Gift Cards</ListItem>
-              <ListItem>Airbnb Citizen</ListItem>
-              <ListItem>Business Travel</ListItem>
-              <ListItem>Guidebooks</ListItem>
-              <ListItem>Airbnbmag</ListItem>
-            </UnstyledList>
+            <FooterNav>
+              <FooterNavTitle>Discover</FooterNavTitle>
+              <Link href="#">Trust & Safety</Link>
+              <Link href="#">Travel Credit</Link>
+              <Link href="#">Gift Cards</Link>
+              <Link href="#">Airbnb Citizen</Link>
+              <Link href="#">Business Travel</Link>
+              <Link href="#">Guidebooks</Link>
+              <Link href="#">Airbnbmag</Link>
+            </FooterNav>
           </Col>
           <Col lgOffset={1}>
-            <UnstyledList>
-              <HeadListItem>Hosting</HeadListItem>
-              <ListItem>Why Host</ListItem>
-              <ListItem>Hospitality</ListItem>
-              <ListItem>Responsible Hosting</ListItem>
-              <ListItem>Community Center</ListItem>
-            </UnstyledList>
+            <FooterNav>
+              <FooterNavTitle>Hosting</FooterNavTitle>
+              <Link href="#">Why Host</Link>
+              <Link href="#">Hospitality</Link>
+              <Link href="#">Responsible Hosting</Link>
+              <Link href="#">Community Center</Link>
+            </FooterNav>
           </Col>
         </Row>
         <StyledRow between="lg" middle="lg">
