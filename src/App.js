@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import { Grid } from "react-flexbox-grid";
 import Header from "./Header";
 import Explore from "./Explore";
@@ -8,18 +9,22 @@ import Reservations from "./Reservations";
 import Destinations from "./Destinations";
 import Footer from "./Footer";
 
+const Content = styled(Grid)`
+  padding-top: 80px;
+`;
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <Grid>
+        <Content>
           <Explore />
           <Experiences />
           <Homes />
           <Reservations />
           <Destinations />
-        </Grid>
+        </Content>
         <Footer />
       </div>
     );
