@@ -34,6 +34,10 @@ export const CarouselArrow = styled.a`
   cursor: pointer;
   width: 40px;
   height: 40px;
+
+  @media only screen and (max-width: 991px) {
+    display: none;
+  }
 `;
 
 export const CardLink = styled.a`

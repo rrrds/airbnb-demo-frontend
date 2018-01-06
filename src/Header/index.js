@@ -27,7 +27,7 @@ export default function() {
               <Search />
             </Row>
           </Col>
-          <Col xs={0} lg={6}>
+          <Col lg={6}>
             <Row end="lg">
               <Nav />
             </Row>

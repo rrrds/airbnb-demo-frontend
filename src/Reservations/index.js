@@ -37,7 +37,7 @@ const reservations = [
 ];
 
 const reservationsList = reservations.map((reservation, index) => (
-  <Col key={index.toString()} lg={3}>
+  <Col key={index.toString()} xs={3}>
     <Card reservation={reservation} />
   </Col>
 ));
@@ -45,11 +45,11 @@ const reservationsList = reservations.map((reservation, index) => (
 export default function() {
   return (
     <div>
-      <HeaderRow between="lg" middle="lg">
-        <Col lg={11}>
+      <HeaderRow between="xs" middle="xs">
+        <Col xs={10}>
           <TitleH2>Popular reservations around the world</TitleH2>
         </Col>
-        <Col lg={1}>
+        <Col xs={2}>
           <SeeAllLink />
         </Col>
       </HeaderRow>

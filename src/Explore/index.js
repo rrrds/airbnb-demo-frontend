@@ -10,19 +10,19 @@ import image3 from "./3.png";
 export default function() {
   return (
     <div>
-      <HeaderRow between="lg" middle="lg">
-        <Col lg={12}>
+      <HeaderRow between="xs" middle="xs">
+        <Col xs={12}>
           <TitleH2>Explore Airbnb</TitleH2>
         </Col>
       </HeaderRow>
       <Row>
-        <Col lg={4}>
+        <Col xs={4}>
           <Card text="Homes" image={image1} />
         </Col>
-        <Col lg={4}>
+        <Col xs={4}>
           <Card text="Experiences" image={image2} />
         </Col>
-        <Col lg={4}>
+        <Col xs={4}>
           <Card text="Restaurants" image={image3} />
         </Col>
       </Row>

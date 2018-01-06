@@ -14,7 +14,7 @@ const homes = [
     text: "La Salentina, see, nature & relax",
     price: 82,
     rating: 4,
-    host: "97 &middot; Superhost",
+    host: "97 · Superhost",
     type: "Entire house",
     beds: 9
   },
@@ -23,7 +23,7 @@ const homes = [
     text: "Your private 3 bedr. riad and exclusi…",
     price: 82,
     rating: 4,
-    host: "161 &middot; Superhost",
+    host: "161 · Superhost",
     type: "Entire house",
     beds: 5
   },
@@ -32,14 +32,14 @@ const homes = [
     text: "Dreamy Tropical Tree House",
     price: 200,
     rating: 5,
-    host: "364 &middot; Superhost",
+    host: "364 · Superhost",
     type: "Entire treehouse",
     beds: 1
   }
 ];
 
 const homesList = homes.map((home, index) => (
-  <Col key={index.toString()} lg={4}>
+  <Col key={index.toString()} xs={4}>
     <Card home={home} />
   </Col>
 ));
@@ -47,11 +47,11 @@ const homesList = homes.map((home, index) => (
 export default function() {
   return (
     <div>
-      <HeaderRow between="lg" middle="lg">
-        <Col lg={11}>
+      <HeaderRow between="xs" middle="xs">
+        <Col xs={10}>
           <TitleH2>Homes</TitleH2>
         </Col>
-        <Col lg={1}>
+        <Col xs={2}>
           <SeeAllLink />
         </Col>
       </HeaderRow>

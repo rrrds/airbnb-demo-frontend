@@ -38,7 +38,7 @@ const destinations = [
 ];
 
 const destinationsList = destinations.map((destination, index) => (
-  <Col key={index.toString()} lg={2}>
+  <Col key={index.toString()} xs={2}>
     <Card destination={destination} />
   </Col>
 ));
@@ -46,8 +46,8 @@ const destinationsList = destinations.map((destination, index) => (
 export default function() {
   return (
     <div>
-      <HeaderRow between="lg" middle="lg">
-        <Col lg={12}>
+      <HeaderRow between="xs" middle="xs">
+        <Col xs={12}>
           <TitleH2>Featured destinations</TitleH2>
         </Col>
       </HeaderRow>
