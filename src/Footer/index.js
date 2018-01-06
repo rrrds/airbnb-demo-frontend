@@ -64,7 +64,6 @@ const FooterLink = styled.a`
   font-size: 15px;
   text-align: right;
   color: #636363;
-  cursor: pointer;
   margin: 0 8px;
 `;
 
@@ -82,15 +81,13 @@ const Copyright = styled.span`
 `;
 
 const SmallLogo = styled.img`
+  bottom: -5px;
+  position: relative;
   display: inline-block;
   width: 21px;
   height: 22px;
   color: #767676;
   fill: #767676;
-`;
-
-const FlexCol = styled(Col)`
-  display: flex;
 `;
 
 export default function() {
@@ -144,22 +141,24 @@ export default function() {
           </Col>
         </Row>
         <StyledRow between="lg" middle="lg">
-          <FlexCol>
-            <SmallLogo src={smallLogo} alt="logo" />
-            <Copyright>&copy; Airbnb Inc.</Copyright>
-          </FlexCol>
           <Col>
-            <FooterLink>Terms</FooterLink>
-            <FooterLink>Privacy</FooterLink>
-            <FooterLink>Site map</FooterLink>
+            <FooterLink href="#">
+              <SmallLogo src={smallLogo} alt="logo" />
+            </FooterLink>
+            <Copyright>&copy; Airbnb Inc.</Copyright>
+          </Col>
+          <Col>
+            <FooterLink href="#">Terms</FooterLink>
+            <FooterLink href="#">Privacy</FooterLink>
+            <FooterLink href="#">Site map</FooterLink>
 
-            <FooterLink>
+            <FooterLink href="#">
               <Social src={facebook} />
             </FooterLink>
-            <FooterLink>
+            <FooterLink href="#">
               <Social src={twitter} />
             </FooterLink>
-            <FooterLink>
+            <FooterLink href="#">
               <Social src={instagram} />
             </FooterLink>
           </Col>
