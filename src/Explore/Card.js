@@ -15,20 +15,14 @@ const Card = styled(CardLink)`
 
 const Body = styled.div`
   font-size: 17px;
-
   padding: 27px 24px;
-
-  flex: 1 1 auto;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
   text-align: left;
 `;
 
 export default function(props) {
   return (
     <Card>
-      <CardImg image={props.image} src={props.image} />
+      <CardImg src={props.image} alt={props.text} />
       <Body>{props.text}</Body>
     </Card>
   );
