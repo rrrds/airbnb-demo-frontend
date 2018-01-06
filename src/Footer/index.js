@@ -8,23 +8,23 @@ import instagram from "./social/instagram.svg";
 import smallLogo from "./small_logo.svg";
 import arrowDown from "./arrow-down.svg";
 
-const FooterBlock = styled.div`
+const FooterBlock = styled.footer`
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
   padding-top: 48px;
   margin-top: 64px;
 `;
 
-const FooterNav = styled.nav`
+const Nav = styled.nav`
   text-align: left;
 `;
 
-const FooterNavTitle = styled.h5`
+const NavTitle = styled.h5`
   font-size: 15px;
   padding: 0;
   margin: 0 0 16px 0;
 `;
 
-const StyledRow = styled(Row)`
+const CopyrightRow = styled(Row)`
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
   margin-top: 48px;
   padding: 32px 0;
@@ -57,7 +57,7 @@ const Link = styled.a`
   padding: 4px 0;
 `;
 
-const FooterLink = styled.a`
+const CopyrightLink = styled.a`
   font-size: 15px;
   text-align: right;
   color: #636363;
@@ -73,13 +73,16 @@ const Social = styled.img`
 const Copyright = styled.span`
   font-size: 15px;
   color: #636363;
-  margin-left: 12px;
 `;
 
-const SmallLogo = styled.img`
+const SmallLogoLink = styled.a`
   bottom: -5px;
   position: relative;
   display: inline-block;
+  margin-right: 12px;
+`;
+
+const SmallLogo = styled.img`
   width: 21px;
   height: 22px;
   color: #767676;
@@ -104,19 +107,19 @@ export default function() {
             </Row>
           </Col>
           <Col lgOffset={1}>
-            <FooterNav>
-              <FooterNavTitle>Airbnb</FooterNavTitle>
+            <Nav>
+              <NavTitle>Airbnb</NavTitle>
               <Link href="#">About us</Link>
               <Link href="#">Careers</Link>
               <Link href="#">Press</Link>
               <Link href="#">Policies</Link>
               <Link href="#">Help</Link>
               <Link href="#">Diversity & Belonging</Link>
-            </FooterNav>
+            </Nav>
           </Col>
           <Col lgOffset={1}>
-            <FooterNav>
-              <FooterNavTitle>Discover</FooterNavTitle>
+            <Nav>
+              <NavTitle>Discover</NavTitle>
               <Link href="#">Trust & Safety</Link>
               <Link href="#">Travel Credit</Link>
               <Link href="#">Gift Cards</Link>
@@ -124,41 +127,43 @@ export default function() {
               <Link href="#">Business Travel</Link>
               <Link href="#">Guidebooks</Link>
               <Link href="#">Airbnbmag</Link>
-            </FooterNav>
+            </Nav>
           </Col>
           <Col lgOffset={1}>
-            <FooterNav>
-              <FooterNavTitle>Hosting</FooterNavTitle>
+            <Nav>
+              <NavTitle>Hosting</NavTitle>
               <Link href="#">Why Host</Link>
               <Link href="#">Hospitality</Link>
               <Link href="#">Responsible Hosting</Link>
               <Link href="#">Community Center</Link>
-            </FooterNav>
+            </Nav>
           </Col>
         </Row>
-        <StyledRow between="lg" middle="lg">
+
+        <CopyrightRow between="lg" middle="lg">
           <Col>
-            <FooterLink href="#">
+            <SmallLogoLink href="#">
               <SmallLogo src={smallLogo} alt="logo" />
-            </FooterLink>
+            </SmallLogoLink>
             <Copyright>&copy; Airbnb Inc.</Copyright>
           </Col>
-          <Col>
-            <FooterLink href="#">Terms</FooterLink>
-            <FooterLink href="#">Privacy</FooterLink>
-            <FooterLink href="#">Site map</FooterLink>
 
-            <FooterLink href="#">
+          <Col>
+            <CopyrightLink href="#">Terms</CopyrightLink>
+            <CopyrightLink href="#">Privacy</CopyrightLink>
+            <CopyrightLink href="#">Site map</CopyrightLink>
+
+            <CopyrightLink href="#">
               <Social src={facebook} />
-            </FooterLink>
-            <FooterLink href="#">
+            </CopyrightLink>
+            <CopyrightLink href="#">
               <Social src={twitter} />
-            </FooterLink>
-            <FooterLink href="#">
+            </CopyrightLink>
+            <CopyrightLink href="#">
               <Social src={instagram} />
-            </FooterLink>
+            </CopyrightLink>
           </Col>
-        </StyledRow>
+        </CopyrightRow>
       </Grid>
     </FooterBlock>
   );
