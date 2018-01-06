@@ -6,9 +6,6 @@ const CardBody = styled.div`
   font-size: 15px;
   font-weight: bold;
   margin-top: 8px;
-
-  flex: 1 1 auto;
-  justify-content: flex-start;
   text-align: left;
 `;
 
