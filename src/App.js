@@ -7,7 +7,6 @@ import Homes from "./Homes";
 import Reservations from "./Reservations";
 import Destinations from "./Destinations";
 import Footer from "./Footer";
-import "./App.css";
 
 class App extends Component {
   render() {
