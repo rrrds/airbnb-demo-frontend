@@ -11,8 +11,6 @@ const Link = styled.a`
   line-height: 24px;
   font-size: 14px;
   text-align: right;
-
-  cursor: pointer;
 `;
 
 const ArrowImg = styled.img`
@@ -23,7 +21,7 @@ const ArrowImg = styled.img`
 
 export default function(props) {
   return (
-    <Link>
+    <Link href="#">
       See All
       <ArrowImg src={arrow} alt="See All" />
     </Link>
