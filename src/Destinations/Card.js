@@ -4,7 +4,6 @@ import { CardLink, CardImg } from "../styled";
 
 const CardBody = styled.div`
   font-size: 15px;
-  color: #383838;
   font-weight: bold;
   margin-top: 8px;
 

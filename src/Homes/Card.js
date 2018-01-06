@@ -10,7 +10,6 @@ const CardImg = styled.img`
 
 const Info = styled.div`
   font-size: 15px;
-  color: #383838;
   font-weight: bold;
 
   text-align: left;
@@ -19,7 +18,6 @@ const Info = styled.div`
 
 const SubInfo = styled.div`
   font-size: 15px;
-  color: #383838;
 
   text-align: left;
   margin-top: 2px;
@@ -29,7 +27,6 @@ const Rating = styled.div`
   display: flex;
   justify-content: flex-start;
   font-size: 12px;
-  color: #383838;
 
   margin-top: 6px;
 `;

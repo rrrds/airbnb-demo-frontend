@@ -7,9 +7,7 @@ import Stars from "../Stars";
 const DetailsRow = styled.div`
   text-align: left;
   margin-top: 8px;
-
   font-size: 15px;
-  color: #383838;
 `;
 
 const DetailsRowFlex = DetailsRow.extend`
@@ -23,7 +21,6 @@ const Price = styled.strong`
 
 const Reviews = styled.span`
   font-size: 12px;
-  color: #383838;
 `;
 
 export default function(props) {

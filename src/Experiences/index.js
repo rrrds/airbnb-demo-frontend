@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
 import { TitleH2, HeaderRow, CarouselRow, CarouselArrow } from "../styled";
-import SeeAll from "../SeeAll";
+import SeeAllLink from "../SeeAllLink";
 
 import Card from "./Card";
 import image1 from "./1.png";
@@ -54,7 +54,7 @@ export default function() {
           <TitleH2>Experiences</TitleH2>
         </Col>
         <Col lg={1}>
-          <SeeAll />
+          <SeeAllLink />
         </Col>
       </HeaderRow>
       <CarouselRow>

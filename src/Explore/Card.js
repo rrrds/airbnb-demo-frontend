@@ -15,7 +15,6 @@ const Card = styled(CardLink)`
 
 const Body = styled.div`
   font-size: 17px;
-  color: #383838;
 
   padding: 27px 24px;
 

@@ -8,12 +8,10 @@ const Link = styled.a`
   justify-content: flex-end;
   align-items: center;
 
-  font-family: CircularAir;
   line-height: 24px;
   font-size: 14px;
   text-align: right;
 
-  color: #383838;
   cursor: pointer;
 `;
 

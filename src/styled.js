@@ -6,7 +6,6 @@ export const TitleH2 = styled.h2`
   line-height: 34px;
   font-size: 32px;
   margin: 0;
-  color: #383838;
   text-align: left;
 `;
 

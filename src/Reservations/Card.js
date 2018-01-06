@@ -7,7 +7,6 @@ const Type = styled.div`
   font-size: 10px;
   text-transform: uppercase;
   font-weight: bold;
-  color: #383838;
 
   margin-top: 12px;
   text-align: left;
@@ -16,7 +15,6 @@ const Type = styled.div`
 const Name = styled.div`
   font-size: 18px;
   font-weight: bold;
-  color: #383838;
 
   margin-top: 2px;
   text-align: left;
@@ -27,7 +25,6 @@ const Price = styled.div`
   mix-blend-mode: normal;
   opacity: 0.9;
   font-weight: bold;
-  color: #383838;
 
   margin-top: 2px;
   text-align: left;

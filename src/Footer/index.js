@@ -28,8 +28,6 @@ const UnstyledList = styled.ul`
 `;
 
 const ListItem = styled.li`
-  font-family: CircularAir;
-  line-height: normal;
   font-size: 15px;
   color: #636363;
   cursor: pointer;
@@ -37,17 +35,13 @@ const ListItem = styled.li`
 `;
 
 const HeadListItem = ListItem.extend`
-  color: #383838;
   font-weight: bold;
   padding: 0 0 16px 0;
   cursor: auto;
 `;
 
 const Select = styled.select`
-  font-family: CircularAir;
-  line-height: normal;
   font-size: 18px;
-  color: #383838;
   cursor: pointer;
   padding: 10px 16px;
   margin-bottom: 16px;
@@ -67,8 +61,6 @@ const Select = styled.select`
 `;
 
 const FooterLink = styled.a`
-  font-family: CircularAir;
-  line-height: normal;
   font-size: 15px;
   text-align: right;
   color: #636363;
@@ -84,8 +76,6 @@ const Social = styled.img`
 `;
 
 const Copyright = styled.span`
-  font-family: CircularAir;
-  line-height: normal;
   font-size: 15px;
   color: #636363;
   margin-left: 12px;
