@@ -16,8 +16,8 @@ const FooterBlock = styled.div`
 
 const StyledRow = styled(Row)`
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
-  height: 88px;
   margin-top: 48px;
+  padding: 32px 0;
 `;
 
 const UnstyledList = styled.ul`
@@ -53,7 +53,6 @@ const Select = styled.select`
   margin-bottom: 16px;
   display: block;
   width: 100%;
-  height: 48px;
 
   background: #ffffff;
   border: 1px solid rgba(72, 72, 72, 0.2);
