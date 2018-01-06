@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { CardLink } from "../styled";
 import Stars from "../Stars";
-
-const Card = styled.a`
-  display: flex;
-  flex-direction: column;
-`;
 
 const Img = styled.img`
   max-width: 100%;
@@ -40,7 +36,7 @@ const Reviews = styled.span`
 
 export default function(props) {
   return (
-    <Card>
+    <CardLink>
       <Img src={props.item.image} />
       <DetailsRow>
         <Price>${props.item.price}</Price>
@@ -50,6 +46,6 @@ export default function(props) {
         <Stars />
         <Reviews>{props.item.reviews} reviews</Reviews>
       </DetailsRowFlex>
-    </Card>
+    </CardLink>
   );
 }

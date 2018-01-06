@@ -1,10 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Card = styled.a`
-  display: flex;
-  flex-direction: column;
-`;
+import { CardLink } from "../styled";
 
 const Img = styled.img`
   max-width: 100%;
@@ -48,11 +45,11 @@ const Price = styled.div`
 
 export default function(props) {
   return (
-    <Card>
+    <CardLink>
       <Img src={props.item.image} />
       <Type>{props.item.type}</Type>
       <Name>{props.item.name}</Name>
       <Price>About ${props.item.price} per person</Price>
-    </Card>
+    </CardLink>
   );
 }

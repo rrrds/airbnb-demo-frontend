@@ -37,3 +37,9 @@ export const CarouselArrow = styled.a`
   width: 40px;
   height: 40px;
 `;
+
+export const CardLink = styled.a`
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+`;

@@ -32,7 +32,7 @@ const ListItem = styled.li`
   line-height: normal;
   font-size: 15px;
   color: #636363;
-
+  cursor: pointer;
   padding: 4px 0;
 `;
 
@@ -40,6 +40,7 @@ const HeadListItem = ListItem.extend`
   color: #383838;
   font-weight: bold;
   padding: 0 0 16px 0;
+  cursor: auto;
 `;
 
 const Select = styled.select`
@@ -47,7 +48,7 @@ const Select = styled.select`
   line-height: normal;
   font-size: 18px;
   color: #383838;
-
+  cursor: pointer;
   padding: 10px 16px;
   margin-bottom: 16px;
   display: block;
@@ -72,7 +73,7 @@ const FooterLink = styled.a`
   font-size: 15px;
   text-align: right;
   color: #636363;
-
+  cursor: pointer;
   margin: 0 8px;
 `;
 
@@ -80,6 +81,7 @@ const Social = styled.img`
   width: 24px;
   height: 24px;
   vertical-align: middle;
+  cursor: pointer;
 `;
 
 const Copyright = styled.span`

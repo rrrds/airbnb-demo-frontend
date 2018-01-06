@@ -14,6 +14,7 @@ const Link = styled.a`
   text-align: right;
 
   color: #383838;
+  cursor: pointer;
 `;
 
 const ArrowImg = styled.img`

@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import { CardLink } from "../styled";
 import Stars from "../Stars";
-
-const Card = styled.a`
-  display: flex;
-  flex-direction: column;
-`;
 
 const Img = styled.img`
   max-width: 100%;
@@ -46,7 +42,7 @@ const Rating = styled.div`
 
 export default function(props) {
   return (
-    <Card>
+    <CardLink>
       <Img src={props.item.image} />
       <Info>
         ${props.item.price} {props.item.text}
@@ -58,6 +54,6 @@ export default function(props) {
         <Stars />
         {props.item.host}
       </Rating>
-    </Card>
+    </CardLink>
   );
 }
