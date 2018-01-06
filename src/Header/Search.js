@@ -33,13 +33,13 @@ const Label = styled.label`
     top: 0;
     bottom: 0;
     content: " ";
-    background: url(${props => props.icon}) center center no-repeat / contain;
+    background: url(${searchIcon}) center center no-repeat / contain;
   }
 `;
 
 export default function() {
   return (
-    <Label icon={searchIcon}>
+    <Label>
       <Input placeholder="Try 'Miami'" />
     </Label>
   );
