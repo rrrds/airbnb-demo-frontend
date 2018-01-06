@@ -43,5 +43,7 @@ export const CardLink = styled.a`
 `;
 
 export const CardImg = styled.img`
-  max-width: 100%;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
 `;
