@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
+import { Row, Col, Grid } from "react-flexbox-grid";
 
 import Logo from "./Logo";
 import Search from "./Search";
@@ -10,30 +10,30 @@ const Wrapper = styled.div`
   box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
 `;
 
-const HeaderRow = styled.div`
+const HeaderRow = styled(Row)`
   padding: 16px 0;
 `;
 
 export default function() {
   return (
     <Wrapper>
-      <div className="container">
-        <HeaderRow className="row middle-lg between-lg">
-          <Col lg={1}>
+      <Grid>
+        <HeaderRow middle="xs" between="xs">
+          <Col xs={1}>
             <Logo />
           </Col>
-          <Col lg={5}>
+          <Col xs={11} lg={5}>
             <Row start="lg">
               <Search />
             </Row>
           </Col>
-          <Col lg={6}>
+          <Col xs={0} lg={6}>
             <Row end="lg">
               <Nav />
             </Row>
           </Col>
         </HeaderRow>
-      </div>
+      </Grid>
     </Wrapper>
   );
 }
