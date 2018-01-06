@@ -1,6 +1,6 @@
 import React from "react";
-import { Row, Col } from "react-flexbox-grid";
-import { TitleH2, HeaderRow } from "../styled";
+import { Col } from "react-flexbox-grid";
+import { TitleH2, HeaderRow, CarouselRow, CarouselArrow } from "../styled";
 
 import Card from "./Card";
 import image1 from "./1.png";
@@ -51,7 +51,10 @@ export default function() {
           <TitleH2>Featured destinations</TitleH2>
         </Col>
       </HeaderRow>
-      <Row>{listItems}</Row>
+      <CarouselRow>
+        {listItems}
+        <CarouselArrow />
+      </CarouselRow>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
-import { TitleH2, HeaderRow } from "../styled";
+import { TitleH2, HeaderRow, CarouselRow, CarouselArrow } from "../styled";
 import SeeAll from "../SeeAll";
 
 import Card from "./Card";
@@ -57,7 +57,10 @@ export default function() {
           <SeeAll />
         </Col>
       </HeaderRow>
-      <Row>{listItems}</Row>
+      <CarouselRow>
+        {listItems}
+        <CarouselArrow />
+      </CarouselRow>
     </div>
   );
 }
