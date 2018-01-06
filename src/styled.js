@@ -3,7 +3,6 @@ import { Row } from "react-flexbox-grid";
 import arrowRight from "./assets/arrow-right.svg";
 
 export const TitleH2 = styled.h2`
-  font-family: CircularAir;
   line-height: 34px;
   font-size: 32px;
   margin: 0;
@@ -42,4 +41,8 @@ export const CardLink = styled.a`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+`;
+
+export const CardImg = styled.img`
+  max-width: 100%;
 `;

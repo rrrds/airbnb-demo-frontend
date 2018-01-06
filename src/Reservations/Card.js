@@ -1,15 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-import { CardLink } from "../styled";
-
-const CardImg = styled.img`
-  max-width: 100%;
-`;
+import { CardLink, CardImg } from "../styled";
 
 const Type = styled.div`
-  font-family: CircularAir;
-  line-height: normal;
   font-size: 10px;
   text-transform: uppercase;
   font-weight: bold;
@@ -20,8 +14,6 @@ const Type = styled.div`
 `;
 
 const Name = styled.div`
-  font-family: CircularAir;
-  line-height: normal;
   font-size: 18px;
   font-weight: bold;
   color: #383838;
@@ -31,8 +23,6 @@ const Name = styled.div`
 `;
 
 const Price = styled.div`
-  font-family: CircularAir;
-  line-height: normal;
   font-size: 18px;
   mix-blend-mode: normal;
   opacity: 0.9;

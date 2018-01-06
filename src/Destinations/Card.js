@@ -1,14 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { CardLink } from "../styled";
-
-const CardImg = styled.img`
-  max-width: 100%;
-`;
+import { CardLink, CardImg } from "../styled";
 
 const CardBody = styled.div`
-  font-family: CircularAir;
-  line-height: normal;
   font-size: 15px;
   color: #383838;
   font-weight: bold;

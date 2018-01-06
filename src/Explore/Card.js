@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { CardLink } from "../styled";
+import { CardLink, CardImg } from "../styled";
 
 const Card = styled(CardLink)`
   border: 1px solid rgba(72, 72, 72, 0.2);
@@ -13,13 +13,7 @@ const Card = styled(CardLink)`
   flex-direction: row;
 `;
 
-const Img = styled.img`
-  max-height: 100%;
-`;
-
 const Body = styled.div`
-  font-family: CircularAir;
-  line-height: normal;
   font-size: 17px;
   color: #383838;
 
@@ -35,7 +29,7 @@ const Body = styled.div`
 export default function(props) {
   return (
     <Card>
-      <Img image={props.image} src={props.image} />
+      <CardImg image={props.image} src={props.image} />
       <Body>{props.text}</Body>
     </Card>
   );
