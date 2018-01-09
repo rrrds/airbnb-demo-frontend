@@ -10,8 +10,7 @@ export const TitleH2 = styled.h2`
 `;
 
 export const HeaderRow = styled(Row)`
-  margin-top: 48px;
-  margin-bottom: 25px;
+  margin: 48px 0 25px 0;
 `;
 
 export const CarouselRow = styled(Row)`

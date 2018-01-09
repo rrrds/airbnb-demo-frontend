@@ -48,12 +48,8 @@ export default function() {
   return (
     <div>
       <HeaderRow between="xs" middle="xs">
-        <Col xs={10}>
-          <TitleH2>Homes</TitleH2>
-        </Col>
-        <Col xs={2}>
-          <SeeAllLink />
-        </Col>
+        <TitleH2>Homes</TitleH2>
+        <SeeAllLink />
       </HeaderRow>
       <CarouselRow>
         {homesList}

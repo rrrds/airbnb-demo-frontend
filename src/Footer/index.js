@@ -140,7 +140,7 @@ export default function() {
           </Col>
         </Row>
 
-        <CopyrightRow between="lg" middle="lg">
+        <CopyrightRow between="xs" middle="xs">
           <Col>
             <SmallLogoLink href="#">
               <SmallLogo src={smallLogo} alt="logo" />

@@ -46,12 +46,8 @@ export default function() {
   return (
     <div>
       <HeaderRow between="xs" middle="xs">
-        <Col xs={10}>
-          <TitleH2>Popular reservations around the world</TitleH2>
-        </Col>
-        <Col xs={2}>
-          <SeeAllLink />
-        </Col>
+        <TitleH2>Popular reservations around the world</TitleH2>
+        <SeeAllLink />
       </HeaderRow>
       <CarouselRow>
         {reservationsList}

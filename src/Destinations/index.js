@@ -47,9 +47,7 @@ export default function() {
   return (
     <div>
       <HeaderRow between="xs" middle="xs">
-        <Col xs={12}>
-          <TitleH2>Featured destinations</TitleH2>
-        </Col>
+        <TitleH2>Featured destinations</TitleH2>
       </HeaderRow>
       <CarouselRow>
         {destinationsList}

@@ -11,9 +11,7 @@ export default function() {
   return (
     <div>
       <HeaderRow between="xs" middle="xs">
-        <Col xs={12}>
-          <TitleH2>Explore Airbnb</TitleH2>
-        </Col>
+        <TitleH2>Explore Airbnb</TitleH2>
       </HeaderRow>
       <Row>
         <Col xs={4}>
