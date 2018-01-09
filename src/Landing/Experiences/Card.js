@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { CardLink, CardImg } from "../styled";
-import Stars from "../Stars";
+import { CardLink, CardImg } from "../../styled";
+import Stars from "../../Stars";
 
 const DetailsRow = styled.div`
   text-align: left;
