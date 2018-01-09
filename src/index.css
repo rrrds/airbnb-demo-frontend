@@ -11,33 +11,3 @@ a {
   text-decoration: none;
   color: #383838;
 }
-
-@media only screen {
-  .col-xs-0 {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 576px) {
-  .col-sm-0 {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .col-md-0 {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .col-lg-0 {
-    display: none;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .col-xl-0 {
-    display: none;
-  }
-}
