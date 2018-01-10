@@ -8,7 +8,7 @@ const Link = styled.a`
 
 export default function() {
   return (
-    <nav>
+    <nav className="hidden-xs hidden-md">
       <Link href="#">Become a host</Link>
       <Link href="#">Help</Link>
       <Link href="#">Sign Up</Link>
