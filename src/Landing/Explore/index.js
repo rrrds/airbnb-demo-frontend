@@ -15,13 +15,13 @@ export default function() {
       </HeaderRow>
       <Row>
         <Col xs={4}>
-          <Card text="Homes" image={image1} />
+          <Card text="Homes" image={image1} linkTo="/homes" />
         </Col>
         <Col xs={4}>
-          <Card text="Experiences" image={image2} />
+          <Card text="Experiennces" image={image2} linkTo="/experiennces" />
         </Col>
         <Col xs={4}>
-          <Card text="Restaurants" image={image3} />
+          <Card text="Restaurants" image={image3} linkTo="/restaurants" />
         </Col>
       </Row>
     </div>
