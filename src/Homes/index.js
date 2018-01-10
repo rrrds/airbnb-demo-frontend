@@ -17,7 +17,8 @@ const Content = styled(Grid)`
 `;
 
 const FiltersWrapper = FixedWrapper.extend`
-  top: 81px;
+  top: 80px;
+  background-color: #fff;
 `;
 
 const Footer = styled.div`
