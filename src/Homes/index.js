@@ -5,6 +5,7 @@ import Filters from "./Filters";
 import { FixedWrapper } from "../UI/styled";
 import HomesList from "./List";
 import Paginator from "./Paginator";
+import GoogleMap from "google-map-react";
 
 import image1 from "./1.png";
 import image2 from "./2.png";
@@ -20,6 +21,7 @@ const Content = styled(Grid)`
 const FiltersWrapper = FixedWrapper.extend`
   top: 80px;
   background-color: #fff;
+  z-index: 10;
 `;
 
 const Footer = styled.div`
@@ -96,6 +98,17 @@ const homesRows = homes
     </Row>
   ));
 
+const WebMap = styled.div`
+  box-sizing: border-box;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  height: 100%;
+  width: 33.3333%;
+  padding-top: 136px;
+`;
+
 export default () => {
   return (
     <div>
@@ -119,6 +132,12 @@ export default () => {
           </Col>
         </Row>
       </Content>
+      <WebMap>
+        <GoogleMap
+          defaultCenter={{ lat: 59.95, lng: 30.33 }}
+          defaultZoom={11}
+        />
+      </WebMap>
     </div>
   );
 };
