@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
-import { TitleH2, HeaderRow } from "../../styled";
+import { TitleH2, HeaderRow } from "../../UI/styled";
 
 import Card from "./Card";
 import image1 from "./1.png";

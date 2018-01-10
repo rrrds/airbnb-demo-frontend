@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { CardLink } from "../../styled";
+import { CardLink } from "../../UI/styled";
 import Stars from "../../Stars";
 
 const CardImg = styled.img`

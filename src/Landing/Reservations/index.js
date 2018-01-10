@@ -1,7 +1,12 @@
 import React from "react";
 import { Col } from "react-flexbox-grid";
-import { TitleH2, HeaderRow, CarouselRow, CarouselArrow } from "../../styled";
-import SeeAllLink from "../../SeeAllLink";
+import {
+  TitleH2,
+  HeaderRow,
+  CarouselRow,
+  CarouselArrow
+} from "../../UI/styled";
+import SeeAllLink from "../../UI/SeeAllLink";
 
 import Card from "./Card";
 import image1 from "./1.png";

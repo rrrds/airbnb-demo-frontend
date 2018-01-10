@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { CardLink, CardImg } from "../../styled";
+import { CardLink, CardImg } from "../../UI/styled";
 
 const Type = styled.div`
   font-size: 10px;

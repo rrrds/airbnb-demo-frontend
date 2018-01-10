@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Row } from "react-flexbox-grid";
 import { Link } from "react-router-dom";
-import arrowRight from "./assets/arrow-right.svg";
+import arrowRight from "../assets/arrow-right.svg";
 
 export const TitleH2 = styled.h2`
   line-height: 34px;
