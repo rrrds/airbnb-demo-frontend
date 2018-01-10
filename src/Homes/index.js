@@ -4,6 +4,7 @@ import { Grid, Row, Col } from "react-flexbox-grid";
 import Filters from "./Filters";
 import { FixedWrapper } from "../UI/styled";
 import HomesList from "./List";
+import Paginator from "./Paginator";
 
 import image1 from "./1.png";
 import image2 from "./2.png";
@@ -106,7 +107,9 @@ export default () => {
           <Col xs={8}>
             {homesRows}
 
-            <Row center="xs">Paginator</Row>
+            <Row center="xs">
+              <Paginator />
+            </Row>
             <Row center="xs">
               <Footer>
                 Enter dates to see full pricing. Additional fees apply. Taxes
