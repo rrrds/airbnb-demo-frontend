@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Grid } from "react-flexbox-grid";
-import Header from "../Header";
 import Explore from "./Explore";
 import Experiences from "./Experiences";
 import Homes from "./Homes";
@@ -16,7 +15,6 @@ const Content = styled(Grid)`
 export default () => {
   return (
     <div>
-      <Header />
       <Content>
         <Explore />
         <Experiences />

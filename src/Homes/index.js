@@ -10,7 +10,6 @@ const Content = styled(Grid)`
 export default () => {
   return (
     <div>
-      <Header />
       <Content>
         <div>Homes</div>
       </Content>
