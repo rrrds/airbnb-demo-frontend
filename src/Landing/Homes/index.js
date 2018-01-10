@@ -8,7 +8,7 @@ import {
 } from "../../UI/styled";
 import SeeAllLink from "../../UI/SeeAllLink";
 
-import Card from "./Card";
+import Card from "../../Homes/Card";
 import image1 from "./1.png";
 import image2 from "./2.png";
 import image3 from "./3.png";

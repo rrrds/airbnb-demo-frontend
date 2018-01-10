@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { CardLink } from "../../UI/styled";
-import Stars from "../../Stars";
+import Stars from "../../UI/Stars";
 
 const CardImg = styled.img`
   max-width: 100%;
