@@ -7,8 +7,8 @@ import {
   CarouselArrow
 } from "../../UI/styled";
 import SeeAllLink from "../../UI/SeeAllLink";
+import HomesList from "../../Homes/List";
 
-import Card from "../../Homes/Card";
 import image1 from "./1.png";
 import image2 from "./2.png";
 import image3 from "./3.png";
@@ -43,12 +43,6 @@ const homes = [
   }
 ];
 
-const homesList = homes.map((home, index) => (
-  <Col key={index.toString()} xs={4}>
-    <Card home={home} />
-  </Col>
-));
-
 export default function() {
   return (
     <div>
@@ -57,7 +51,7 @@ export default function() {
         <SeeAllLink to="/homes" />
       </HeaderRow>
       <CarouselRow>
-        {homesList}
+        <HomesList homes={homes} />
         <CarouselArrow />
       </CarouselRow>
     </div>
