@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Grid } from "react-flexbox-grid";
-import Header from "../Header";
+import Filters from "./Filters";
 import { FixedWrapper } from "../UI/styled";
 
 const Content = styled(Grid)`
@@ -15,7 +15,9 @@ const FiltersWrapper = FixedWrapper.extend`
 export default () => {
   return (
     <div>
-      <FiltersWrapper>Filters</FiltersWrapper>
+      <FiltersWrapper>
+        <Filters />
+      </FiltersWrapper>
       <Content>
         <div>Homes</div>
       </Content>
