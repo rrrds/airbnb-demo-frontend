@@ -11,7 +11,7 @@ export const TitleH2 = styled.h2`
 `;
 
 export const HeaderRow = styled(Row)`
-  margin: 48px 0 25px 0;
+  margin: 48px 0 0 0;
 `;
 
 export const CarouselRow = styled(Row)`
@@ -44,6 +44,7 @@ export const CardLink = styled.a`
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  margin-top: 24px;
 `;
 
 export const CardLinkRouter = styled(Link)`

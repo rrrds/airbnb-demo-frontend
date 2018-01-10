@@ -51,7 +51,7 @@ export default function() {
         <SeeAllLink to="/homes" />
       </HeaderRow>
       <CarouselRow>
-        <HomesList homes={homes} />
+        <HomesList homes={homes} xs={8} md={5} lg={4} />
         <CarouselArrow />
       </CarouselRow>
     </div>
