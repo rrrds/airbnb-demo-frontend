@@ -20,6 +20,14 @@ const FiltersWrapper = FixedWrapper.extend`
   top: 81px;
 `;
 
+const Footer = styled.div`
+  line-height: normal;
+  font-size: 16px;
+  text-align: center;
+  color: #636363;
+  padding: 25px 0;
+`;
+
 const homes = [
   {
     image: image1,
@@ -98,7 +106,12 @@ export default () => {
             {homesRows}
 
             <Row center="xs">Paginator</Row>
-            <Row center="xs">info text</Row>
+            <Row center="xs">
+              <Footer>
+                Enter dates to see full pricing. Additional fees apply. Taxes
+                may be added.
+              </Footer>
+            </Row>
           </Col>
         </Row>
       </Content>
