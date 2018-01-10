@@ -11,11 +11,11 @@ const Button = styled.button`
 
   padding: 7px 16px;
   margin: 12px 12px 12px 0;
-  background-color: #fff;
+  background-color: ${props => (props.active ? "#008489" : "#fff")};
 
   line-height: normal;
   font-size: 14px;
-  color: #383838;
+  color: ${props => (props.active ? "#fff" : "#383838")};
 `;
 
 const DayPickerOverlayWrapper = styled.div`
@@ -51,7 +51,7 @@ class Filters extends React.Component {
                 </DayPickerWrapper>
               </DayPickerOverlayWrapper>
             )}
-            <Button onClick={this.toggleOpen}>
+            <Button onClick={this.toggleOpen} active={this.state.isOpen}>
               {this.state.isOpen ? "Check in — Check out" : "Dates"}
             </Button>
 
