@@ -90,7 +90,7 @@ const homesRows = homes
   .filter(subArray => subArray)
   .map((rowItems, index) => (
     <Row>
-      <HomesList homes={rowItems} xs={12} md={6} lg={4} />
+      <HomesList homes={rowItems} xs={12} md={6} lg={6} />
     </Row>
   ));
 
