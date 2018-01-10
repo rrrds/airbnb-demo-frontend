@@ -20,27 +20,10 @@ const Input = styled.input`
   opacity: 0.64;
 
   padding-left: 3em;
-`;
 
-const Label = styled.label`
-  position: relative;
-  width: 100%;
-
-  &:before {
-    position: absolute;
-    width: 1.6em;
-    left: 0.7em;
-    top: 0;
-    bottom: 0;
-    content: " ";
-    background: url(${searchIcon}) center center no-repeat / contain;
-  }
+  background: url(${searchIcon}) 16px center no-repeat / auto;
 `;
 
 export default function() {
-  return (
-    <Label>
-      <Input placeholder="Try 'Miami'" />
-    </Label>
-  );
+  return <Input placeholder="Try 'Miami'" />;
 }
