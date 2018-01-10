@@ -117,7 +117,7 @@ export default () => {
       </FiltersWrapper>
       <Content>
         <Row>
-          <Col xs={8}>
+          <Col xs={12} md={12} lg={8}>
             {homesRows}
 
             <Row center="xs">
@@ -132,7 +132,7 @@ export default () => {
           </Col>
         </Row>
       </Content>
-      <WebMap>
+      <WebMap className="hidden-xs hidden-md">
         <GoogleMap
           defaultCenter={{ lat: 59.95, lng: 30.33 }}
           defaultZoom={11}
