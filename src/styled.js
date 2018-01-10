@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Row } from "react-flexbox-grid";
+import { Link } from "react-router-dom";
 import arrowRight from "./assets/arrow-right.svg";
 
 export const TitleH2 = styled.h2`
@@ -40,6 +41,12 @@ export const CarouselArrow = styled.a`
 `;
 
 export const CardLink = styled.a`
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+`;
+
+export const CardLinkRouter = styled(Link)`
   display: flex;
   flex-direction: column;
   cursor: pointer;
