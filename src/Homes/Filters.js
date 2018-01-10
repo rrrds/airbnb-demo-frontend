@@ -16,19 +16,23 @@ const Button = styled.button`
   color: #383838;
 `;
 
-export default function() {
-  return (
-    <Grid>
-      <Row middle="xs" start="xs">
-        <Col xs={12}>
-          <Button>Dates</Button>
-          <Button>Guests</Button>
-          <Button>Room type</Button>
-          <Button>Price</Button>
-          <Button>Instant book</Button>
-          <Button>More filters</Button>
-        </Col>
-      </Row>
-    </Grid>
-  );
+class Filters extends React.Component {
+  render() {
+    return (
+      <Grid>
+        <Row middle="xs" start="xs">
+          <Col xs={12}>
+            <Button>Dates</Button>
+            <Button>Guests</Button>
+            <Button>Room type</Button>
+            <Button>Price</Button>
+            <Button>Instant book</Button>
+            <Button>More filters</Button>
+          </Col>
+        </Row>
+      </Grid>
+    );
+  }
 }
+
+export default Filters;
