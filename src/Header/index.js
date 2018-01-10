@@ -8,7 +8,13 @@ import Nav from "./Nav";
 import { FixedWrapper } from "../UI/styled";
 
 const HeaderRow = styled(Row)`
-  padding: 16px 0;
+  padding: 16px 8px;
+`;
+
+const MainWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
 `;
 
 export default function() {
@@ -16,19 +22,11 @@ export default function() {
     <FixedWrapper>
       <Grid>
         <HeaderRow middle="xs" between="xs">
-          <Col xs={1}>
+          <MainWrapper>
             <Logo />
-          </Col>
-          <Col xs={11} lg={5}>
-            <Row start="lg">
-              <Search />
-            </Row>
-          </Col>
-          <Col lg={6}>
-            <Row end="lg">
-              <Nav />
-            </Row>
-          </Col>
+            <Search />
+          </MainWrapper>
+          <Nav />
         </HeaderRow>
       </Grid>
     </FixedWrapper>
