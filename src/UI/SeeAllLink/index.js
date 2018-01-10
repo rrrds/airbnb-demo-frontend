@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import arrow from "./arrow.svg";
 
-const Link = styled.a`
+const StyledLink = styled(Link)`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -21,9 +22,9 @@ const ArrowImg = styled.img`
 
 export default function(props) {
   return (
-    <Link href="#">
+    <StyledLink to={props.to}>
       See All
       <ArrowImg src={arrow} alt="See All" />
-    </Link>
+    </StyledLink>
   );
 }

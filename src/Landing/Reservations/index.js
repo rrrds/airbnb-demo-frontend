@@ -52,7 +52,7 @@ export default function() {
     <div>
       <HeaderRow between="xs" middle="xs">
         <TitleH2>Popular reservations around the world</TitleH2>
-        <SeeAllLink />
+        <SeeAllLink to="/reservations" />
       </HeaderRow>
       <CarouselRow>
         {reservationsList}

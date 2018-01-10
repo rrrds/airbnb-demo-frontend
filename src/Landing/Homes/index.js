@@ -54,7 +54,7 @@ export default function() {
     <div>
       <HeaderRow between="xs" middle="xs">
         <TitleH2>Homes</TitleH2>
-        <SeeAllLink />
+        <SeeAllLink to="/homes" />
       </HeaderRow>
       <CarouselRow>
         {homesList}
