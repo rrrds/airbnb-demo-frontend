@@ -113,7 +113,6 @@ class Filters extends React.Component {
                         ? "vertical"
                         : "horizontal"
                     }
-                    withFullScreenPortal
                     renderCalendarInfo={() => (
                       <DayPickerBbar>
                         <PickerButton onClick={this.onCancel}>
