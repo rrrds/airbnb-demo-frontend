@@ -12,16 +12,19 @@ const Card = styled(CardLinkRouter)`
 
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 const Body = styled.div`
   font-size: 17px;
   padding: 27px 24px;
   text-align: left;
+  flex-grow: 5;
 `;
 
 const Image = styled(CardImg)`
-  width: fit-content;
+  flex-grow: 1;
+  width: auto;
 `;
 
 export default function(props) {

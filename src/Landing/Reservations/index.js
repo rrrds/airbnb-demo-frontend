@@ -42,7 +42,7 @@ const reservations = [
 ];
 
 const reservationsList = reservations.map((reservation, index) => (
-  <Col key={index.toString()} xs={3}>
+  <Col key={index.toString()} xs={6} md={4} lg={3}>
     <Card reservation={reservation} />
   </Col>
 ));

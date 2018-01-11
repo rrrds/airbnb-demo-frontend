@@ -1,6 +1,11 @@
 import React from "react";
 import { Col } from "react-flexbox-grid";
-import { TitleH2, HeaderRow, CarouselRow, CarouselArrow } from "../../UI/styled";
+import {
+  TitleH2,
+  HeaderRow,
+  CarouselRow,
+  CarouselArrow
+} from "../../UI/styled";
 
 import Card from "./Card";
 import image1 from "./1.png";
@@ -38,7 +43,7 @@ const destinations = [
 ];
 
 const destinationsList = destinations.map((destination, index) => (
-  <Col key={index.toString()} xs={2}>
+  <Col key={index.toString()} xs={4} md={3} lg={2}>
     <Card destination={destination} />
   </Col>
 ));

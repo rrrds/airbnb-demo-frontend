@@ -46,7 +46,7 @@ const experiences = [
 ];
 
 const experiencesList = experiences.map((experience, index) => (
-  <Col key={index.toString()} xs={3}>
+  <Col key={index.toString()} xs={6} md={4} lg={3}>
     <Card experience={experience} />
   </Col>
 ));

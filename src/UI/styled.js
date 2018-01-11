@@ -12,10 +12,13 @@ export const TitleH2 = styled.h2`
 
 export const HeaderRow = styled(Row)`
   margin: 48px 0 0 0;
+  flex-wrap: nowrap;
 `;
 
 export const CarouselRow = styled(Row)`
   position: relative;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 `;
 
 export const CarouselArrow = styled.a`
@@ -50,7 +53,7 @@ export const CardLink = styled.a`
 export const CardLinkRouter = styled(Link)`
   display: flex;
   flex-direction: column;
-  cursor: pointer;
+  margin-top: 24px;
 `;
 
 export const CardImg = styled.img`
