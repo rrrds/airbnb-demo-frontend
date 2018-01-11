@@ -13,6 +13,7 @@ import image3 from "./3.png";
 import image4 from "./4.png";
 import image5 from "./5.png";
 import image6 from "./6.png";
+import point from "./point.svg";
 
 const Content = styled(Grid)`
   padding-top: 136px;
@@ -109,6 +110,24 @@ const WebMap = styled.div`
   padding-top: 136px;
 `;
 
+const MapButton = styled.button`
+  position: fixed;
+  right: 8px;
+  bottom: 24px;
+
+  width: 40px;
+  height: 40px;
+
+  background: #ffffff;
+  border: 1px solid rgba(72, 72, 72, 0.16);
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.16);
+  border-radius: 20px;
+
+  background-color: #fff;
+  background: url(${point}) center center no-repeat;
+`;
+
 export default () => {
   return (
     <div>
@@ -138,6 +157,7 @@ export default () => {
           defaultZoom={11}
         />
       </WebMap>
+      <MapButton className="hidden-lg hidden-xl" />
     </div>
   );
 };
