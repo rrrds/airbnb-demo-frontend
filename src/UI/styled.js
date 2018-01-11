@@ -65,6 +65,6 @@ export const FixedWrapper = styled.div`
   top: 0;
   right: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 100;
   background-color: white;
 `;

@@ -21,7 +21,7 @@ const Content = styled(Grid)`
 const FiltersWrapper = FixedWrapper.extend`
   top: 80px;
   background-color: #fff;
-  z-index: 1020;
+  z-index: 80;
 `;
 
 const Footer = styled.div`
