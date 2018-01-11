@@ -19,7 +19,7 @@ export default function(props) {
   return (
     <Wrapper>
       <Items>{props.children}</Items>
-      <CarouselArrow />
+      {props.showArrow === true && <CarouselArrow />}
     </Wrapper>
   );
 }
