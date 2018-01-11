@@ -60,23 +60,25 @@ const PickerButton = styled.a`
 
 class Filters extends React.Component {
   state = {
-    isOpen: false,
+    activeFilter: false,
 
     focusedInput: "startDate",
     startDate: null,
     endDate: null
   };
 
-  toggleOpen = e => {
-    this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  toggleOpen = buttonId => {
+    this.setState(prevState => ({
+      activeFilter: prevState.activeFilter === buttonId ? false : buttonId
+    }));
   };
 
   onCancel = e => {
-    this.setState({ isOpen: false, startDate: null, endDate: null });
+    this.setState({ activeFilter: false, startDate: null, endDate: null });
   };
 
   onApply = e => {
-    this.setState({ isOpen: false });
+    this.setState({ activeFilter: false });
   };
 
   onDatesChange = ({ startDate, endDate }) => {
@@ -95,7 +97,7 @@ class Filters extends React.Component {
       <Grid>
         <Row middle="xs" start="xs">
           <Col xs={12}>
-            {this.state.isOpen && (
+            {this.state.activeFilter === "dates" && (
               <DayPickerOverlayWrapper>
                 <DayPickerWrapper>
                   <DayPickerRangeController
@@ -126,15 +128,45 @@ class Filters extends React.Component {
                 </DayPickerWrapper>
               </DayPickerOverlayWrapper>
             )}
-            <Button onClick={this.toggleOpen} active={this.state.isOpen}>
-              {this.state.isOpen ? "Check in — Check out" : "Dates"}
+            <Button
+              onClick={e => this.toggleOpen("dates", e)}
+              active={this.state.activeFilter === "dates"}
+            >
+              {this.state.activeFilter === "dates"
+                ? "Check in — Check out"
+                : "Dates"}
             </Button>
 
-            <Button>Guests</Button>
-            <Button>Room type</Button>
-            <Button>Price</Button>
-            <Button>Instant book</Button>
-            <Button>More filters</Button>
+            <Button
+              onClick={e => this.toggleOpen("guests", e)}
+              active={this.state.activeFilter === "guests"}
+            >
+              Guests
+            </Button>
+            <Button
+              onClick={e => this.toggleOpen("roomtype", e)}
+              active={this.state.activeFilter === "roomtype"}
+            >
+              Room type
+            </Button>
+            <Button
+              onClick={e => this.toggleOpen("price", e)}
+              active={this.state.activeFilter === "price"}
+            >
+              Price
+            </Button>
+            <Button
+              onClick={e => this.toggleOpen("book", e)}
+              active={this.state.activeFilter === "book"}
+            >
+              Instant book
+            </Button>
+            <Button
+              onClick={e => this.toggleOpen("more", e)}
+              active={this.state.activeFilter === "more"}
+            >
+              More filters
+            </Button>
           </Col>
         </Row>
       </Grid>
