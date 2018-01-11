@@ -6,6 +6,7 @@ import { FixedWrapper } from "../UI/styled";
 import HomesList from "./List";
 import Paginator from "./Paginator";
 import GoogleMap from "google-map-react";
+import MapButton from "./MapButton";
 
 import image1 from "./1.png";
 import image2 from "./2.png";
@@ -13,7 +14,6 @@ import image3 from "./3.png";
 import image4 from "./4.png";
 import image5 from "./5.png";
 import image6 from "./6.png";
-import point from "./point.svg";
 
 const Content = styled(Grid)`
   padding-top: 136px;
@@ -38,7 +38,7 @@ const homes = [
     image: image1,
     text: "La Salentina, see, nature & relax",
     price: 82,
-    rating: 4,
+    stars: 4,
     host: "97 · Superhost",
     type: "Entire house",
     beds: 9
@@ -47,7 +47,7 @@ const homes = [
     image: image2,
     text: "Your private 3 bedr. riad and exclusi…",
     price: 82,
-    rating: 4,
+    stars: 4,
     host: "161 · Superhost",
     type: "Entire house",
     beds: 5
@@ -56,7 +56,7 @@ const homes = [
     image: image3,
     text: "Dreamy Tropical Tree House",
     price: 200,
-    rating: 5,
+    stars: 5,
     host: "364 · Superhost",
     type: "Entire treehouse",
     beds: 1
@@ -65,7 +65,7 @@ const homes = [
     image: image4,
     text: "La Salentina, see, nature & relax",
     price: 82,
-    rating: 4,
+    stars: 4,
     host: "97 · Superhost",
     type: "Entire house",
     beds: 9
@@ -74,7 +74,7 @@ const homes = [
     image: image5,
     text: "Your private 3 bedr. riad and exclusi…",
     price: 82,
-    rating: 4,
+    stars: 4,
     host: "161 · Superhost",
     type: "Entire house",
     beds: 5
@@ -83,7 +83,7 @@ const homes = [
     image: image6,
     text: "Dreamy Tropical Tree House",
     price: 200,
-    rating: 5,
+    stars: 3,
     host: "364 · Superhost",
     type: "Entire treehouse",
     beds: 1
@@ -108,24 +108,6 @@ const WebMap = styled.div`
   height: 100%;
   width: 33.3333%;
   padding-top: 136px;
-`;
-
-const MapButton = styled.button`
-  position: fixed;
-  right: 8px;
-  bottom: 24px;
-
-  width: 40px;
-  height: 40px;
-
-  background: #ffffff;
-  border: 1px solid rgba(72, 72, 72, 0.16);
-  box-sizing: border-box;
-  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.16);
-  border-radius: 20px;
-
-  background-color: #fff;
-  background: url(${point}) center center no-repeat;
 `;
 
 export default () => {
