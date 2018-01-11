@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Row, Col, Grid } from "react-flexbox-grid";
-import DayPicker from "react-day-picker";
-import "react-day-picker/lib/style.css";
+import { DayPickerRangeController } from "react-dates";
+import "react-dates/lib/css/_datepicker.css";
 
 const Button = styled.button`
   border: 1px solid rgba(72, 72, 72, 0.2);
@@ -32,11 +32,26 @@ const DayPickerWrapper = styled.div`
 
 class Filters extends React.Component {
   state = {
-    isOpen: false
+    isOpen: false,
+
+    focusedInput: "startDate",
+    startDate: null,
+    endDate: null
   };
 
   toggleOpen = e => {
     this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  };
+
+  onDatesChange = ({ startDate, endDate }) => {
+    this.setState({ startDate: startDate, endDate: endDate });
+  };
+
+  onFocusChange = focusedInput => {
+    this.setState({
+      // Force the focusedInput to always be truthy so that dates are always selectable
+      focusedInput: !focusedInput ? "startDate" : focusedInput
+    });
   };
 
   render() {
@@ -47,7 +62,16 @@ class Filters extends React.Component {
             {this.state.isOpen && (
               <DayPickerOverlayWrapper>
                 <DayPickerWrapper>
-                  <DayPicker />
+                  <DayPickerRangeController
+                    startDate={this.state.startDate}
+                    endDate={this.state.endDate}
+                    onDatesChange={this.onDatesChange}
+                    focusedInput={this.state.focusedInput}
+                    onFocusChange={this.onFocusChange}
+                    numberOfMonths={2}
+                    hideKeyboardShortcutsPanel={true}
+                    renderCalendarInfo={() => <div>buttons</div>}
+                  />
                 </DayPickerWrapper>
               </DayPickerOverlayWrapper>
             )}
