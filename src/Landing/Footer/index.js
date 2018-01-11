@@ -14,10 +14,6 @@ const FooterBlock = styled.footer`
   margin-top: 64px;
 `;
 
-const NavWrapper = styled.div`
-  display: flex;
-`;
-
 const Nav = styled.nav`
   text-align: left;
 `;

@@ -94,7 +94,7 @@ const homesRows = homes
   .map((home, index) => index % 2 === 0 && homes.slice(index, index + 2))
   .filter(subArray => subArray)
   .map((rowItems, index) => (
-    <Row>
+    <Row key={index.toString()}>
       <HomesList homes={rowItems} xs={12} md={6} lg={6} />
     </Row>
   ));

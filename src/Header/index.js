@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col, Grid } from "react-flexbox-grid";
+import { Row, Grid } from "react-flexbox-grid";
 
 import Logo from "./Logo";
 import Search from "./Search";

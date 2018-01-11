@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col, Grid } from "react-flexbox-grid";
+import { Row, Col } from "react-flexbox-grid";
 
 const Wrapper = styled.div`
   margin: 48px 0 14px 0;
