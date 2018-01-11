@@ -4,6 +4,8 @@ import { DayPickerRangeController } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import Button from "./Button";
 
+const FILTER_ID = "dates";
+
 const Wrapper = styled.div`
   display: inline-block;
 `;
@@ -51,7 +53,7 @@ const PickerButton = styled.a`
 export default props => {
   return (
     <Wrapper>
-      {props.activeFilter === "dates" && (
+      {props.activeFilter === FILTER_ID && (
         <DayPickerOverlayWrapper>
           <DayPickerWrapper>
             <DayPickerRangeController
@@ -80,10 +82,10 @@ export default props => {
         </DayPickerOverlayWrapper>
       )}
       <Button
-        onClick={e => props.onButtonClick("dates", e)}
-        active={props.activeFilter === "dates"}
+        onClick={e => props.onButtonClick(FILTER_ID, e)}
+        active={props.activeFilter === FILTER_ID}
       >
-        {props.activeFilter === "dates" ? "Check in — Check out" : "Dates"}
+        {props.activeFilter === FILTER_ID ? "Check in — Check out" : "Dates"}
       </Button>
     </Wrapper>
   );
