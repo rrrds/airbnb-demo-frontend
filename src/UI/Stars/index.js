@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import star from "./star.svg";
+import starEmpty from "./star_empty.svg";
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,11 +17,13 @@ const StarImg = styled.img`
 export default function(props) {
   return (
     <Wrapper>
-      <StarImg src={star} />
-      <StarImg src={star} />
-      <StarImg src={star} />
-      <StarImg src={star} />
-      <StarImg src={star} />
+      {[...Array(5)].map((e, i) => (
+        <StarImg
+          src={i < props.children ? star : starEmpty}
+          key={i}
+          kkk={props.children}
+        />
+      ))}
     </Wrapper>
   );
 }

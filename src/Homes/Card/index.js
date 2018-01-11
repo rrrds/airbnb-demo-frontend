@@ -42,7 +42,7 @@ export default function(props) {
         {props.home.type} &middot; {props.home.beds} beds
       </SubInfo>
       <Rating>
-        <Stars />
+        <Stars>{props.home.stars}</Stars>
         {props.home.host}
       </Rating>
     </CardLink>
