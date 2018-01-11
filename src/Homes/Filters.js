@@ -30,6 +30,20 @@ const DayPickerWrapper = styled.div`
   background: #fff;
 `;
 
+const DayPickerBbar = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 0 22px 22px 22px;
+`;
+
+const PickerButton = styled.a`
+  line-height: normal;
+  font-size: 16px;
+  text-align: center;
+
+  color: ${props => (props.primary ? "#0F7276" : "#636363")};
+`;
+
 class Filters extends React.Component {
   state = {
     isOpen: false,
@@ -41,6 +55,14 @@ class Filters extends React.Component {
 
   toggleOpen = e => {
     this.setState(prevState => ({ isOpen: !prevState.isOpen }));
+  };
+
+  onCancel = e => {
+    this.setState({ isOpen: false, startDate: null, endDate: null });
+  };
+
+  onApply = e => {
+    this.setState({ isOpen: false });
   };
 
   onDatesChange = ({ startDate, endDate }) => {
@@ -70,7 +92,16 @@ class Filters extends React.Component {
                     onFocusChange={this.onFocusChange}
                     numberOfMonths={2}
                     hideKeyboardShortcutsPanel={true}
-                    renderCalendarInfo={() => <div>buttons</div>}
+                    renderCalendarInfo={() => (
+                      <DayPickerBbar>
+                        <PickerButton onClick={this.onCancel}>
+                          Cancel
+                        </PickerButton>
+                        <PickerButton onClick={this.onApply} primary>
+                          Apply
+                        </PickerButton>
+                      </DayPickerBbar>
+                    )}
                   />
                 </DayPickerWrapper>
               </DayPickerOverlayWrapper>
