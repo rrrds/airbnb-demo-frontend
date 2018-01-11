@@ -1,5 +1,6 @@
 import React from "react";
 import { Row, Col, Grid } from "react-flexbox-grid";
+import { InlineWrapper } from "../../UI/styled";
 import Button from "./Button";
 import Dates from "./Dates";
 
@@ -62,21 +63,25 @@ class Filters extends React.Component {
             <Button
               onClick={e => this.toggleOpen("roomtype", e)}
               active={this.state.activeFilter === "roomtype"}
+              className="hidden-xs hidden-md"
             >
               Room type
             </Button>
             <Button
               onClick={e => this.toggleOpen("price", e)}
               active={this.state.activeFilter === "price"}
+              className="hidden-xs hidden-md"
             >
               Price
             </Button>
             <Button
               onClick={e => this.toggleOpen("book", e)}
               active={this.state.activeFilter === "book"}
+              className="hidden-xs hidden-md"
             >
               Instant book
             </Button>
+
             <Button
               onClick={e => this.toggleOpen("more", e)}
               active={this.state.activeFilter === "more"}
