@@ -32,7 +32,7 @@ const DayPickerOverlayWrapper = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 10;
+    z-index: -50;
   }
 `;
 
@@ -106,6 +106,12 @@ class Filters extends React.Component {
                     onFocusChange={this.onFocusChange}
                     numberOfMonths={2}
                     hideKeyboardShortcutsPanel={true}
+                    orientation={
+                      window.matchMedia("(max-width: 400px)").matches
+                        ? "vertical"
+                        : "horizontal"
+                    }
+                    withFullScreenPortal
                     renderCalendarInfo={() => (
                       <DayPickerBbar>
                         <PickerButton onClick={this.onCancel}>
