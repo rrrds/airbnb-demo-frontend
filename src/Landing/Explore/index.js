@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
-import { TitleH2, HeaderRow, CarouselRow } from "../../UI/styled";
+import { TitleH2, HeaderRow } from "../../UI/styled";
+import Carousel from "../../UI/Carousel";
 
 import Card from "./Card";
 import image1 from "./1.png";
@@ -37,7 +38,9 @@ export default function() {
       <HeaderRow between="xs" middle="xs">
         <TitleH2>Explore Airbnb</TitleH2>
       </HeaderRow>
-      <CarouselRow>{exploreList}</CarouselRow>
+      <Row>
+        <Carousel>{exploreList}</Carousel>
+      </Row>
     </div>
   );
 }

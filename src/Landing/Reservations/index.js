@@ -1,12 +1,8 @@
 import React from "react";
-import { Col } from "react-flexbox-grid";
-import {
-  TitleH2,
-  HeaderRow,
-  CarouselRow,
-  CarouselArrow
-} from "../../UI/styled";
+import { Col, Row } from "react-flexbox-grid";
+import { TitleH2, HeaderRow } from "../../UI/styled";
 import SeeAllLink from "../../UI/SeeAllLink";
+import Carousel from "../../UI/Carousel";
 
 import Card from "./Card";
 import image1 from "./1.png";
@@ -54,10 +50,9 @@ export default function() {
         <TitleH2>Popular reservations around the world</TitleH2>
         <SeeAllLink to="/reservations" />
       </HeaderRow>
-      <CarouselRow>
-        {reservationsList}
-        <CarouselArrow />
-      </CarouselRow>
+      <Row>
+        <Carousel showArrow={true}>{reservationsList}</Carousel>
+      </Row>
     </div>
   );
 }

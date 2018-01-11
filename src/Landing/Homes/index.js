@@ -1,13 +1,9 @@
 import React from "react";
-import { Col } from "react-flexbox-grid";
-import {
-  TitleH2,
-  HeaderRow,
-  CarouselRow,
-  CarouselArrow
-} from "../../UI/styled";
+import { Row } from "react-flexbox-grid";
+import { TitleH2, HeaderRow } from "../../UI/styled";
 import SeeAllLink from "../../UI/SeeAllLink";
 import HomesList from "../../Homes/List";
+import Carousel from "../../UI/Carousel";
 
 import image1 from "./1.png";
 import image2 from "./2.png";
@@ -50,10 +46,11 @@ export default function() {
         <TitleH2>Homes</TitleH2>
         <SeeAllLink to="/homes" />
       </HeaderRow>
-      <CarouselRow>
-        <HomesList homes={homes} xs={8} md={5} lg={4} />
-        <CarouselArrow />
-      </CarouselRow>
+      <Row>
+        <Carousel showArrow={true}>
+          <HomesList homes={homes} xs={8} md={5} lg={4} />
+        </Carousel>
+      </Row>
     </div>
   );
 }

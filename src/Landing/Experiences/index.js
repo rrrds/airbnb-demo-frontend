@@ -1,12 +1,8 @@
 import React from "react";
 import { Row, Col } from "react-flexbox-grid";
-import {
-  TitleH2,
-  HeaderRow,
-  CarouselRow,
-  CarouselArrow
-} from "../../UI/styled";
+import { TitleH2, HeaderRow } from "../../UI/styled";
 import SeeAllLink from "../../UI/SeeAllLink";
+import Carousel from "../../UI/Carousel";
 
 import Card from "./Card";
 import image1 from "./1.png";
@@ -58,10 +54,9 @@ export default function() {
         <TitleH2>Experiences</TitleH2>
         <SeeAllLink to="/experiences" />
       </HeaderRow>
-      <CarouselRow>
-        {experiencesList}
-        <CarouselArrow />
-      </CarouselRow>
+      <Row>
+        <Carousel showArrow={true}>{experiencesList}</Carousel>
+      </Row>
     </div>
   );
 }
