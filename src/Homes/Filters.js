@@ -21,6 +21,19 @@ const Button = styled.button`
 const DayPickerOverlayWrapper = styled.div`
   position: relative;
   display: inline-block;
+
+  :before {
+    content: "";
+    position: fixed;
+    background: #fff;
+    mix-blend-mode: normal;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+  }
 `;
 
 const DayPickerWrapper = styled.div`
@@ -28,6 +41,7 @@ const DayPickerWrapper = styled.div`
   left: 0;
   top: 15px;
   background: #fff;
+  z-index: 20;
 `;
 
 const DayPickerBbar = styled.div`
