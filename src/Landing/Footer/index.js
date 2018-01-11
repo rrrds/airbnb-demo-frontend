@@ -14,6 +14,10 @@ const FooterBlock = styled.footer`
   margin-top: 64px;
 `;
 
+const NavWrapper = styled.div`
+  display: flex;
+`;
+
 const Nav = styled.nav`
   text-align: left;
 `;
@@ -27,7 +31,12 @@ const NavTitle = styled.h5`
 const CopyrightRow = styled(Row)`
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
   margin-top: 48px;
-  padding: 32px 0;
+  padding: 32px 8px;
+`;
+
+const FlexWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const Select = styled.select`
@@ -94,19 +103,15 @@ export default function() {
     <FooterBlock>
       <Grid>
         <Row>
-          <Col lg={3}>
-            <Row>
-              <Select>
-                <option>English</option>
-              </Select>
-            </Row>
-            <Row>
-              <Select>
-                <option>United States dollar</option>
-              </Select>
-            </Row>
+          <Col xs={12} md={3}>
+            <Select>
+              <option>English</option>
+            </Select>
+            <Select>
+              <option>United States dollar</option>
+            </Select>
           </Col>
-          <Col lgOffset={1}>
+          <Col mdOffset={1} md={2} className="hidden-xs">
             <Nav>
               <NavTitle>Airbnb</NavTitle>
               <Link href="#">About us</Link>
@@ -117,7 +122,7 @@ export default function() {
               <Link href="#">Diversity & Belonging</Link>
             </Nav>
           </Col>
-          <Col lgOffset={1}>
+          <Col mdOffset={1} md={2} className="hidden-xs">
             <Nav>
               <NavTitle>Discover</NavTitle>
               <Link href="#">Trust & Safety</Link>
@@ -129,7 +134,7 @@ export default function() {
               <Link href="#">Airbnbmag</Link>
             </Nav>
           </Col>
-          <Col lgOffset={1}>
+          <Col mdOffset={1} md={2} className="hidden-xs">
             <Nav>
               <NavTitle>Hosting</NavTitle>
               <Link href="#">Why Host</Link>
@@ -141,14 +146,14 @@ export default function() {
         </Row>
 
         <CopyrightRow between="xs" middle="xs">
-          <Col>
+          <FlexWrapper>
             <SmallLogoLink href="#">
               <SmallLogo src={smallLogo} alt="logo" />
             </SmallLogoLink>
             <Copyright>&copy; Airbnb Inc.</Copyright>
-          </Col>
+          </FlexWrapper>
 
-          <Col>
+          <FlexWrapper>
             <CopyrightLink href="#">Terms</CopyrightLink>
             <CopyrightLink href="#">Privacy</CopyrightLink>
             <CopyrightLink href="#">Site map</CopyrightLink>
@@ -162,7 +167,7 @@ export default function() {
             <CopyrightLink href="#">
               <Social src={instagram} />
             </CopyrightLink>
-          </Col>
+          </FlexWrapper>
         </CopyrightRow>
       </Grid>
     </FooterBlock>
