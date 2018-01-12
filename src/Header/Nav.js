@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Link = styled.a`
-  margin: 0 4px;
+  margin: 0 0.8vw;
   padding: 4px;
 `;
 
