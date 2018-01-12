@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { DayPickerRangeController } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import Button from "./Button";
+import moment from "moment";
 
 const FILTER_ID = "dates";
 
@@ -89,7 +90,15 @@ export default props => {
         onClick={e => props.onButtonClick(FILTER_ID, e)}
         active={props.activeFilter === FILTER_ID}
       >
-        {props.activeFilter === FILTER_ID ? "Check in — Check out" : "Dates"}
+        {props.startDate || props.endDate || props.activeFilter === FILTER_ID
+          ? (props.startDate
+              ? moment(props.startDate).format("MMM Do")
+              : "Check in") +
+            " - " +
+            (props.endDate
+              ? moment(props.endDate).format("MMM Do")
+              : "Check out")
+          : "Dates"}
       </Button>
     </Wrapper>
   );
