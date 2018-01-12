@@ -27,7 +27,7 @@ const NavTitle = styled.h5`
 const CopyrightRow = styled(Row)`
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
   margin-top: 48px;
-  padding: 32px 8px;
+  padding: 32px 8px 44px;
 `;
 
 const FlexWrapper = styled.div`
@@ -66,7 +66,7 @@ const CopyrightLink = styled.a`
   font-size: 15px;
   text-align: right;
   color: #636363;
-  margin: 0 8px;
+  margin: 0 16px 0 0;
 `;
 
 const Social = styled.img`
