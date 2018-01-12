@@ -3,22 +3,25 @@ import styled from "styled-components";
 import arrowRight from "./arrow-right.svg";
 
 const Wrapper = styled.div`
-  display: flex;
-  flex: 1 1 auto;
   position: relative;
+  box-sizing: border-box;
+  flex: 1 0 auto;
+  flex-basis: 0;
+  max-width: 100%;
 `;
 
 const Items = styled.div`
   display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
   flex-wrap: nowrap;
-  flex-grow: 1;
   overflow-x: auto;
 `;
 
 const Arrow = styled.a`
   position: absolute;
   right: -5px;
-  align-self: center;
+  top: 40%;
   background-color: white;
   background-image: url(${arrowRight});
   background-repeat: no-repeat;
