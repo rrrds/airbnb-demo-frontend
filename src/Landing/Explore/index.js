@@ -12,23 +12,23 @@ const explore = [
   {
     name: "Homes",
     image: image1,
-    link: "/homes"
+    to: "/homes"
   },
   {
     name: "Experiennces",
     image: image2,
-    link: "/experienncesmes"
+    to: "/experienncesmes"
   },
   {
     name: "Restaurants",
     image: image3,
-    link: "/restaurants"
+    to: "/restaurants"
   }
 ];
 
 const exploreList = explore.map((exp, index) => (
   <Col key={index.toString()} xs={6} md={5} lg={4}>
-    <Card text={exp.name} image={exp.image} linkTo={exp.link} />
+    <Card text={exp.name} image={exp.image} to={exp.to} />
   </Col>
 ));
 

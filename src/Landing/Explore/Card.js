@@ -31,7 +31,7 @@ const Image = styled(CardImg)`
 
 export default function(props) {
   return (
-    <Card to={props.linkTo}>
+    <Card to={props.to}>
       <Image src={props.image} alt={props.text} />
       <Body>{props.text}</Body>
     </Card>
