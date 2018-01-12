@@ -11,8 +11,11 @@ const Card = styled(CardLinkRouter)`
   overflow: hidden;
 
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const Body = styled.div`
@@ -21,12 +24,19 @@ const Body = styled.div`
   line-height: 20px;
   padding: 27px 24px;
   text-align: left;
-  flex-grow: 5;
+  flex: 1 0 auto;
 `;
 
 const Image = styled(CardImg)`
-  flex-grow: 1;
-  width: auto;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 4px 4px 0 0;
+
+  @media screen and (min-width: 768px) {
+    width: auto;
+    border-radius: 4px 0 0 4px;
+  }
 `;
 
 export default function(props) {
