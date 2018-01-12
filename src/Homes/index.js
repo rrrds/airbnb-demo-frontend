@@ -7,6 +7,7 @@ import HomesList from "./List";
 import Paginator from "./Paginator";
 import GoogleMap from "google-map-react";
 import MapButton from "./MapButton";
+import { Helmet } from "react-helmet";
 
 import image1 from "./1.png";
 import image2 from "./2.png";
@@ -104,6 +105,10 @@ const GoogleMapWrapper = styled.div`
 export default () => {
   return (
     <div>
+      <Helmet>
+        <title>Airbnb - Homes</title>
+      </Helmet>
+
       <FiltersWrapper>
         <Filters />
       </FiltersWrapper>
