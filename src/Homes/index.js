@@ -99,7 +99,7 @@ const homesRows = homes
     </Row>
   ));
 
-const WebMap = styled.div`
+const GoogleMapWrapper = styled.div`
   box-sizing: border-box;
   position: fixed;
   right: 0;
@@ -133,12 +133,12 @@ export default () => {
           </Col>
         </Row>
       </Content>
-      <WebMap className="hidden-xs hidden-md">
+      <GoogleMapWrapper className="hidden-xs hidden-md">
         <GoogleMap
           defaultCenter={{ lat: 59.95, lng: 30.33 }}
           defaultZoom={11}
         />
-      </WebMap>
+      </GoogleMapWrapper>
       <MapButton className="hidden-lg hidden-xl" />
     </div>
   );
