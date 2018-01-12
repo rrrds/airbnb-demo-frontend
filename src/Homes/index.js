@@ -136,6 +136,9 @@ export default () => {
         <GoogleMap
           defaultCenter={{ lat: 59.95, lng: 30.33 }}
           defaultZoom={11}
+          bootstrapURLKeys={{
+            key: process.env.REACT_APP_GOOGLE_API_KEY
+          }}
         />
       </GoogleMapWrapper>
       <MapButton className="hidden-lg hidden-xl" />
