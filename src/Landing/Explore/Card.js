@@ -17,6 +17,8 @@ const Card = styled(CardLinkRouter)`
 
 const Body = styled.div`
   font-size: 17px;
+  font-weight: bold;
+  line-height: 20px;
   padding: 27px 24px;
   text-align: left;
   flex-grow: 5;
