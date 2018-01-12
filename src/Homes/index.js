@@ -90,15 +90,6 @@ const homes = [
   }
 ];
 
-const homesRows = homes
-  .map((home, index) => index % 2 === 0 && homes.slice(index, index + 2))
-  .filter(subArray => subArray)
-  .map((rowItems, index) => (
-    <Row key={index.toString()}>
-      <HomesList homes={rowItems} xs={12} md={6} lg={6} />
-    </Row>
-  ));
-
 const GoogleMapWrapper = styled.div`
   box-sizing: border-box;
   position: fixed;
@@ -119,11 +110,14 @@ export default () => {
       <Content>
         <Row>
           <Col xs={12} md={12} lg={8}>
-            {homesRows}
+            <Row>
+              <HomesList homes={homes} xs={12} md={6} lg={6} />
+            </Row>
 
             <Row center="xs">
               <Paginator />
             </Row>
+
             <Row center="xs">
               <Footer>
                 Enter dates to see full pricing. Additional fees apply. Taxes
