@@ -25,6 +25,4 @@ const Input = styled.input`
   background: url(${searchIcon}) 16px center no-repeat / auto;
 `;
 
-export default function() {
-  return <Input placeholder="Try 'Miami'" />;
-}
+export default <Input placeholder="Try 'Miami'" />;
