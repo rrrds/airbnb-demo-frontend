@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col } from "react-flexbox-grid";
 import arrow from "./arrow.svg";
 
 const Wrapper = styled.div`
   margin: 48px 0 14px 0;
 `;
 
-const Nav = styled(Row)`
+const Nav = styled.div`
+  display: flex;
   margin-bottom: 15px;
 `;
 
@@ -38,23 +38,17 @@ const TextInfo = styled.div`
 export default function() {
   return (
     <Wrapper>
-      <Row middle="xs" start="xs">
-        <Nav xs={12}>
-          <Button active>1</Button>
-          <Button>2</Button>
-          <Button>3</Button>
-          <Button>&hellip;</Button>
-          <Button>17</Button>
-          <Button>
-            <img src={arrow} alt="Next" />
-          </Button>
-        </Nav>
-      </Row>
-      <Row middle="xs" start="xs">
-        <Col xs={12}>
-          <TextInfo>1 – 18 of 300+ Rentals</TextInfo>
-        </Col>
-      </Row>
+      <Nav>
+        <Button active>1</Button>
+        <Button>2</Button>
+        <Button>3</Button>
+        <Button>&hellip;</Button>
+        <Button>17</Button>
+        <Button>
+          <img src={arrow} alt="Next" />
+        </Button>
+      </Nav>
+      <TextInfo>1 – 18 of 300+ Rentals</TextInfo>
     </Wrapper>
   );
 }
