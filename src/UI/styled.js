@@ -3,10 +3,15 @@ import { Row } from "react-flexbox-grid";
 import { Link } from "react-router-dom";
 
 export const TitleH2 = styled.h2`
-  line-height: 34px;
-  font-size: 32px;
+  line-height: 28px;
+  font-size: 24px;
   margin: 0;
   text-align: left;
+
+  @media screen and (min-width: 768px) {
+    line-height: 34px;
+    font-size: 32px;
+  }
 `;
 
 export const HeaderRow = styled(Row)`
