@@ -42,12 +42,16 @@ const DayPickerBbar = styled.div`
   padding: 0 22px 22px 22px;
 `;
 
-const PickerButton = styled.a`
+const PickerButton = styled.button`
   line-height: normal;
   font-size: 16px;
   text-align: center;
 
   color: ${props => (props.primary ? "#0F7276" : "#636363")};
+
+  border: none;
+  background: none;
+  cursor: pointer;
 `;
 
 export default props => {
