@@ -6,12 +6,17 @@ import arrow from "./arrow.svg";
 
 const StyledLink = styled(Link)`
   display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   justify-content: flex-end;
   align-items: center;
-
-  line-height: 24px;
-  font-size: 14px;
   text-align: right;
+  line-height: 24px;
+  font-size: 12px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const ArrowImg = styled.img`
