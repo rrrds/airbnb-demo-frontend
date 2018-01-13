@@ -115,6 +115,24 @@ class Dates extends React.Component {
     return this.props.startDate || this.props.endDate;
   }
 
+  formatStartText() {
+    return this.props.startDate
+      ? moment(this.props.startDate).format("MMM Do")
+      : "Check in";
+  }
+
+  formatEndDate() {
+    return this.props.endDate
+      ? moment(this.props.endDate).format("MMM Do")
+      : "Check out";
+  }
+
+  getFilterButtonText() {
+    return isActiveFilter(this.props.activeFilter) || this.hasSelectedDates()
+      ? this.formatStartText() + " — " + this.formatEndDate()
+      : "Dates";
+  }
+
   render() {
     const picker = (
       <DayPickerRangeController
@@ -150,17 +168,9 @@ class Dates extends React.Component {
                         </ResetButton>
                       </Title>
                       <Info>
-                        <span>
-                          {this.props.startDate
-                            ? moment(this.props.startDate).format("MMM Do")
-                            : "Check in"}
-                        </span>
+                        <span>{this.formatStartText()}</span>
                         <ArrowImg src={arrow} alt="From — To" />
-                        <span>
-                          {this.props.endDate
-                            ? moment(this.props.endDate).format("MMM Do")
-                            : "Check out"}
-                        </span>
+                        <span>{this.formatEndDate()}</span>
                       </Info>
                     </PortalRow>
                     <PickerRow>{picker}</PickerRow>
@@ -198,15 +208,7 @@ class Dates extends React.Component {
             isActiveFilter(this.props.activeFilter) || this.hasSelectedDates()
           }
         >
-          {isActiveFilter(this.props.activeFilter) || this.hasSelectedDates()
-            ? (this.props.startDate
-                ? moment(this.props.startDate).format("MMM Do")
-                : "Check in") +
-              " — " +
-              (this.props.endDate
-                ? moment(this.props.endDate).format("MMM Do")
-                : "Check out")
-            : "Dates"}
+          {this.getFilterButtonText()}
         </FilterButton>
       </Wrapper>
     );
