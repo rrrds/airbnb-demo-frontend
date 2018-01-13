@@ -110,15 +110,23 @@ const isActiveFilter = currentFilterId => {
   return currentFilterId === filterId;
 };
 
-class Dates extends React.Component {
-  constructor(props) {
-    super(props);
+const formatButtonText = (value, defaultText) => {
+  return value ? moment(value).format("MMM Do") : defaultText;
+};
 
-    this.state = {
-      focusedInput: "startDate",
-      startDate: this.props.startDate,
-      endDate: this.props.endDate
-    };
+class Dates extends React.Component {
+  state = {
+    focusedInput: "startDate",
+    startDate: null,
+    endDate: null
+  };
+
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      focusedInput: newProps.startDate ? "endDate" : "startDate",
+      startDate: newProps.startDate,
+      endDate: newProps.endDate
+    });
   }
 
   onDatesChange = ({ startDate, endDate }) => {
@@ -132,29 +140,34 @@ class Dates extends React.Component {
     });
   };
 
+  getStateForApply = () => {
+    return {
+      startDate: this.state.startDate,
+      endDate: this.state.endDate
+    };
+  };
+
+  onReset = e => {
+    this.props.onApply(
+      {
+        startDate: null,
+        endDate: null
+      },
+      e
+    );
+
+    this.props.onClose(e);
+  };
+
   hasSelectedDates() {
     return this.props.startDate || this.props.endDate;
   }
 
-  formatStartText() {
-    const date = isActiveFilter(this.props.activeFilter)
-      ? this.state.startDate
-      : this.props.startDate;
-
-    return date ? moment(date).format("MMM Do") : "Check in";
-  }
-
-  formatEndDate() {
-    const date = isActiveFilter(this.props.activeFilter)
-      ? this.state.endDate
-      : this.props.endDate;
-
-    return date ? moment(date).format("MMM Do") : "Check out";
-  }
-
   getFilterButtonText() {
     return isActiveFilter(this.props.activeFilter) || this.hasSelectedDates()
-      ? this.formatStartText() + " — " + this.formatEndDate()
+      ? formatButtonText(this.state.startDate, "Check in") +
+          " — " +
+          formatButtonText(this.state.endDate, "Check out")
       : "Dates";
   }
 
@@ -188,14 +201,16 @@ class Dates extends React.Component {
                           onClick={closePortal && this.props.onClose}
                         />
                         Dates
-                        <ResetButton onClick={this.props.onReset}>
-                          Reset
-                        </ResetButton>
+                        <ResetButton onClick={this.onReset}>Reset</ResetButton>
                       </Title>
                       <Info>
-                        <span>{this.formatStartText()}</span>
+                        <span>
+                          {formatButtonText(this.state.startDate, "Check in")}
+                        </span>
                         <ArrowImg src={arrow} alt="From — To" />
-                        <span>{this.formatEndDate()}</span>
+                        <span>
+                          {formatButtonText(this.state.endDate, "Check out")}
+                        </span>
                       </Info>
                     </PortalRow>
                     <PickerRow>{picker}</PickerRow>
@@ -212,14 +227,18 @@ class Dates extends React.Component {
             <PopupOverlayWrapper>
               <Popup
                 handleClickOutside={() => {
-                  this.props.onReset();
                   this.props.onClose();
                 }}
               >
                 {picker}
                 <DayPickerBbar>
-                  <PopupButton onClick={this.props.onClose}>Cancel</PopupButton>
-                  <PopupButton onClick={this.props.onApply} primary>
+                  <PopupButton onClick={this.onReset}>Cancel</PopupButton>
+                  <PopupButton
+                    onClick={e =>
+                      this.props.onApply(this.getStateForApply(), e)
+                    }
+                    primary
+                  >
                     Apply
                   </PopupButton>
                 </DayPickerBbar>

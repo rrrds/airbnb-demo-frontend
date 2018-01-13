@@ -25,8 +25,10 @@ class Filters extends React.Component {
     this.setState({ activeFilter: false, startDate: null, endDate: null });
   };
 
-  onApply = e => {
+  onApply = (filterState, e) => {
     this.setState({ activeFilter: false });
+
+    this.setState(filterState);
   };
 
   onReset = e => {
