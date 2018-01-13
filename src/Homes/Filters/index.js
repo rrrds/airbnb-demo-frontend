@@ -2,7 +2,6 @@ import React from "react";
 import { Row, Col, Grid } from "react-flexbox-grid";
 import { FilterButton } from "../styled";
 import Dates from "./Dates";
-import Guests from "./Guests";
 
 const isMobile = window.matchMedia("(max-width: 400px)").matches;
 
