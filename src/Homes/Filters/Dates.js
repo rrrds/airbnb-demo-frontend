@@ -5,11 +5,11 @@ import "react-dates/lib/css/_datepicker.css";
 import {
   FilterButton,
   PopupButton,
-  PopupOverlayWrapper,
-  PopupWrapper
+  PopupOverlayWrapper
 } from "../styled";
 import moment from "moment";
 import { PortalWithState } from "react-portal";
+import Popup from "./Popup";
 import cross from "./cross.svg";
 import arrow from "./arrow.svg";
 
@@ -110,89 +110,107 @@ const DayPickerBbar = styled.div`
   padding: 0 22px 22px 22px;
 `;
 
-export default props => {
-  const picker = (
-    <DayPickerRangeController
-      startDate={props.startDate}
-      endDate={props.endDate}
-      onDatesChange={props.onDatesChange}
-      focusedInput={props.focusedInput}
-      onFocusChange={props.onFocusChange}
-      numberOfMonths={props.isMobile ? 4 : 2}
-      hideKeyboardShortcutsPanel={true}
-      orientation={props.isMobile ? "verticalScrollable" : "horizontal"}
-      noBorder={true}
-      isOutsideRange={day => !isInclusivelyAfterDay(day, moment())}
-    />
-  );
+class Dates extends React.Component {
+  render() {
+    const picker = (
+      <DayPickerRangeController
+        hideKeyboardShortcutsPanel={true}
+        noBorder={true}
+        isOutsideRange={day => !isInclusivelyAfterDay(day, moment())}
+        startDate={this.props.startDate}
+        endDate={this.props.endDate}
+        onDatesChange={this.props.onDatesChange}
+        focusedInput={this.props.focusedInput}
+        onFocusChange={this.props.onFocusChange}
+        numberOfMonths={this.props.isMobile ? 4 : 2}
+        orientation={this.props.isMobile ? "verticalScrollable" : "horizontal"}
+      />
+    );
 
-  return (
-    <Wrapper>
-      {props.activeFilter === filterId &&
-        (props.isMobile ? (
-          <PortalWithState defaultOpen>
-            {({ openPortal, closePortal, isOpen, portal }) =>
-              portal(
-                <StyledPortal>
-                  <PortalRow>
-                    <Title>
-                      <CloseButton onClick={closePortal && props.onClose} />
-                      Dates
-                      <ResetButton onClick={props.onReset}>Reset</ResetButton>
-                    </Title>
-                    <Info>
-                      <span>
-                        {props.startDate
-                          ? moment(props.startDate).format("MMM Do")
-                          : "Check in"}
-                      </span>
-                      <ArrowImg src={arrow} alt="From — To" />
-                      <span>
-                        {props.endDate
-                          ? moment(props.endDate).format("MMM Do")
-                          : "Check out"}
-                      </span>
-                    </Info>
-                  </PortalRow>
-                  <PickerRow>{picker}</PickerRow>
-                  <PortalRow>
-                    <SaveButton onClick={closePortal && props.onApply}>
-                      Save
-                    </SaveButton>
-                  </PortalRow>
-                </StyledPortal>
-              )
-            }
-          </PortalWithState>
-        ) : (
-          <PopupOverlayWrapper>
-            <PopupWrapper>
-              {picker}
-              <DayPickerBbar>
-                <PopupButton onClick={props.onClose}>Cancel</PopupButton>
-                <PopupButton onClick={props.onApply} primary>
-                  Apply
-                </PopupButton>
-              </DayPickerBbar>
-            </PopupWrapper>
-          </PopupOverlayWrapper>
-        ))}
-      <FilterButton
-        onClick={e => props.onButtonClick(filterId, e)}
-        active={
-          props.activeFilter === filterId || props.startDate || props.endDate
-        }
-      >
-        {props.startDate || props.endDate || props.activeFilter === filterId
-          ? (props.startDate
-              ? moment(props.startDate).format("MMM Do")
-              : "Check in") +
-            " — " +
-            (props.endDate
-              ? moment(props.endDate).format("MMM Do")
-              : "Check out")
-          : "Dates"}
-      </FilterButton>
-    </Wrapper>
-  );
-};
+    return (
+      <Wrapper>
+        {this.props.activeFilter === filterId &&
+          (this.props.isMobile ? (
+            <PortalWithState defaultOpen>
+              {({ openPortal, closePortal, isOpen, portal }) =>
+                portal(
+                  <StyledPortal>
+                    <PortalRow>
+                      <Title>
+                        <CloseButton
+                          onClick={closePortal && this.props.onClose}
+                        />
+                        Dates
+                        <ResetButton onClick={this.props.onReset}>
+                          Reset
+                        </ResetButton>
+                      </Title>
+                      <Info>
+                        <span>
+                          {this.props.startDate
+                            ? moment(this.props.startDate).format("MMM Do")
+                            : "Check in"}
+                        </span>
+                        <ArrowImg src={arrow} alt="From — To" />
+                        <span>
+                          {this.props.endDate
+                            ? moment(this.props.endDate).format("MMM Do")
+                            : "Check out"}
+                        </span>
+                      </Info>
+                    </PortalRow>
+                    <PickerRow>{picker}</PickerRow>
+                    <PortalRow>
+                      <SaveButton onClick={closePortal && this.props.onApply}>
+                        Save
+                      </SaveButton>
+                    </PortalRow>
+                  </StyledPortal>
+                )
+              }
+            </PortalWithState>
+          ) : (
+            <PopupOverlayWrapper>
+              <Popup
+                handleClickOutside={() => {
+                  this.props.onReset();
+                  this.props.onClose();
+                }}
+              >
+                {picker}
+                <DayPickerBbar>
+                  <PopupButton onClick={this.props.onClose}>Cancel</PopupButton>
+                  <PopupButton onClick={this.props.onApply} primary>
+                    Apply
+                  </PopupButton>
+                </DayPickerBbar>
+              </Popup>
+            </PopupOverlayWrapper>
+          ))}
+
+        <FilterButton
+          onClick={e => this.props.onButtonClick(filterId, e)}
+          active={
+            this.props.activeFilter === filterId ||
+            this.props.startDate ||
+            this.props.endDate
+          }
+        >
+          {this.props.startDate ||
+          this.props.endDate ||
+          this.props.activeFilter === filterId
+            ? (this.props.startDate
+                ? moment(this.props.startDate).format("MMM Do")
+                : "Check in") +
+              " — " +
+              (this.props.endDate
+                ? moment(this.props.endDate).format("MMM Do")
+                : "Check out")
+            : "Dates"}
+        </FilterButton>
+      </Wrapper>
+    );
+  }
+}
+
+export default Dates;
