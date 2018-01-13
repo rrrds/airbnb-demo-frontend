@@ -23,9 +23,9 @@ const ImageWrapper = styled.span`
   display: inline-block;
 `;
 
-export default () => {
+export default props => {
   return (
-    <MapButton>
+    <MapButton className={props.className}>
       <ImageWrapper>
         <img src={point} alt="Open map" />
       </ImageWrapper>
