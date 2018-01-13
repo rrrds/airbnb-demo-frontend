@@ -2,11 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { DayPickerRangeController, isInclusivelyAfterDay } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-import {
-  FilterButton,
-  PopupButton,
-  PopupOverlayWrapper
-} from "../styled";
+import { FilterButton, PopupButton, PopupOverlayWrapper } from "../styled";
 import moment from "moment";
 import { PortalWithState } from "react-portal";
 import Popup from "./Popup";
@@ -110,6 +106,10 @@ const DayPickerBbar = styled.div`
   padding: 0 22px 22px 22px;
 `;
 
+const isActiveFilter = currentFilterId => {
+  return currentFilterId === filterId;
+};
+
 class Dates extends React.Component {
   render() {
     const picker = (
@@ -129,7 +129,7 @@ class Dates extends React.Component {
 
     return (
       <Wrapper>
-        {this.props.activeFilter === filterId &&
+        {isActiveFilter(this.props.activeFilter) &&
           (this.props.isMobile ? (
             <PortalWithState defaultOpen>
               {({ openPortal, closePortal, isOpen, portal }) =>
@@ -191,14 +191,14 @@ class Dates extends React.Component {
         <FilterButton
           onClick={e => this.props.onButtonClick(filterId, e)}
           active={
-            this.props.activeFilter === filterId ||
+            isActiveFilter(this.props.activeFilter) ||
             this.props.startDate ||
             this.props.endDate
           }
         >
           {this.props.startDate ||
           this.props.endDate ||
-          this.props.activeFilter === filterId
+          isActiveFilter(this.props.activeFilter)
             ? (this.props.startDate
                 ? moment(this.props.startDate).format("MMM Do")
                 : "Check in") +
