@@ -4,6 +4,8 @@ import { FilterButton } from "../styled";
 import Dates from "./Dates";
 import Guests from "./Guests";
 
+const isMobile = window.matchMedia("(max-width: 400px)").matches;
+
 class Filters extends React.Component {
   state = {
     activeFilter: false,
@@ -66,10 +68,12 @@ class Filters extends React.Component {
               onApply={this.onApply}
               onClose={this.onClose}
               onReset={this.onReset}
+              isMobile={isMobile}
             />
             <Guests
               onButtonClick={this.toggleOpen}
               activeFilter={this.state.activeFilter}
+              isMobile={isMobile}
             />
             <FilterButton
               onClick={e => this.toggleOpen("roomtype", e)}

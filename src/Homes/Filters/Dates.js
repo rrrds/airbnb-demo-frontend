@@ -111,8 +111,6 @@ const DayPickerBbar = styled.div`
 `;
 
 export default props => {
-  const isMobile = window.matchMedia("(max-width: 400px)").matches;
-
   const picker = (
     <DayPickerRangeController
       startDate={props.startDate}
@@ -120,9 +118,9 @@ export default props => {
       onDatesChange={props.onDatesChange}
       focusedInput={props.focusedInput}
       onFocusChange={props.onFocusChange}
-      numberOfMonths={isMobile ? 4 : 2}
+      numberOfMonths={props.isMobile ? 4 : 2}
       hideKeyboardShortcutsPanel={true}
-      orientation={isMobile ? "verticalScrollable" : "horizontal"}
+      orientation={props.isMobile ? "verticalScrollable" : "horizontal"}
       noBorder={true}
       isOutsideRange={day => !isInclusivelyAfterDay(day, moment())}
     />
@@ -131,7 +129,7 @@ export default props => {
   return (
     <Wrapper>
       {props.activeFilter === filterId &&
-        (isMobile ? (
+        (props.isMobile ? (
           <PortalWithState defaultOpen>
             {({ openPortal, closePortal, isOpen, portal }) =>
               portal(
