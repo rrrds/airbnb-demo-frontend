@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Grid } from "react-flexbox-grid";
 import { FilterButton } from "../styled";
 import Dates from "./Dates";
+import Guests from "./Guests";
 
 class Filters extends React.Component {
   state = {
@@ -66,12 +67,10 @@ class Filters extends React.Component {
               onClose={this.onClose}
               onReset={this.onReset}
             />
-            <FilterButton
-              onClick={e => this.toggleOpen("guests", e)}
-              active={this.state.activeFilter === "guests"}
-            >
-              Guests
-            </FilterButton>
+            <Guests
+              onButtonClick={this.toggleOpen}
+              activeFilter={this.state.activeFilter}
+            />
             <FilterButton
               onClick={e => this.toggleOpen("roomtype", e)}
               active={this.state.activeFilter === "roomtype"}
