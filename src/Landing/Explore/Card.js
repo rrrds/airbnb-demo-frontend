@@ -30,11 +30,13 @@ const Body = styled.div`
 
 const Image = styled(CardImg)`
   display: block;
+  max-height: 122px;
   width: 100%;
   max-width: 100%;
   border-radius: 4px 4px 0 0;
 
   @media screen and (min-width: 768px) {
+    max-height: 74px;
     width: auto;
     border-radius: 4px 0 0 4px;
   }
@@ -44,8 +46,8 @@ export default function(props) {
   return (
     <Card to={props.to}>
       <Image
-        src={props.image}
-        srcset="${props.image} 1x, ${props.image2x} 2x"
+        src={props.image2x}
+        srcset={`${props.image} 1x, ${props.image2x} 2x`}
         alt={props.text}
       />
       <Body>{props.text}</Body>

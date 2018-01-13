@@ -34,7 +34,7 @@ const explore = [
 
 const exploreList = explore.map((exp, index) => (
   <Col key={index.toString()} xs={6} md={5} lg={4}>
-    <Card text={exp.name} image={exp.image} to={exp.to} />
+    <Card text={exp.name} image={exp.image} image2x={exp.image2x} to={exp.to} />
   </Col>
 ));
 
