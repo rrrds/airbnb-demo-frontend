@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { DayPickerRangeController } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-import Button from "./Button";
+import { FilterButton, PopupOverlayWrapper, PopupWrapper } from "../styled";
 import moment from "moment";
 import { PortalWithState } from "react-portal";
 import x from "./x.svg";
@@ -99,33 +99,6 @@ const Wrapper = styled.div`
   display: inline-block;
 `;
 
-const DayPickerOverlayWrapper = styled.div`
-  position: relative;
-  display: inline-block;
-
-  :before {
-    content: "";
-    position: fixed;
-    background: #fff;
-    mix-blend-mode: normal;
-    opacity: 0.8;
-    height: 100vh;
-    width: 100vw;
-    z-index: -50;
-  }
-`;
-
-const DayPickerWrapper = styled.div`
-  position: absolute;
-  left: -1px;
-  top: 15px;
-  background: #fff;
-  z-index: 20;
-  border: 1px solid rgba(72, 72, 72, 0.2);
-  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
-  border-radius: 4px;
-`;
-
 const DayPickerBbar = styled.div`
   display: flex;
   justify-content: space-between;
@@ -200,8 +173,8 @@ export default props => {
             }
           </PortalWithState>
         ) : (
-          <DayPickerOverlayWrapper>
-            <DayPickerWrapper>
+          <PopupOverlayWrapper>
+            <PopupWrapper>
               {picker}
               <DayPickerBbar>
                 <PickerButton onClick={props.onClose}>Cancel</PickerButton>
@@ -209,10 +182,10 @@ export default props => {
                   Apply
                 </PickerButton>
               </DayPickerBbar>
-            </DayPickerWrapper>
-          </DayPickerOverlayWrapper>
+            </PopupWrapper>
+          </PopupOverlayWrapper>
         ))}
-      <Button
+      <FilterButton
         onClick={e => props.onButtonClick(FILTER_ID, e)}
         active={props.activeFilter === FILTER_ID}
       >
@@ -225,7 +198,7 @@ export default props => {
               ? moment(props.endDate).format("MMM Do")
               : "Check out")
           : "Dates"}
-      </Button>
+      </FilterButton>
     </Wrapper>
   );
 };

@@ -1,38 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { Grid, Row, Col } from "react-flexbox-grid";
-import Button from "./Button";
+import {
+  RoundButton,
+  FilterButton,
+  PopupOverlayWrapper,
+  PopupWrapper
+} from "../styled";
 
 const FILTER_ID = "guests";
 
 const Wrapper = styled.div`
   display: inline-block;
-`;
-
-const DayPickerOverlayWrapper = styled.div`
-  position: relative;
-  display: inline-block;
-
-  :before {
-    content: "";
-    position: fixed;
-    background: #fff;
-    mix-blend-mode: normal;
-    opacity: 0.8;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -50;
-  }
-`;
-
-const DayPickerWrapper = styled.div`
-  position: absolute;
-  left: 0;
-  top: 15px;
-  background: #fff;
-  z-index: 20;
 `;
 
 const DayPickerBbar = styled.div`
@@ -77,55 +56,55 @@ class Guests extends React.Component {
     return (
       <Wrapper>
         {this.props.activeFilter === FILTER_ID && (
-          <DayPickerOverlayWrapper>
-            <DayPickerWrapper>
+          <PopupOverlayWrapper>
+            <PopupWrapper>
               <Grid>
                 <Row>
                   <Col>Adults</Col>
                   <Col>
-                    <button onClick={e => this.onDecrase("adults", e)}>
+                    <RoundButton onClick={e => this.onDecrase("adults", e)}>
                       -
-                    </button>
+                    </RoundButton>
                     <span>{this.state.adults}</span>
-                    <button onClick={e => this.onIncrease("adults", e)}>
+                    <RoundButton onClick={e => this.onIncrease("adults", e)}>
                       +
-                    </button>
+                    </RoundButton>
                   </Col>
                 </Row>
                 <Row>
                   <Col>Children</Col>
                   <Col>
-                    <button onClick={e => this.onDecrase("children", e)}>
+                    <RoundButton onClick={e => this.onDecrase("children", e)}>
                       -
-                    </button>
+                    </RoundButton>
                     <span>{this.state.children}</span>
-                    <button onClick={e => this.onIncrease("children", e)}>
+                    <RoundButton onClick={e => this.onIncrease("children", e)}>
                       +
-                    </button>
+                    </RoundButton>
                   </Col>
                 </Row>
                 <Row>
                   <Col>Infants</Col>
                   <Col>
-                    <button onClick={e => this.onDecrase("infants", e)}>
+                    <RoundButton onClick={e => this.onDecrase("infants", e)}>
                       -
-                    </button>
+                    </RoundButton>
                     <span>{this.state.infants}</span>
-                    <button onClick={e => this.onIncrease("infants", e)}>
+                    <RoundButton onClick={e => this.onIncrease("infants", e)}>
                       +
-                    </button>
+                    </RoundButton>
                   </Col>
                 </Row>
               </Grid>
-            </DayPickerWrapper>
-          </DayPickerOverlayWrapper>
+            </PopupWrapper>
+          </PopupOverlayWrapper>
         )}
-        <Button
+        <FilterButton
           onClick={e => this.props.onButtonClick(FILTER_ID, e)}
           active={this.props.activeFilter === FILTER_ID}
         >
           Guests
-        </Button>
+        </FilterButton>
       </Wrapper>
     );
   }
