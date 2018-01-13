@@ -29,6 +29,7 @@ export const FilterButton = styled.button`
   line-height: normal;
   font-size: 14px;
   color: ${props => (props.active ? "#fff" : "#383838")};
+  cursor: pointer;
 `;
 
 export const PopupOverlayWrapper = styled.div`
