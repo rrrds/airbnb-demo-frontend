@@ -24,7 +24,7 @@ export default function() {
         <HeaderRow middle="xs" between="xs">
           <MainWrapper>
             <Logo />
-            <Search placeholder="Try 'Miami'" />
+            <Search placeholder="Try “Miami”" />
           </MainWrapper>
           <Nav />
         </HeaderRow>
