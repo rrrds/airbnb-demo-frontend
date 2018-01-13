@@ -11,6 +11,7 @@ export const RoundButton = styled.button`
   width: 32px;
   height: 32px;
   margin: 0 8px;
+  cursor: pointer;
 
   &:hover {
     border: 1px solid #008489;
