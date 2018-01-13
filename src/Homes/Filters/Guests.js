@@ -9,7 +9,7 @@ import {
   PopupWrapper
 } from "../styled";
 
-const FILTER_ID = "guests";
+const filterId = "guests";
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -78,7 +78,7 @@ class Guests extends React.Component {
   render() {
     return (
       <Wrapper>
-        {this.props.activeFilter === FILTER_ID && (
+        {this.props.activeFilter === filterId && (
           <PopupOverlayWrapper>
             <SpacedPopupWrapper>
               <TypeRow>
@@ -140,8 +140,8 @@ class Guests extends React.Component {
           </PopupOverlayWrapper>
         )}
         <FilterButton
-          onClick={e => this.props.onButtonClick(FILTER_ID, e)}
-          active={this.props.activeFilter === FILTER_ID}
+          onClick={e => this.props.onButtonClick(filterId, e)}
+          active={this.props.activeFilter === filterId}
         >
           Guests
         </FilterButton>

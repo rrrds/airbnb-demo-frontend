@@ -13,7 +13,7 @@ import { PortalWithState } from "react-portal";
 import cross from "./cross.svg";
 import arrow from "./arrow.svg";
 
-const FILTER_ID = "dates";
+const filterId = "dates";
 
 const StyledPortal = styled.div`
   position: fixed;
@@ -130,7 +130,7 @@ export default props => {
 
   return (
     <Wrapper>
-      {props.activeFilter === FILTER_ID &&
+      {props.activeFilter === filterId &&
         (isMobile ? (
           <PortalWithState defaultOpen>
             {({ openPortal, closePortal, isOpen, portal }) =>
@@ -180,12 +180,12 @@ export default props => {
           </PopupOverlayWrapper>
         ))}
       <FilterButton
-        onClick={e => props.onButtonClick(FILTER_ID, e)}
+        onClick={e => props.onButtonClick(filterId, e)}
         active={
-          props.activeFilter === FILTER_ID || props.startDate || props.endDate
+          props.activeFilter === filterId || props.startDate || props.endDate
         }
       >
-        {props.startDate || props.endDate || props.activeFilter === FILTER_ID
+        {props.startDate || props.endDate || props.activeFilter === filterId
           ? (props.startDate
               ? moment(props.startDate).format("MMM Do")
               : "Check in") +
