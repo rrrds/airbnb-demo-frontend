@@ -10,7 +10,7 @@ import {
 } from "../styled";
 import moment from "moment";
 import { PortalWithState } from "react-portal";
-import x from "./x.svg";
+import cross from "./cross.svg";
 import arrow from "./arrow.svg";
 
 const FILTER_ID = "dates";
@@ -82,7 +82,7 @@ const CloseButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  background: url(${x});
+  background: url(${cross});
   width: 16px;
   height: 16px;
 `;
