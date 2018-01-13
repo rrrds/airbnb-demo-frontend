@@ -198,7 +198,7 @@ class Dates extends React.Component {
             isActiveFilter(this.props.activeFilter) || this.hasSelectedDates()
           }
         >
-          {isActiveFilter(this.props.activeFilter || this.hasSelectedDates())
+          {isActiveFilter(this.props.activeFilter) || this.hasSelectedDates()
             ? (this.props.startDate
                 ? moment(this.props.startDate).format("MMM Do")
                 : "Check in") +
