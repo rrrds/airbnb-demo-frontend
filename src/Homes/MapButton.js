@@ -27,7 +27,7 @@ export default () => {
   return (
     <MapButton>
       <ImageWrapper>
-        <img src={point} />
+        <img src={point} alt="Open map" />
       </ImageWrapper>
     </MapButton>
   );
