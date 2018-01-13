@@ -2,8 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 const Link = styled.a`
-  margin: 0 0.8vw;
+  margin: 0 16px;
   padding: 4px;
+  line-height: 24px;
+  font-size: 14px;
+  text-align: center;
+  color: #383838;
 `;
 
 export default function() {
