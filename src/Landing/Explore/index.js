@@ -15,9 +15,9 @@ const explore = [
     to: "/homes"
   },
   {
-    name: "Experiennces",
+    name: "Experiences",
     image: image2,
-    to: "/experienncesmes"
+    to: "/experiences"
   },
   {
     name: "Restaurants",
