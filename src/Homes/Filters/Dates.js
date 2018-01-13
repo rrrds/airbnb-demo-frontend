@@ -180,7 +180,9 @@ export default props => {
         ))}
       <FilterButton
         onClick={e => props.onButtonClick(FILTER_ID, e)}
-        active={props.activeFilter === FILTER_ID}
+        active={
+          props.activeFilter === FILTER_ID || props.startDate || props.endDate
+        }
       >
         {props.startDate || props.endDate || props.activeFilter === FILTER_ID
           ? (props.startDate
