@@ -27,6 +27,18 @@ class Filters extends React.Component {
     this.setState({ activeFilter: false });
   };
 
+  onReset = e => {
+    this.setState({
+      focusedInput: "startDate",
+      startDate: null,
+      endDate: null
+    });
+  };
+
+  onClose = e => {
+    this.setState({ activeFilter: false });
+  };
+
   onDatesChange = ({ startDate, endDate }) => {
     this.setState({ startDate: startDate, endDate: endDate });
   };
@@ -52,7 +64,8 @@ class Filters extends React.Component {
               onFocusChange={this.onFocusChange}
               onButtonClick={this.toggleOpen}
               onApply={this.onApply}
-              onCancel={this.onCancel}
+              onClose={this.onClose}
+              onReset={this.onReset}
             />
             <Button
               onClick={e => this.toggleOpen("guests", e)}
