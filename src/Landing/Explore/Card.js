@@ -19,9 +19,10 @@ const Card = styled(CardLinkRouter)`
 `;
 
 const Body = styled.div`
-  font-size: 17px;
   font-weight: bold;
+  font-size: 17px;
   line-height: 20px;
+  color: #383838;
   padding: 27px 24px;
   text-align: left;
   flex: 1 0 auto;
@@ -42,7 +43,11 @@ const Image = styled(CardImg)`
 export default function(props) {
   return (
     <Card to={props.to}>
-      <Image src={props.image} alt={props.text} />
+      <Image
+        src={props.image}
+        srcset="${props.image} 1x, ${props.image2x} 2x"
+        alt={props.text}
+      />
       <Body>{props.text}</Body>
     </Card>
   );
