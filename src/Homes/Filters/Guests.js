@@ -29,11 +29,11 @@ const TypeRow = styled.div`
 
 const ActionRow = TypeRow.extend`
   margin: 0 0 0 85px;
+`;
 
-  > span {
-    min-width: 50px;
-    text-align: center;
-  }
+const Counter = styled.div`
+  min-width: 50px;
+  text-align: center;
 `;
 
 const Name = styled.div`
@@ -44,11 +44,11 @@ const Name = styled.div`
   line-height: normal;
   font-size: 20px;
   color: #383838;
+`;
 
-  > small {
-    font-size: 16px;
-    margin-top: 7px;
-  }
+const NameAside = Name.extend`
+  font-size: 16px;
+  margin-top: 7px;
 `;
 
 class Guests extends React.Component {
@@ -90,7 +90,7 @@ class Guests extends React.Component {
                   >
                     -
                   </RoundButton>
-                  <span>{this.state.adults}</span>
+                  <Counter>{this.state.adults}</Counter>
                   <RoundButton onClick={e => this.onIncrease("adults", e)}>
                     +
                   </RoundButton>
@@ -99,7 +99,7 @@ class Guests extends React.Component {
 
               <TypeRow>
                 <Name>
-                  Children<small>Ages 2 — 12</small>
+                  Children<NameAside>Ages 2 — 12</NameAside>
                 </Name>
                 <ActionRow>
                   <RoundButton
@@ -108,7 +108,7 @@ class Guests extends React.Component {
                   >
                     -
                   </RoundButton>
-                  <span>{this.state.children}</span>
+                  <Counter>{this.state.children}</Counter>
                   <RoundButton onClick={e => this.onIncrease("children", e)}>
                     +
                   </RoundButton>
@@ -117,7 +117,7 @@ class Guests extends React.Component {
 
               <TypeRow>
                 <Name>
-                  Infants<small>Under 2</small>
+                  Infants<NameAside>Under 2</NameAside>
                 </Name>
                 <ActionRow>
                   <RoundButton
@@ -126,7 +126,7 @@ class Guests extends React.Component {
                   >
                     -
                   </RoundButton>
-                  <span>{this.state.infants}</span>
+                  <Counter>{this.state.infants}</Counter>
                   <RoundButton onClick={e => this.onIncrease("infants", e)}>
                     +
                   </RoundButton>
