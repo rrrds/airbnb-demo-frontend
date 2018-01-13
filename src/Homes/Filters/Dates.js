@@ -114,6 +114,12 @@ const formatButtonText = (value, defaultText) => {
   return value ? moment(value).format("MMM Do") : defaultText;
 };
 
+const getNumberOfMonths = () => {
+  return window.matchMedia("(min-width: 992px)").matches
+    ? 2
+    : window.matchMedia("(min-width: 768px)").matches ? 1 : 4;
+};
+
 class Dates extends React.Component {
   state = {
     focusedInput: "startDate",
@@ -182,7 +188,7 @@ class Dates extends React.Component {
         onDatesChange={this.onDatesChange}
         focusedInput={this.state.focusedInput}
         onFocusChange={this.onFocusChange}
-        numberOfMonths={this.props.isMobile ? 4 : 2}
+        numberOfMonths={getNumberOfMonths()}
         orientation={this.props.isMobile ? "verticalScrollable" : "horizontal"}
       />
     );
