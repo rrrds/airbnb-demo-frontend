@@ -59,7 +59,7 @@ const Link = styled.a`
   font-size: 15px;
   color: #636363;
   display: block;
-  padding: 4px 0;
+  margin: 8px 0;
 `;
 
 const CopyrightLink = styled.a`
