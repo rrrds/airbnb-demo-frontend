@@ -117,10 +117,13 @@ const DayPickerOverlayWrapper = styled.div`
 
 const DayPickerWrapper = styled.div`
   position: absolute;
-  left: 0;
+  left: -1px;
   top: 15px;
   background: #fff;
   z-index: 20;
+  border: 1px solid rgba(72, 72, 72, 0.2);
+  box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
+  border-radius: 4px;
 `;
 
 const DayPickerBbar = styled.div`
@@ -155,16 +158,6 @@ export default props => {
       hideKeyboardShortcutsPanel={true}
       orientation={isMobile ? "verticalScrollable" : "horizontal"}
       noBorder={true}
-      renderCalendarInfo={() =>
-        isMobile ? null : (
-          <DayPickerBbar>
-            <PickerButton onClick={props.onClose}>Cancel</PickerButton>
-            <PickerButton onClick={props.onApply} primary>
-              Apply
-            </PickerButton>
-          </DayPickerBbar>
-        )
-      }
     />
   );
 
@@ -208,7 +201,15 @@ export default props => {
           </PortalWithState>
         ) : (
           <DayPickerOverlayWrapper>
-            <DayPickerWrapper>{picker}</DayPickerWrapper>
+            <DayPickerWrapper>
+              {picker}
+              <DayPickerBbar>
+                <PickerButton onClick={props.onClose}>Cancel</PickerButton>
+                <PickerButton onClick={props.onApply} primary>
+                  Apply
+                </PickerButton>
+              </DayPickerBbar>
+            </DayPickerWrapper>
           </DayPickerOverlayWrapper>
         ))}
       <Button
