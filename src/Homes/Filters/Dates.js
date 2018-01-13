@@ -111,6 +111,10 @@ const isActiveFilter = currentFilterId => {
 };
 
 class Dates extends React.Component {
+  hasSelectedDates() {
+    return this.props.startDate || this.props.endDate;
+  }
+
   render() {
     const picker = (
       <DayPickerRangeController
@@ -191,14 +195,10 @@ class Dates extends React.Component {
         <FilterButton
           onClick={e => this.props.onButtonClick(filterId, e)}
           active={
-            isActiveFilter(this.props.activeFilter) ||
-            this.props.startDate ||
-            this.props.endDate
+            isActiveFilter(this.props.activeFilter) || this.hasSelectedDates()
           }
         >
-          {this.props.startDate ||
-          this.props.endDate ||
-          isActiveFilter(this.props.activeFilter)
+          {isActiveFilter(this.props.activeFilter || this.hasSelectedDates())
             ? (this.props.startDate
                 ? moment(this.props.startDate).format("MMM Do")
                 : "Check in") +
