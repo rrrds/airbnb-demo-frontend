@@ -61,11 +61,12 @@ class Filters extends React.Component {
               onReset={this.onReset}
               isMobile={isMobile}
             />
-            <Guests
-              onButtonClick={this.toggleOpen}
-              activeFilter={this.state.activeFilter}
-              isMobile={isMobile}
-            />
+            <FilterButton
+              onClick={e => this.toggleOpen("guests", e)}
+              active={this.state.activeFilter === "guests"}
+            >
+              Guests
+            </FilterButton>
             <FilterButton
               onClick={e => this.toggleOpen("roomtype", e)}
               active={this.state.activeFilter === "roomtype"}
