@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col, Grid } from "react-flexbox-grid";
-import { InlineWrapper } from "../../UI/styled";
 import Button from "./Button";
 import Dates from "./Dates";
 

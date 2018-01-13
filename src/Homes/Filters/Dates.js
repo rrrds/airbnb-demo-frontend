@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import styled from "styled-components";
 import { DayPickerRangeController } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
