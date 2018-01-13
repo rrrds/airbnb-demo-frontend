@@ -198,7 +198,10 @@ class Dates extends React.Component {
                     <PortalRow>
                       <Title>
                         <CloseButton
-                          onClick={closePortal && this.props.onClose}
+                          onClick={e => {
+                            this.props.onClose();
+                            closePortal();
+                          }}
                         />
                         Dates
                         <ResetButton onClick={this.onReset}>Reset</ResetButton>
@@ -215,7 +218,12 @@ class Dates extends React.Component {
                     </PortalRow>
                     <PickerRow>{picker}</PickerRow>
                     <PortalRow>
-                      <SaveButton onClick={closePortal && this.props.onApply}>
+                      <SaveButton
+                        onClick={e => {
+                          this.props.onApply(this.getStateForApply(), e);
+                          closePortal();
+                        }}
+                      >
                         Save
                       </SaveButton>
                     </PortalRow>
