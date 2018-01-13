@@ -59,14 +59,9 @@ class Guests extends React.Component {
   };
 
   onDecrase = guestType => {
-    this.setState(
-      prevState =>
-        prevState[guestType] < 1
-          ? 0
-          : {
-              [guestType]: prevState[guestType] - 1
-            }
-    );
+    this.setState(prevState => ({
+      [guestType]: prevState[guestType] - 1
+    }));
   };
 
   onIncrease = guestType => {
