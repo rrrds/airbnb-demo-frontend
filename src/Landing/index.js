@@ -17,7 +17,7 @@ export default () => {
   return (
     <div>
       <Helmet>
-        <title>Airbnb - Main</title>
+        <title>Airbnb — Main</title>
       </Helmet>
 
       <Content>

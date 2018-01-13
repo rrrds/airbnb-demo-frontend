@@ -148,7 +148,7 @@ export default props => {
                           ? moment(props.startDate).format("MMM Do")
                           : "Check in"}
                       </span>
-                      <ArrowImg src={arrow} alt="From - To" />
+                      <ArrowImg src={arrow} alt="From — To" />
                       <span>
                         {props.endDate
                           ? moment(props.endDate).format("MMM Do")
@@ -189,7 +189,7 @@ export default props => {
           ? (props.startDate
               ? moment(props.startDate).format("MMM Do")
               : "Check in") +
-            " - " +
+            " — " +
             (props.endDate
               ? moment(props.endDate).format("MMM Do")
               : "Check out")

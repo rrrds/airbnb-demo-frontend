@@ -106,7 +106,7 @@ export default () => {
   return (
     <div>
       <Helmet>
-        <title>Airbnb - Homes</title>
+        <title>Airbnb — Homes</title>
       </Helmet>
 
       <FiltersWrapper>
