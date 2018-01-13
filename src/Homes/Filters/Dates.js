@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { DayPickerRangeController } from "react-dates";
+import { DayPickerRangeController, isInclusivelyAfterDay } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import {
   FilterButton,
@@ -124,6 +124,7 @@ export default props => {
       hideKeyboardShortcutsPanel={true}
       orientation={isMobile ? "verticalScrollable" : "horizontal"}
       noBorder={true}
+      isOutsideRange={day => !isInclusivelyAfterDay(day, moment())}
     />
   );
 
