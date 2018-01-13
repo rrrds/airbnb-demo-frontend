@@ -9,12 +9,8 @@ import { FixedWrapper } from "../UI/styled";
 
 const HeaderRow = styled(Row)`
   padding: 16px 8px;
-`;
-
-const MainWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
+  justify-content: baseline;
+  flex-wrap: nowrap;
 `;
 
 export default function() {
@@ -22,10 +18,8 @@ export default function() {
     <FixedWrapper>
       <Grid>
         <HeaderRow middle="xs" between="xs">
-          <MainWrapper>
-            <Logo />
-            <Search placeholder="Try “Miami”" />
-          </MainWrapper>
+          <Logo />
+          <Search placeholder="Try “Miami”" />
           <Nav />
         </HeaderRow>
       </Grid>

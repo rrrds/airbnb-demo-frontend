@@ -10,13 +10,18 @@ const Link = styled.a`
   color: #383838;
 `;
 
-export default function() {
+const Nav = styled.nav`
+  flex-grow: 1;
+  text-align: right;
+`;
+
+export default function(props) {
   return (
-    <nav className="hidden-xs hidden-md">
+    <Nav className="hidden-xs hidden-md">
       <Link href="#">Become a host</Link>
       <Link href="#">Help</Link>
       <Link href="#">Sign Up</Link>
       <Link href="#">Log In</Link>
-    </nav>
+    </Nav>
   );
 }
