@@ -111,20 +111,45 @@ const isActiveFilter = currentFilterId => {
 };
 
 class Dates extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      focusedInput: "startDate",
+      startDate: this.props.startDate,
+      endDate: this.props.endDate
+    };
+  }
+
+  onDatesChange = ({ startDate, endDate }) => {
+    this.setState({ startDate: startDate, endDate: endDate });
+  };
+
+  onFocusChange = focusedInput => {
+    this.setState({
+      // Force the focusedInput to always be truthy so that dates are always selectable
+      focusedInput: !focusedInput ? "startDate" : focusedInput
+    });
+  };
+
   hasSelectedDates() {
     return this.props.startDate || this.props.endDate;
   }
 
   formatStartText() {
-    return this.props.startDate
-      ? moment(this.props.startDate).format("MMM Do")
-      : "Check in";
+    const date = isActiveFilter(this.props.activeFilter)
+      ? this.state.startDate
+      : this.props.startDate;
+
+    return date ? moment(date).format("MMM Do") : "Check in";
   }
 
   formatEndDate() {
-    return this.props.endDate
-      ? moment(this.props.endDate).format("MMM Do")
-      : "Check out";
+    const date = isActiveFilter(this.props.activeFilter)
+      ? this.state.endDate
+      : this.props.endDate;
+
+    return date ? moment(date).format("MMM Do") : "Check out";
   }
 
   getFilterButtonText() {
@@ -139,11 +164,11 @@ class Dates extends React.Component {
         hideKeyboardShortcutsPanel={true}
         noBorder={true}
         isOutsideRange={day => !isInclusivelyAfterDay(day, moment())}
-        startDate={this.props.startDate}
-        endDate={this.props.endDate}
-        onDatesChange={this.props.onDatesChange}
-        focusedInput={this.props.focusedInput}
-        onFocusChange={this.props.onFocusChange}
+        startDate={this.state.startDate}
+        endDate={this.state.endDate}
+        onDatesChange={this.onDatesChange}
+        focusedInput={this.state.focusedInput}
+        onFocusChange={this.onFocusChange}
         numberOfMonths={this.props.isMobile ? 4 : 2}
         orientation={this.props.isMobile ? "verticalScrollable" : "horizontal"}
       />

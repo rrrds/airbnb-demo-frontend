@@ -15,9 +15,9 @@ class Filters extends React.Component {
     endDate: null
   };
 
-  toggleOpen = buttonId => {
+  toggleOpen = filterId => {
     this.setState(prevState => ({
-      activeFilter: prevState.activeFilter === buttonId ? false : buttonId
+      activeFilter: prevState.activeFilter === filterId ? false : filterId
     }));
   };
 
@@ -39,17 +39,6 @@ class Filters extends React.Component {
 
   onClose = e => {
     this.setState({ activeFilter: false });
-  };
-
-  onDatesChange = ({ startDate, endDate }) => {
-    this.setState({ startDate: startDate, endDate: endDate });
-  };
-
-  onFocusChange = focusedInput => {
-    this.setState({
-      // Force the focusedInput to always be truthy so that dates are always selectable
-      focusedInput: !focusedInput ? "startDate" : focusedInput
-    });
   };
 
   render() {
