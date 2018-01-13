@@ -59,3 +59,15 @@ export const PopupWrapper = styled.div`
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
   border-radius: 4px;
 `;
+
+export const PopupButton = styled.button`
+  line-height: normal;
+  font-size: 16px;
+  text-align: center;
+
+  color: ${props => (props.primary ? "#0F7276" : "#636363")};
+
+  border: none;
+  background: none;
+  cursor: pointer;
+`;
