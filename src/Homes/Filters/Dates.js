@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { DayPickerRangeController } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-import { FilterButton, PopupOverlayWrapper, PopupWrapper } from "../styled";
+import {
+  FilterButton,
+  PopupButton,
+  PopupOverlayWrapper,
+  PopupWrapper
+} from "../styled";
 import moment from "moment";
 import { PortalWithState } from "react-portal";
 import x from "./x.svg";
@@ -105,18 +110,6 @@ const DayPickerBbar = styled.div`
   padding: 0 22px 22px 22px;
 `;
 
-const PickerButton = styled.button`
-  line-height: normal;
-  font-size: 16px;
-  text-align: center;
-
-  color: ${props => (props.primary ? "#0F7276" : "#636363")};
-
-  border: none;
-  background: none;
-  cursor: pointer;
-`;
-
 export default props => {
   const isMobile = window.matchMedia("(max-width: 400px)").matches;
 
@@ -177,10 +170,10 @@ export default props => {
             <PopupWrapper>
               {picker}
               <DayPickerBbar>
-                <PickerButton onClick={props.onClose}>Cancel</PickerButton>
-                <PickerButton onClick={props.onApply} primary>
+                <PopupButton onClick={props.onClose}>Cancel</PopupButton>
+                <PopupButton onClick={props.onApply} primary>
                   Apply
-                </PickerButton>
+                </PopupButton>
               </DayPickerBbar>
             </PopupWrapper>
           </PopupOverlayWrapper>
