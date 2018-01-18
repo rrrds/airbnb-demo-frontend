@@ -1,20 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  RoundButton,
-  PopupButton,
-  FilterButton,
-  PopupOverlayWrapper,
-  PopupWrapper
-} from "../styled";
+import { RoundButton, FilterButton } from "../styled";
+import Dropdown from "./Dropdown";
 
 const filterId = "guests";
 
-const Wrapper = styled.div`
-  display: inline-block;
-`;
-
-const SpacedPopupWrapper = PopupWrapper.extend`
+const SpacedPopupWrapper = styled.div`
   padding: 24px 15px 0 24px;
 `;
 
@@ -50,12 +41,24 @@ const NameAside = Name.extend`
   margin-top: 7px;
 `;
 
+const isActiveFilter = currentFilterId => {
+  return currentFilterId === filterId;
+};
+
 class Guests extends React.Component {
   state = {
     adults: 0,
     children: 0,
     infants: 0
   };
+
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      adults: newProps.adults,
+      children: newProps.children,
+      infants: newProps.infants
+    });
+  }
 
   onDecrase = guestType => {
     this.setState(prevState => ({
@@ -69,77 +72,105 @@ class Guests extends React.Component {
     }));
   };
 
+  getStateForApply = () => {
+    return {
+      adults: this.state.adults,
+      children: this.state.children,
+      infants: this.state.infants
+    };
+  };
+
+  onReset = e => {
+    this.props.onApply(
+      {
+        adults: 1,
+        children: 0,
+        infants: 0
+      },
+      e
+    );
+
+    this.props.onClose(e);
+  };
+
   render() {
+    const showFilter = isActiveFilter(this.props.activeFilter);
+
+    const guestSelect = (
+      <SpacedPopupWrapper>
+        <TypeRow>
+          <Name>Adults</Name>
+          <ActionRow>
+            <RoundButton
+              onClick={e => this.onDecrase("adults", e)}
+              disabled={this.state.adults < 1}
+            >
+              -
+            </RoundButton>
+            <Counter>{this.state.adults}</Counter>
+            <RoundButton onClick={e => this.onIncrease("adults", e)}>
+              +
+            </RoundButton>
+          </ActionRow>
+        </TypeRow>
+
+        <TypeRow>
+          <Name>
+            Children<NameAside>Ages 2 — 12</NameAside>
+          </Name>
+          <ActionRow>
+            <RoundButton
+              onClick={e => this.onDecrase("children", e)}
+              disabled={this.state.children < 1}
+            >
+              -
+            </RoundButton>
+            <Counter>{this.state.children}</Counter>
+            <RoundButton onClick={e => this.onIncrease("children", e)}>
+              +
+            </RoundButton>
+          </ActionRow>
+        </TypeRow>
+
+        <TypeRow>
+          <Name>
+            Infants<NameAside>Under 2</NameAside>
+          </Name>
+          <ActionRow>
+            <RoundButton
+              onClick={e => this.onDecrase("infants", e)}
+              disabled={this.state.infants < 1}
+            >
+              -
+            </RoundButton>
+            <Counter>{this.state.infants}</Counter>
+            <RoundButton onClick={e => this.onIncrease("infants", e)}>
+              +
+            </RoundButton>
+          </ActionRow>
+        </TypeRow>
+      </SpacedPopupWrapper>
+    );
+
+    const button = (
+      <FilterButton
+        onClick={e => this.props.onButtonClick(filterId, e)}
+        active={showFilter}
+      >
+        Guests
+      </FilterButton>
+    );
+
     return (
-      <Wrapper>
-        {this.props.activeFilter === filterId && (
-          <PopupOverlayWrapper>
-            <SpacedPopupWrapper>
-              <TypeRow>
-                <Name>Adults</Name>
-                <ActionRow>
-                  <RoundButton
-                    onClick={e => this.onDecrase("adults", e)}
-                    disabled={this.state.adults < 1}
-                  >
-                    -
-                  </RoundButton>
-                  <Counter>{this.state.adults}</Counter>
-                  <RoundButton onClick={e => this.onIncrease("adults", e)}>
-                    +
-                  </RoundButton>
-                </ActionRow>
-              </TypeRow>
-
-              <TypeRow>
-                <Name>
-                  Children<NameAside>Ages 2 — 12</NameAside>
-                </Name>
-                <ActionRow>
-                  <RoundButton
-                    onClick={e => this.onDecrase("children", e)}
-                    disabled={this.state.children < 1}
-                  >
-                    -
-                  </RoundButton>
-                  <Counter>{this.state.children}</Counter>
-                  <RoundButton onClick={e => this.onIncrease("children", e)}>
-                    +
-                  </RoundButton>
-                </ActionRow>
-              </TypeRow>
-
-              <TypeRow>
-                <Name>
-                  Infants<NameAside>Under 2</NameAside>
-                </Name>
-                <ActionRow>
-                  <RoundButton
-                    onClick={e => this.onDecrase("infants", e)}
-                    disabled={this.state.infants < 1}
-                  >
-                    -
-                  </RoundButton>
-                  <Counter>{this.state.infants}</Counter>
-                  <RoundButton onClick={e => this.onIncrease("infants", e)}>
-                    +
-                  </RoundButton>
-                </ActionRow>
-              </TypeRow>
-              <TypeRow>
-                <PopupButton>Cancel</PopupButton>
-                <PopupButton primary>Apply</PopupButton>
-              </TypeRow>
-            </SpacedPopupWrapper>
-          </PopupOverlayWrapper>
-        )}
-        <FilterButton
-          onClick={e => this.props.onButtonClick(filterId, e)}
-          active={this.props.activeFilter === filterId}
-        >
-          Guests
-        </FilterButton>
-      </Wrapper>
+      <Dropdown
+        isActive={showFilter}
+        isMobile={this.props.isMobile}
+        filter={guestSelect}
+        button={button}
+        onClose={this.props.onClose}
+        onApply={e => this.props.onApply(this.getStateForApply(), e)}
+        onReset={this.onReset}
+      />
     );
   }
 }
