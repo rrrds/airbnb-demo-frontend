@@ -2,6 +2,7 @@ import React from "react";
 import { Row, Col, Grid } from "react-flexbox-grid";
 import { FilterButton } from "../styled";
 import Dates from "./Dates";
+import Guests from "./Guests";
 
 const isMobile = window.matchMedia("(max-width: 400px)").matches;
 
@@ -11,7 +12,11 @@ class Filters extends React.Component {
 
     focusedInput: "startDate",
     startDate: null,
-    endDate: null
+    endDate: null,
+
+    adults: 1,
+    children: 0,
+    infants: 0
   };
 
   toggleOpen = filterId => {
@@ -60,12 +65,19 @@ class Filters extends React.Component {
               onReset={this.onReset}
               isMobile={isMobile}
             />
-            <FilterButton
-              onClick={e => this.toggleOpen("guests", e)}
-              active={this.state.activeFilter === "guests"}
-            >
-              Guests
-            </FilterButton>
+
+            <Guests
+              adults={this.state.adults}
+              children={this.state.children}
+              infants={this.state.infants}
+              activeFilter={this.state.activeFilter}
+              onButtonClick={this.toggleOpen}
+              onApply={this.onApply}
+              onClose={this.onClose}
+              onReset={this.onReset}
+              isMobile={isMobile}
+            />
+
             <FilterButton
               onClick={e => this.toggleOpen("roomtype", e)}
               active={this.state.activeFilter === "roomtype"}
