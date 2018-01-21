@@ -41,10 +41,6 @@ const NameAside = Name.extend`
   margin-top: 7px;
 `;
 
-const isActiveFilter = currentFilterId => {
-  return currentFilterId === filterId;
-};
-
 class Guests extends React.Component {
   state = {
     adults: 0,
@@ -94,8 +90,6 @@ class Guests extends React.Component {
   };
 
   render() {
-    const showFilter = isActiveFilter(this.props.activeFilter);
-
     const guestSelect = (
       <SpacedPopupWrapper>
         <TypeRow>
@@ -155,7 +149,7 @@ class Guests extends React.Component {
     const button = (
       <FilterButton
         onClick={e => this.props.onButtonClick(filterId, e)}
-        active={showFilter}
+        active={this.props.isActive}
       >
         Guests
       </FilterButton>
@@ -163,7 +157,7 @@ class Guests extends React.Component {
 
     return (
       <Dropdown
-        isActive={showFilter}
+        isActive={this.props.isActive}
         isMobile={this.props.isMobile}
         filter={guestSelect}
         button={button}
