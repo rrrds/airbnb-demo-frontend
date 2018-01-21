@@ -56,7 +56,7 @@ class Guests extends React.Component {
     });
   }
 
-  onDecrase = guestType => {
+  onDecrease = guestType => {
     this.setState(prevState => ({
       [guestType]: prevState[guestType] - 1
     }));
@@ -85,7 +85,7 @@ class Guests extends React.Component {
           <Name>Adults</Name>
           <ActionRow>
             <RoundButton
-              onClick={e => this.onDecrase("adults", e)}
+              onClick={e => this.onDecrease("adults", e)}
               disabled={this.state.adults < 1}
             >
               -
@@ -103,7 +103,7 @@ class Guests extends React.Component {
           </Name>
           <ActionRow>
             <RoundButton
-              onClick={e => this.onDecrase("children", e)}
+              onClick={e => this.onDecrease("children", e)}
               disabled={this.state.children < 1}
             >
               -
@@ -121,7 +121,7 @@ class Guests extends React.Component {
           </Name>
           <ActionRow>
             <RoundButton
-              onClick={e => this.onDecrase("infants", e)}
+              onClick={e => this.onDecrease("infants", e)}
               disabled={this.state.infants < 1}
             >
               -
