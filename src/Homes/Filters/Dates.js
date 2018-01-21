@@ -63,13 +63,6 @@ class Dates extends React.Component {
     });
   };
 
-  getStateForApply = () => {
-    return {
-      startDate: this.state.startDate,
-      endDate: this.state.endDate
-    };
-  };
-
   onReset = e => {
     this.props.onApply(
       {
@@ -135,7 +128,15 @@ class Dates extends React.Component {
         button={button}
         mobileInfoRow={mobileInfoRow}
         onClose={this.props.onClose}
-        onApply={e => this.props.onApply(this.getStateForApply(), e)}
+        onApply={e =>
+          this.props.onApply(
+            {
+              startDate: this.state.startDate,
+              endDate: this.state.endDate
+            },
+            e
+          )
+        }
         onReset={this.onReset}
       />
     );
