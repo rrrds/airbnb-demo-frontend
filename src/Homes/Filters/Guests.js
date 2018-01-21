@@ -41,6 +41,16 @@ const Description = Name.extend`
   margin-top: 7px;
 `;
 
+const pluralize = (word, count) => {
+  return count > 1 ? word + "s" : word;
+};
+
+const getButtonText = (showSelectedData, guestsTotal) => {
+  return showSelectedData
+    ? guestsTotal + " " + pluralize("guest", guestsTotal)
+    : "Guests";
+};
+
 class Guests extends React.Component {
   state = {
     adults: 0,
@@ -135,12 +145,15 @@ class Guests extends React.Component {
       </SpacedPopupWrapper>
     );
 
+    const guestsTotal =
+      this.state.adults + this.state.children + this.state.infants;
+
     const button = (
       <FilterButton
         onClick={e => this.props.onButtonClick(filterId, e)}
-        active={this.props.isActive}
+        active={this.props.isActive || guestsTotal > 1}
       >
-        Guests
+        {getButtonText(this.props.isActive || guestsTotal > 1, guestsTotal)}
       </FilterButton>
     );
 
