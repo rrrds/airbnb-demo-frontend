@@ -63,29 +63,26 @@ class Dates extends React.Component {
     });
   };
 
-  onReset = e => {
-    this.props.onApply(
-      {
-        startDate: null,
-        endDate: null
-      },
-      e
-    );
+  onReset = () => {
+    this.props.onApply({
+      startDate: null,
+      endDate: null
+    });
 
-    this.props.onClose(e);
+    this.props.onClose();
   };
 
-  hasSelectedDates() {
+  hasSelectedDates = () => {
     return this.props.startDate || this.props.endDate;
-  }
+  };
 
-  getButtonText() {
+  getButtonText = () => {
     return this.props.isActive || this.hasSelectedDates()
       ? formatButtonText(this.state.startDate, "Check in") +
           " — " +
           formatButtonText(this.state.endDate, "Check out")
       : "Dates";
-  }
+  };
 
   render() {
     const picker = (

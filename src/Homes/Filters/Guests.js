@@ -68,25 +68,14 @@ class Guests extends React.Component {
     }));
   };
 
-  getStateForApply = () => {
-    return {
-      adults: this.state.adults,
-      children: this.state.children,
-      infants: this.state.infants
-    };
-  };
-
   onReset = e => {
-    this.props.onApply(
-      {
-        adults: 1,
-        children: 0,
-        infants: 0
-      },
-      e
-    );
+    this.props.onApply({
+      adults: 1,
+      children: 0,
+      infants: 0
+    });
 
-    this.props.onClose(e);
+    this.props.onClose();
   };
 
   render() {
@@ -162,7 +151,16 @@ class Guests extends React.Component {
         filter={guestSelect}
         button={button}
         onClose={this.props.onClose}
-        onApply={e => this.props.onApply(this.getStateForApply(), e)}
+        onApply={e =>
+          this.props.onApply(
+            {
+              adults: this.state.adults,
+              children: this.state.children,
+              infants: this.state.infants
+            },
+            e
+          )
+        }
         onReset={this.onReset}
       />
     );
