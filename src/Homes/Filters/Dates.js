@@ -23,10 +23,6 @@ const ArrowImg = styled.img`
   margin: 0 16px;
 `;
 
-const isActiveFilter = currentFilterId => {
-  return currentFilterId === filterId;
-};
-
 const formatButtonText = (value, defaultText) => {
   return value ? moment(value).format("MMM Do") : defaultText;
 };
@@ -87,7 +83,7 @@ class Dates extends React.Component {
   }
 
   getFilterButtonText() {
-    return isActiveFilter(this.props.activeFilter) || this.hasSelectedDates()
+    return this.props.isActive || this.hasSelectedDates()
       ? formatButtonText(this.state.startDate, "Check in") +
           " — " +
           formatButtonText(this.state.endDate, "Check out")
@@ -95,8 +91,6 @@ class Dates extends React.Component {
   }
 
   render() {
-    const showFilter = isActiveFilter(this.props.activeFilter);
-
     const picker = (
       <DayPickerRangeController
         hideKeyboardShortcutsPanel={true}
@@ -123,7 +117,7 @@ class Dates extends React.Component {
     const button = (
       <FilterButton
         onClick={e => this.props.onButtonClick(filterId, e)}
-        active={showFilter || this.hasSelectedDates()}
+        active={this.props.isActive || this.hasSelectedDates()}
       >
         {this.getFilterButtonText()}
       </FilterButton>
@@ -131,7 +125,7 @@ class Dates extends React.Component {
 
     return (
       <Dropdown
-        isActive={showFilter}
+        isActive={this.props.isActive}
         isMobile={this.props.isMobile}
         filter={picker}
         button={button}
