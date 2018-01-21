@@ -8,7 +8,7 @@ const isMobile = window.matchMedia("(max-width: 400px)").matches;
 
 class Filters extends React.Component {
   state = {
-    activeFilter: false,
+    activeFilterId: false,
 
     focusedInput: "startDate",
     startDate: null,
@@ -21,16 +21,16 @@ class Filters extends React.Component {
 
   toggleOpen = filterId => {
     this.setState(prevState => ({
-      activeFilter: prevState.activeFilter === filterId ? false : filterId
+      activeFilterId: prevState.activeFilterId === filterId ? false : filterId
     }));
   };
 
   onCancel = e => {
-    this.setState({ activeFilter: false, startDate: null, endDate: null });
+    this.setState({ activeFilterId: false, startDate: null, endDate: null });
   };
 
   onApply = (filterState, e) => {
-    this.setState({ activeFilter: false });
+    this.setState({ activeFilterId: false });
 
     this.setState(filterState);
   };
@@ -44,7 +44,7 @@ class Filters extends React.Component {
   };
 
   onClose = e => {
-    this.setState({ activeFilter: false });
+    this.setState({ activeFilterId: false });
   };
 
   render() {
@@ -53,7 +53,7 @@ class Filters extends React.Component {
         <Row middle="xs" start="xs">
           <Col xs={12}>
             <Dates
-              activeFilter={this.state.activeFilter}
+              isActive={this.state.activeFilterId === "dates"}
               startDate={this.state.startDate}
               endDate={this.state.endDate}
               onDatesChange={this.onDatesChange}
@@ -67,10 +67,10 @@ class Filters extends React.Component {
             />
 
             <Guests
+              isActive={this.state.activeFilterId === "guests"}
               adults={this.state.adults}
               children={this.state.children}
               infants={this.state.infants}
-              activeFilter={this.state.activeFilter}
               onButtonClick={this.toggleOpen}
               onApply={this.onApply}
               onClose={this.onClose}
@@ -80,21 +80,21 @@ class Filters extends React.Component {
 
             <FilterButton
               onClick={e => this.toggleOpen("roomtype", e)}
-              active={this.state.activeFilter === "roomtype"}
+              active={this.state.activeFilterId === "roomtype"}
               className="hidden-xs hidden-md"
             >
               Room type
             </FilterButton>
             <FilterButton
               onClick={e => this.toggleOpen("price", e)}
-              active={this.state.activeFilter === "price"}
+              active={this.state.activeFilterId === "price"}
               className="hidden-xs hidden-md"
             >
               Price
             </FilterButton>
             <FilterButton
               onClick={e => this.toggleOpen("book", e)}
-              active={this.state.activeFilter === "book"}
+              active={this.state.activeFilterId === "book"}
               className="hidden-xs hidden-md"
             >
               Instant book
@@ -102,7 +102,7 @@ class Filters extends React.Component {
 
             <FilterButton
               onClick={e => this.toggleOpen("more", e)}
-              active={this.state.activeFilter === "more"}
+              active={this.state.activeFilterId === "more"}
             >
               More filters
             </FilterButton>
