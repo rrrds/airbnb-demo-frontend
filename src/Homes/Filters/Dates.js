@@ -27,6 +27,14 @@ const formatButtonText = (value, defaultText) => {
   return value ? moment(value).format("MMM Do") : defaultText;
 };
 
+const getButtonText = (showSelectedData, startDate, endDate) => {
+  return showSelectedData
+    ? formatButtonText(startDate, "Check in") +
+        " — " +
+        formatButtonText(endDate, "Check out")
+    : "Dates";
+};
+
 const getNumberOfMonths = () => {
   if (window.matchMedia("(min-width: 992px)").matches) {
     return 2;
@@ -76,14 +84,6 @@ class Dates extends React.Component {
     return this.props.startDate || this.props.endDate;
   };
 
-  getButtonText = () => {
-    return this.props.isActive || this.hasSelectedDates()
-      ? formatButtonText(this.state.startDate, "Check in") +
-          " — " +
-          formatButtonText(this.state.endDate, "Check out")
-      : "Dates";
-  };
-
   render() {
     const picker = (
       <DayPickerRangeController
@@ -113,7 +113,11 @@ class Dates extends React.Component {
         onClick={e => this.props.onButtonClick(filterId, e)}
         active={this.props.isActive || this.hasSelectedDates()}
       >
-        {this.getButtonText()}
+        {getButtonText(
+          this.props.isActive || this.hasSelectedDates(),
+          this.state.startDate,
+          this.state.endDate
+        )}
       </FilterButton>
     );
 
