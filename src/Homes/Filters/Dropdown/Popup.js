@@ -17,7 +17,7 @@ export default props => {
           props.onClose();
         }}
       >
-        {props.filter}
+        {props.filterComponent}
 
         <ActionBbar>
           <PopupButton onClick={props.onReset}>Cancel</PopupButton>

@@ -13,7 +13,7 @@ export default props => {
       {props.isActive &&
         (props.isMobile ? (
           <Portal
-            filter={props.filter}
+            filterComponent={props.filterComponent}
             onApply={props.onApply}
             onClose={props.onClose}
             onReset={props.onReset}
@@ -21,7 +21,7 @@ export default props => {
           />
         ) : (
           <Popup
-            filter={props.filter}
+            filterComponent={props.filterComponent}
             onApply={props.onApply}
             onClose={props.onClose}
             onReset={props.onReset}
