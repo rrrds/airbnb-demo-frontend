@@ -125,7 +125,7 @@ class Dates extends React.Component {
       <Dropdown
         isActive={this.props.isActive}
         isMobile={this.props.isMobile}
-        filter={Picker}
+        filterComponent={Picker}
         button={button}
         mobileInfoRow={mobileInfoRow}
         onClose={this.props.onClose}

@@ -9,7 +9,7 @@ const SpacedPopupWrapper = styled.div`
   padding: 24px 15px 0 24px;
 `;
 
-const TypeRow = styled.div`
+const GuestAge = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -17,7 +17,7 @@ const TypeRow = styled.div`
   margin-bottom: 23px;
 `;
 
-const ActionRow = TypeRow.extend`
+const Actions = GuestAge.extend`
   margin: 0 0 0 85px;
 `;
 
@@ -36,7 +36,7 @@ const Name = styled.div`
   color: #383838;
 `;
 
-const NameAside = Name.extend`
+const Description = Name.extend`
   font-size: 16px;
   margin-top: 7px;
 `;
@@ -81,9 +81,9 @@ class Guests extends React.Component {
   render() {
     const GuestSelect = (
       <SpacedPopupWrapper>
-        <TypeRow>
+        <GuestAge>
           <Name>Adults</Name>
-          <ActionRow>
+          <Actions>
             <RoundButton
               onClick={e => this.onDecrease("adults", e)}
               disabled={this.state.adults < 1}
@@ -94,14 +94,14 @@ class Guests extends React.Component {
             <RoundButton onClick={e => this.onIncrease("adults", e)}>
               +
             </RoundButton>
-          </ActionRow>
-        </TypeRow>
+          </Actions>
+        </GuestAge>
 
-        <TypeRow>
+        <GuestAge>
           <Name>
-            Children<NameAside>Ages 2 — 12</NameAside>
+            Children<Description>Ages 2 — 12</Description>
           </Name>
-          <ActionRow>
+          <Actions>
             <RoundButton
               onClick={e => this.onDecrease("children", e)}
               disabled={this.state.children < 1}
@@ -112,14 +112,14 @@ class Guests extends React.Component {
             <RoundButton onClick={e => this.onIncrease("children", e)}>
               +
             </RoundButton>
-          </ActionRow>
-        </TypeRow>
+          </Actions>
+        </GuestAge>
 
-        <TypeRow>
+        <GuestAge>
           <Name>
-            Infants<NameAside>Under 2</NameAside>
+            Infants<Description>Under 2</Description>
           </Name>
-          <ActionRow>
+          <Actions>
             <RoundButton
               onClick={e => this.onDecrease("infants", e)}
               disabled={this.state.infants < 1}
@@ -130,8 +130,8 @@ class Guests extends React.Component {
             <RoundButton onClick={e => this.onIncrease("infants", e)}>
               +
             </RoundButton>
-          </ActionRow>
-        </TypeRow>
+          </Actions>
+        </GuestAge>
       </SpacedPopupWrapper>
     );
 
@@ -148,7 +148,7 @@ class Guests extends React.Component {
       <Dropdown
         isActive={this.props.isActive}
         isMobile={this.props.isMobile}
-        filter={GuestSelect}
+        filterComponent={GuestSelect}
         button={button}
         onClose={this.props.onClose}
         onApply={e =>
