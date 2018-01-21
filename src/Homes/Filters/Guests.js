@@ -79,7 +79,7 @@ class Guests extends React.Component {
   };
 
   render() {
-    const guestSelect = (
+    const GuestSelect = (
       <SpacedPopupWrapper>
         <TypeRow>
           <Name>Adults</Name>
@@ -148,7 +148,7 @@ class Guests extends React.Component {
       <Dropdown
         isActive={this.props.isActive}
         isMobile={this.props.isMobile}
-        filter={guestSelect}
+        filter={GuestSelect}
         button={button}
         onClose={this.props.onClose}
         onApply={e =>

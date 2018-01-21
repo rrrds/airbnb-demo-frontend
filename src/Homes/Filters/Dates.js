@@ -85,7 +85,7 @@ class Dates extends React.Component {
   };
 
   render() {
-    const picker = (
+    const Picker = (
       <DayPickerRangeController
         hideKeyboardShortcutsPanel={true}
         noBorder={true}
@@ -125,7 +125,7 @@ class Dates extends React.Component {
       <Dropdown
         isActive={this.props.isActive}
         isMobile={this.props.isMobile}
-        filter={picker}
+        filter={Picker}
         button={button}
         mobileInfoRow={mobileInfoRow}
         onClose={this.props.onClose}
