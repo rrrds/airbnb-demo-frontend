@@ -28,9 +28,13 @@ const formatButtonText = (value, defaultText) => {
 };
 
 const getNumberOfMonths = () => {
-  return window.matchMedia("(min-width: 992px)").matches
-    ? 2
-    : window.matchMedia("(min-width: 768px)").matches ? 1 : 4;
+  if (window.matchMedia("(min-width: 992px)").matches) {
+    return 2;
+  } else if (window.matchMedia("(min-width: 768px)").matches) {
+    return 1;
+  } else {
+    return 4;
+  }
 };
 
 class Dates extends React.Component {
@@ -82,7 +86,7 @@ class Dates extends React.Component {
     return this.props.startDate || this.props.endDate;
   }
 
-  getFilterButtonText() {
+  getButtonText() {
     return this.props.isActive || this.hasSelectedDates()
       ? formatButtonText(this.state.startDate, "Check in") +
           " — " +
@@ -119,7 +123,7 @@ class Dates extends React.Component {
         onClick={e => this.props.onButtonClick(filterId, e)}
         active={this.props.isActive || this.hasSelectedDates()}
       >
-        {this.getFilterButtonText()}
+        {this.getButtonText()}
       </FilterButton>
     );
 
