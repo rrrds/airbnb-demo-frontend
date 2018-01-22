@@ -27,7 +27,7 @@ const PortalRow = styled.div`
   border-top: 1px solid #d5d5d5;
 `;
 
-const Title = styled.div`
+const Header = styled.div`
   line-height: normal;
   font-size: 14px;
   color: #383838;
@@ -81,7 +81,7 @@ export default props => {
         portal(
           <StyledPortal>
             <PortalRow>
-              <Title>
+              <Header>
                 <CloseButton
                   onClick={e => {
                     props.onClose();
@@ -90,7 +90,7 @@ export default props => {
                 />
                 Dates
                 <ResetButton onClick={props.onReset}>Reset</ResetButton>
-              </Title>
+              </Header>
               {props.mobileInfoRow}
             </PortalRow>
             <FilterRow>{props.filterComponent}</FilterRow>
