@@ -25,17 +25,17 @@ class Filters extends React.Component {
     }));
   };
 
-  onCancel = e => {
+  onCancel = () => {
     this.setState({ activeFilterId: false, startDate: null, endDate: null });
   };
 
-  onApply = (filterState, e) => {
+  onApply = filterState => {
     this.setState({ activeFilterId: false });
 
     this.setState(filterState);
   };
 
-  onReset = e => {
+  onReset = () => {
     this.setState({
       focusedInput: "startDate",
       startDate: null,
@@ -43,7 +43,7 @@ class Filters extends React.Component {
     });
   };
 
-  onClose = e => {
+  onClose = () => {
     this.setState({ activeFilterId: false });
   };
 
@@ -86,14 +86,14 @@ class Filters extends React.Component {
               Room type
             </FilterButton>
             <FilterButton
-              onClick={e => this.toggleOpen("price", e)}
+              onClick={e => this.toggleOpen("price")}
               active={this.state.activeFilterId === "price"}
               className="hidden-xs hidden-md"
             >
               Price
             </FilterButton>
             <FilterButton
-              onClick={e => this.toggleOpen("book", e)}
+              onClick={e => this.toggleOpen("book")}
               active={this.state.activeFilterId === "book"}
               className="hidden-xs hidden-md"
             >
@@ -101,7 +101,7 @@ class Filters extends React.Component {
             </FilterButton>
 
             <FilterButton
-              onClick={e => this.toggleOpen("more", e)}
+              onClick={e => this.toggleOpen("more")}
               active={this.state.activeFilterId === "more"}
             >
               More filters

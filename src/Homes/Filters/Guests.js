@@ -95,13 +95,13 @@ class Guests extends React.Component {
           <Name>Adults</Name>
           <Actions>
             <RoundButton
-              onClick={e => this.onDecrease("adults", e)}
+              onClick={e => this.onDecrease("adults")}
               disabled={this.state.adults < 1}
             >
               -
             </RoundButton>
             <Counter>{this.state.adults}</Counter>
-            <RoundButton onClick={e => this.onIncrease("adults", e)}>
+            <RoundButton onClick={e => this.onIncrease("adults")}>
               +
             </RoundButton>
           </Actions>
@@ -113,13 +113,13 @@ class Guests extends React.Component {
           </Name>
           <Actions>
             <RoundButton
-              onClick={e => this.onDecrease("children", e)}
+              onClick={e => this.onDecrease("children")}
               disabled={this.state.children < 1}
             >
               -
             </RoundButton>
             <Counter>{this.state.children}</Counter>
-            <RoundButton onClick={e => this.onIncrease("children", e)}>
+            <RoundButton onClick={e => this.onIncrease("children")}>
               +
             </RoundButton>
           </Actions>
@@ -131,13 +131,13 @@ class Guests extends React.Component {
           </Name>
           <Actions>
             <RoundButton
-              onClick={e => this.onDecrease("infants", e)}
+              onClick={e => this.onDecrease("infants")}
               disabled={this.state.infants < 1}
             >
               -
             </RoundButton>
             <Counter>{this.state.infants}</Counter>
-            <RoundButton onClick={e => this.onIncrease("infants", e)}>
+            <RoundButton onClick={e => this.onIncrease("infants")}>
               +
             </RoundButton>
           </Actions>
@@ -150,7 +150,7 @@ class Guests extends React.Component {
 
     const button = (
       <FilterButton
-        onClick={e => this.props.onButtonClick(filterId, e)}
+        onClick={e => this.props.onButtonClick(filterId)}
         active={this.props.isActive || guestsTotal > 1}
       >
         {getButtonText(this.props.isActive || guestsTotal > 1, guestsTotal)}
@@ -165,14 +165,11 @@ class Guests extends React.Component {
         button={button}
         onClose={this.props.onClose}
         onApply={e =>
-          this.props.onApply(
-            {
-              adults: this.state.adults,
-              children: this.state.children,
-              infants: this.state.infants
-            },
-            e
-          )
+          this.props.onApply({
+            adults: this.state.adults,
+            children: this.state.children,
+            infants: this.state.infants
+          })
         }
         onReset={this.onReset}
       />

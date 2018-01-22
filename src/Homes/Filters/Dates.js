@@ -111,7 +111,7 @@ class Dates extends React.Component {
 
     const button = (
       <FilterButton
-        onClick={e => this.props.onButtonClick(filterId, e)}
+        onClick={e => this.props.onButtonClick(filterId)}
         active={this.props.isActive || this.hasSelectedDates()}
       >
         {getButtonText(
@@ -131,13 +131,10 @@ class Dates extends React.Component {
         mobileInfoRow={mobileInfoRow}
         onClose={this.props.onClose}
         onApply={e =>
-          this.props.onApply(
-            {
-              startDate: this.state.startDate,
-              endDate: this.state.endDate
-            },
-            e
-          )
+          this.props.onApply({
+            startDate: this.state.startDate,
+            endDate: this.state.endDate
+          })
         }
         onReset={this.onReset}
       />
