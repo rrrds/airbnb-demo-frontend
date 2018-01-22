@@ -12,11 +12,7 @@ const ActionBbar = styled.div`
 export default props => {
   return (
     <PopupOverlayWrapper>
-      <Popup
-        handleClickOutside={() => {
-          props.onClose();
-        }}
-      >
+      <Popup handleClickOutside={props.onClose}>
         {props.filterComponent}
 
         <ActionBbar>
