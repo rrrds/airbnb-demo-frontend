@@ -39,11 +39,11 @@ const getButtonText = (showSelectedData, startDate, endDate) => {
 const getNumberOfMonths = () => {
   if (window.matchMedia("(min-width: 992px)").matches) {
     return 2;
-  } else if (window.matchMedia("(min-width: 768px)").matches) {
-    return 1;
-  } else {
-    return 4;
   }
+  if (window.matchMedia("(min-width: 768px)").matches) {
+    return 1;
+  }
+  return 4;
 };
 
 class Dates extends React.Component {
