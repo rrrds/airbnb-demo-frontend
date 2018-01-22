@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 import searchIcon from "./search.svg";
@@ -6,6 +5,7 @@ import searchIcon from "./search.svg";
 const Input = styled.input`
   height: 48px;
   width: 100%;
+  max-width: 392px;
 
   background: #ffffff;
   border: 1px solid rgba(72, 72, 72, 0.2);
@@ -20,27 +20,8 @@ const Input = styled.input`
   opacity: 0.64;
 
   padding-left: 3em;
+
+  background: url(${searchIcon}) 16px center no-repeat / auto;
 `;
 
-const Label = styled.label`
-  position: relative;
-  width: 100%;
-
-  &:before {
-    position: absolute;
-    width: 1.6em;
-    left: 0.7em;
-    top: 0;
-    bottom: 0;
-    content: " ";
-    background: url(${searchIcon}) center center no-repeat / contain;
-  }
-`;
-
-export default function() {
-  return (
-    <Label>
-      <Input placeholder="Try 'Miami'" />
-    </Label>
-  );
-}
+export default Input;

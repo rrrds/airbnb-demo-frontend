@@ -1,45 +1,28 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col, Grid } from "react-flexbox-grid";
+import { Row, Grid } from "react-flexbox-grid";
 
 import Logo from "./Logo";
 import Search from "./Search";
 import Nav from "./Nav";
-
-const Wrapper = styled.div`
-  box-shadow: 0px 0.5px 0px rgba(72, 72, 72, 0.3);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-  background-color: white;
-`;
+import { FixedWrapper } from "../UI/styled";
 
 const HeaderRow = styled(Row)`
-  padding: 16px 0;
+  padding: 16px 8px;
+  justify-content: baseline;
+  flex-wrap: nowrap;
 `;
 
 export default function() {
   return (
-    <Wrapper>
+    <FixedWrapper>
       <Grid>
         <HeaderRow middle="xs" between="xs">
-          <Col xs={1}>
-            <Logo />
-          </Col>
-          <Col xs={11} lg={5}>
-            <Row start="lg">
-              <Search />
-            </Row>
-          </Col>
-          <Col lg={6}>
-            <Row end="lg">
-              <Nav />
-            </Row>
-          </Col>
+          <Logo />
+          <Search placeholder="Try “Miami”" />
+          <Nav />
         </HeaderRow>
       </Grid>
-    </Wrapper>
+    </FixedWrapper>
   );
 }
