@@ -127,7 +127,7 @@ class Dates extends React.Component {
         isActive={this.props.isActive}
         isMobile={this.props.isMobile}
         filterComponent={Picker}
-        button={button}
+        buttonComponent={button}
         mobileInfoRow={mobileInfoRow}
         onClose={this.props.onClose}
         onApply={e =>

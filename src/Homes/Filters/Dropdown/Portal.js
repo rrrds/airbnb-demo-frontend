@@ -98,7 +98,7 @@ export default props => {
               </Header>
               {props.mobileInfoRow}
             </PortalRow>
-            <FilterRow>{props.children}</FilterRow>
+            <FilterRow>{props.filterComponent}</FilterRow>
             <PortalRow>
               <SaveButton onClick={onApply}>Save</SaveButton>
             </PortalRow>

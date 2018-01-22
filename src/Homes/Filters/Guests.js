@@ -162,7 +162,7 @@ class Guests extends React.Component {
         isActive={this.props.isActive}
         isMobile={this.props.isMobile}
         filterComponent={GuestSelect}
-        button={button}
+        buttonComponent={button}
         onClose={this.props.onClose}
         onApply={e =>
           this.props.onApply({

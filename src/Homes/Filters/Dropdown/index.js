@@ -13,24 +13,22 @@ export default props => {
       {props.isActive &&
         (props.isMobile ? (
           <Portal
+            filterComponent={props.filterComponent}
             onApply={props.onApply}
             onClose={props.onClose}
             onReset={props.onReset}
             mobileInfoRow={props.mobileInfoRow}
-          >
-            {props.filterComponent}
-          </Portal>
+          />
         ) : (
           <Popup
+            filterComponent={props.filterComponent}
             onApply={props.onApply}
             onClose={props.onClose}
             onReset={props.onReset}
-          >
-            {props.filterComponent}
-          </Popup>
+          />
         ))}
 
-      {props.button}
+      {props.buttonComponent}
     </Wrapper>
   );
 };
