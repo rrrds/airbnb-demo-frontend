@@ -47,7 +47,7 @@ const pluralize = (word, count) => {
 
 const getButtonText = (showSelectedData, guestsTotal) => {
   return showSelectedData
-    ? guestsTotal + " " + pluralize("guest", guestsTotal)
+    ? `${guestsTotal} ${pluralize("guest", guestsTotal)}`
     : "Guests";
 };
 

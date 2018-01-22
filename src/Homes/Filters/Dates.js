@@ -29,9 +29,10 @@ const formatButtonText = (value, defaultText) => {
 
 const getButtonText = (showSelectedData, startDate, endDate) => {
   return showSelectedData
-    ? formatButtonText(startDate, "Check in") +
-        " — " +
-        formatButtonText(endDate, "Check out")
+    ? `${formatButtonText(startDate, "Check in")} — ${formatButtonText(
+        endDate,
+        "Check out"
+      )}`
     : "Dates";
 };
 
