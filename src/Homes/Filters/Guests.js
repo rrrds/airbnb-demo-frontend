@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { RoundButton, FilterButton } from "../styled";
 import Dropdown from "./Dropdown";
+import ResponsivePopup from "./Dropdown/ResponsivePopup";
 
 const filterId = "guests";
 
@@ -78,6 +79,14 @@ class Guests extends React.Component {
     }));
   };
 
+  onApply = () => {
+    this.props.onApply({
+      adults: this.state.adults,
+      children: this.state.children,
+      infants: this.state.infants
+    });
+  };
+
   onReset = e => {
     this.props.onApply({
       adults: 1,
@@ -148,7 +157,7 @@ class Guests extends React.Component {
     const guestsTotal =
       this.state.adults + this.state.children + this.state.infants;
 
-    const button = (
+    const Button = (
       <FilterButton
         onClick={e => this.props.onButtonClick(filterId)}
         active={this.props.isActive || guestsTotal > 1}
@@ -158,21 +167,19 @@ class Guests extends React.Component {
     );
 
     return (
-      <Dropdown
-        isActive={this.props.isActive}
-        isMobile={this.props.isMobile}
-        filterComponent={GuestSelect}
-        buttonComponent={button}
-        onClose={this.props.onClose}
-        onApply={e =>
-          this.props.onApply({
-            adults: this.state.adults,
-            children: this.state.children,
-            infants: this.state.infants
-          })
-        }
-        onReset={this.onReset}
-      />
+      <Dropdown>
+        <ResponsivePopup
+          isActive={this.props.isActive}
+          isMobile={this.props.isMobile}
+          onClose={this.props.onClose}
+          onApply={this.onApply}
+          onReset={this.onReset}
+        >
+          {GuestSelect}
+        </ResponsivePopup>
+
+        {Button}
+      </Dropdown>
     );
   }
 }

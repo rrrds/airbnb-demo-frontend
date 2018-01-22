@@ -6,6 +6,7 @@ import { FilterButton } from "../styled";
 import moment from "moment";
 import arrow from "./arrow.svg";
 import Dropdown from "./Dropdown";
+import ResponsivePopup from "./Dropdown/ResponsivePopup";
 
 const filterId = "dates";
 
@@ -81,6 +82,13 @@ class Dates extends React.Component {
     this.props.onClose();
   };
 
+  onApply = () => {
+    this.props.onApply({
+      startDate: this.state.startDate,
+      endDate: this.state.endDate
+    });
+  };
+
   hasSelectedDates = () => {
     return this.props.startDate || this.props.endDate;
   };
@@ -88,8 +96,8 @@ class Dates extends React.Component {
   render() {
     const Picker = (
       <DayPickerRangeController
-        hideKeyboardShortcutsPanel={true}
-        noBorder={true}
+        hideKeyboardShortcutsPanel
+        noBorder
         isOutsideRange={day => !isInclusivelyAfterDay(day, moment())}
         startDate={this.state.startDate}
         endDate={this.state.endDate}
@@ -109,9 +117,9 @@ class Dates extends React.Component {
       </Info>
     );
 
-    const button = (
+    const Button = (
       <FilterButton
-        onClick={e => this.props.onButtonClick(filterId)}
+        onClick={e => this.props.onButtonClick(filterId, e)}
         active={this.props.isActive || this.hasSelectedDates()}
       >
         {getButtonText(
@@ -123,21 +131,20 @@ class Dates extends React.Component {
     );
 
     return (
-      <Dropdown
-        isActive={this.props.isActive}
-        isMobile={this.props.isMobile}
-        filterComponent={Picker}
-        buttonComponent={button}
-        mobileInfoRow={mobileInfoRow}
-        onClose={this.props.onClose}
-        onApply={e =>
-          this.props.onApply({
-            startDate: this.state.startDate,
-            endDate: this.state.endDate
-          })
-        }
-        onReset={this.onReset}
-      />
+      <Dropdown>
+        <ResponsivePopup
+          isActive={this.props.isActive}
+          isMobile={this.props.isMobile}
+          mobileInfoRow={mobileInfoRow}
+          onClose={this.props.onClose}
+          onApply={this.onApply}
+          onReset={this.onReset}
+        >
+          {Picker}
+        </ResponsivePopup>
+
+        {Button}
+      </Dropdown>
     );
   }
 }

@@ -13,9 +13,9 @@ export default props => {
   return (
     <PopupOverlayWrapper>
       <Popup handleClickOutside={props.onClose}>
-        {props.filterComponent}
+        {props.children}
         <ActionBbar>
-          <PopupButton onClick={props.onReset}>Cancel</PopupButton>
+          <PopupButton onClick={props.onClose}>Cancel</PopupButton>
           <PopupButton onClick={props.onApply} primary>
             Apply
           </PopupButton>
