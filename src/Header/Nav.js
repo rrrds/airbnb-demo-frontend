@@ -15,7 +15,7 @@ const Nav = styled.nav`
   text-align: right;
 `;
 
-export default function (props) {
+export default function () {
   return (
     <Nav className="hidden-xs hidden-md">
       <Link href="#">Become a host</Link>
