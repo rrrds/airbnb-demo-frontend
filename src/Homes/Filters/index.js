@@ -19,12 +19,6 @@ class Filters extends React.Component {
     infants: 0,
   };
 
-  toggleOpen = (filterId) => {
-    this.setState(prevState => ({
-      activeFilterId: prevState.activeFilterId === filterId ? false : filterId,
-    }));
-  };
-
   onCancel = () => {
     this.setState({ activeFilterId: false, startDate: null, endDate: null });
   };
@@ -45,6 +39,12 @@ class Filters extends React.Component {
 
   onClose = () => {
     this.setState({ activeFilterId: false });
+  };
+
+  toggleOpen = (filterId) => {
+    this.setState(prevState => ({
+      activeFilterId: prevState.activeFilterId === filterId ? false : filterId,
+    }));
   };
 
   render() {
