@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { DayPickerRangeController, isInclusivelyAfterDay } from "react-dates";
-import "react-dates/lib/css/_datepicker.css";
-import { FilterButton } from "../styled";
-import moment from "moment";
-import arrow from "./arrow.svg";
-import Dropdown from "./Dropdown";
-import ResponsivePopup from "./Dropdown/ResponsivePopup";
+import React from 'react';
+import styled from 'styled-components';
+import moment from 'moment';
+import { DayPickerRangeController, isInclusivelyAfterDay } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+import { FilterButton } from '../styled';
+import arrow from './arrow.svg';
+import Dropdown from './Dropdown';
+import ResponsivePopup from './Dropdown/ResponsivePopup';
 
-const filterId = "dates";
+const filterId = 'dates';
 
 const Info = styled.div`
   display: flex;
@@ -24,24 +24,19 @@ const ArrowImg = styled.img`
   margin: 0 16px;
 `;
 
-const formatButtonText = (value, defaultText) => {
-  return value ? moment(value).format("MMM Do") : defaultText;
-};
+const formatButtonText = (value, defaultText) =>
+  (value ? moment(value).format('MMM Do') : defaultText);
 
-const getButtonText = (showSelectedData, startDate, endDate) => {
-  return showSelectedData
-    ? `${formatButtonText(startDate, "Check in")} — ${formatButtonText(
-        endDate,
-        "Check out"
-      )}`
-    : "Dates";
-};
+const getButtonText = (showSelectedData, startDate, endDate) =>
+  (showSelectedData
+    ? `${formatButtonText(startDate, 'Check in')} — ${formatButtonText(endDate, 'Check out')}`
+    : 'Dates');
 
 const getNumberOfMonths = () => {
-  if (window.matchMedia("(min-width: 992px)").matches) {
+  if (window.matchMedia('(min-width: 992px)').matches) {
     return 2;
   }
-  if (window.matchMedia("(min-width: 768px)").matches) {
+  if (window.matchMedia('(min-width: 768px)').matches) {
     return 1;
   }
   return 4;
@@ -49,34 +44,34 @@ const getNumberOfMonths = () => {
 
 class Dates extends React.Component {
   state = {
-    focusedInput: "startDate",
+    focusedInput: 'startDate',
     startDate: null,
-    endDate: null
+    endDate: null,
   };
 
   componentWillReceiveProps(newProps) {
     this.setState({
-      focusedInput: newProps.startDate ? "endDate" : "startDate",
+      focusedInput: newProps.startDate ? 'endDate' : 'startDate',
       startDate: newProps.startDate,
-      endDate: newProps.endDate
+      endDate: newProps.endDate,
     });
   }
 
   onDatesChange = ({ startDate, endDate }) => {
-    this.setState({ startDate: startDate, endDate: endDate });
+    this.setState({ startDate, endDate });
   };
 
-  onFocusChange = focusedInput => {
+  onFocusChange = (focusedInput) => {
     this.setState({
       // Force the focusedInput to always be truthy so that dates are always selectable
-      focusedInput: !focusedInput ? "startDate" : focusedInput
+      focusedInput: !focusedInput ? 'startDate' : focusedInput,
     });
   };
 
   onReset = () => {
     this.props.onApply({
       startDate: null,
-      endDate: null
+      endDate: null,
     });
 
     this.props.onClose();
@@ -85,13 +80,11 @@ class Dates extends React.Component {
   onApply = () => {
     this.props.onApply({
       startDate: this.state.startDate,
-      endDate: this.state.endDate
+      endDate: this.state.endDate,
     });
   };
 
-  hasSelectedDates = () => {
-    return this.props.startDate || this.props.endDate;
-  };
+  hasSelectedDates = () => this.props.startDate || this.props.endDate;
 
   render() {
     const Picker = (
@@ -105,15 +98,15 @@ class Dates extends React.Component {
         focusedInput={this.state.focusedInput}
         onFocusChange={this.onFocusChange}
         numberOfMonths={getNumberOfMonths()}
-        orientation={this.props.isMobile ? "verticalScrollable" : "horizontal"}
+        orientation={this.props.isMobile ? 'verticalScrollable' : 'horizontal'}
       />
     );
 
     const mobileInfoRow = (
       <Info>
-        <span>{formatButtonText(this.state.startDate, "Check in")}</span>
+        <span>{formatButtonText(this.state.startDate, 'Check in')}</span>
         <ArrowImg src={arrow} alt="From — To" />
-        <span>{formatButtonText(this.state.endDate, "Check out")}</span>
+        <span>{formatButtonText(this.state.endDate, 'Check out')}</span>
       </Info>
     );
 
@@ -125,7 +118,7 @@ class Dates extends React.Component {
         {getButtonText(
           this.props.isActive || this.hasSelectedDates(),
           this.state.startDate,
-          this.state.endDate
+          this.state.endDate,
         )}
       </FilterButton>
     );
