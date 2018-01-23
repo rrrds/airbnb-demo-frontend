@@ -17,13 +17,7 @@ const StarImg = styled.img`
 export default function (props) {
   return (
     <Wrapper>
-      {[...Array(5)].map((e, i) => (
-        <StarImg
-          src={i < props.children ? star : starEmpty}
-          key={i}
-          kkk={props.children}
-        />
-      ))}
+      {[...Array(5)].map((e, i) => <StarImg key={e} src={i < props.children ? star : starEmpty} />)}
     </Wrapper>
   );
 }
