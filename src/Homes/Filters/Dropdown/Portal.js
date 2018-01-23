@@ -76,9 +76,7 @@ const SaveButton = styled.button`
 
 export default props => (
   <PortalWithState defaultOpen>
-    {({
- openPortal, closePortal, isOpen, portal,
-}) => {
+    {({ closePortal, portal }) => {
         const onClose = () => {
           props.onClose();
           closePortal();
@@ -102,7 +100,7 @@ export default props => (
           <PortalRow>
             <SaveButton onClick={onApply}>Save</SaveButton>
           </PortalRow>
-               </StyledPortal>);
+        </StyledPortal>);
       }}
   </PortalWithState>
 );
