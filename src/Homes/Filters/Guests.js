@@ -44,22 +44,21 @@ const Description = Name.extend`
 
 const pluralize = (word, count) => (count > 1 ? `${word}s` : word);
 
-const getButtonText = (showSelectedData, guestsTotal) => (showSelectedData
-  ? `${guestsTotal} ${pluralize('guest', guestsTotal)}`
-  : 'Guests');
+const getButtonText = (showSelectedData, guestsTotal) =>
+  (showSelectedData ? `${guestsTotal} ${pluralize('guest', guestsTotal)}` : 'Guests');
 
 class Guests extends React.Component {
   state = {
-    adults: 0,
-    children: 0,
-    infants: 0,
+    adultsCount: 0,
+    childrenCount: 0,
+    infantsCount: 0,
   };
 
   componentWillReceiveProps(newProps) {
     this.setState({
-      adults: newProps.adults,
-      children: newProps.children,
-      infants: newProps.infants,
+      adultsCount: newProps.adultsCount,
+      childrenCount: newProps.childrenCount,
+      infantsCount: newProps.infantsCount,
     });
   }
 
@@ -77,17 +76,17 @@ class Guests extends React.Component {
 
   onApply = () => {
     this.props.onApply({
-      adults: this.state.adults,
-      children: this.state.children,
-      infants: this.state.infants,
+      adultsCount: this.state.adultsCount,
+      childrenCount: this.state.childrenCount,
+      infantsCount: this.state.infantsCount,
     });
   };
 
   onReset = () => {
     this.props.onApply({
-      adults: 1,
-      children: 0,
-      infants: 0,
+      adultsCount: 1,
+      childrenCount: 0,
+      infantsCount: 0,
     });
 
     this.props.onClose();
@@ -100,15 +99,13 @@ class Guests extends React.Component {
           <Name>Adults</Name>
           <Actions>
             <RoundButton
-              onClick={() => this.onDecrease('adults')}
-              disabled={this.state.adults < 1}
+              onClick={() => this.onDecrease('adultsCount')}
+              disabled={this.state.adultsCount < 1}
             >
               -
             </RoundButton>
-            <Counter>{this.state.adults}</Counter>
-            <RoundButton onClick={() => this.onIncrease('adults')}>
-              +
-            </RoundButton>
+            <Counter>{this.state.adultsCount}</Counter>
+            <RoundButton onClick={() => this.onIncrease('adultsCount')}>+</RoundButton>
           </Actions>
         </GuestAge>
 
@@ -118,15 +115,13 @@ class Guests extends React.Component {
           </Name>
           <Actions>
             <RoundButton
-              onClick={() => this.onDecrease('children')}
-              disabled={this.state.children < 1}
+              onClick={() => this.onDecrease('childrenCount')}
+              disabled={this.state.childrenCount < 1}
             >
               -
             </RoundButton>
-            <Counter>{this.state.children}</Counter>
-            <RoundButton onClick={() => this.onIncrease('children')}>
-              +
-            </RoundButton>
+            <Counter>{this.state.childrenCount}</Counter>
+            <RoundButton onClick={() => this.onIncrease('childrenCount')}>+</RoundButton>
           </Actions>
         </GuestAge>
 
@@ -136,22 +131,19 @@ class Guests extends React.Component {
           </Name>
           <Actions>
             <RoundButton
-              onClick={() => this.onDecrease('infants')}
-              disabled={this.state.infants < 1}
+              onClick={() => this.onDecrease('infantsCount')}
+              disabled={this.state.infantsCount < 1}
             >
               -
             </RoundButton>
-            <Counter>{this.state.infants}</Counter>
-            <RoundButton onClick={() => this.onIncrease('infants')}>
-              +
-            </RoundButton>
+            <Counter>{this.state.infantsCount}</Counter>
+            <RoundButton onClick={() => this.onIncrease('infantsCount')}>+</RoundButton>
           </Actions>
         </GuestAge>
       </SpacedPopupWrapper>
     );
 
-    const guestsTotal =
-      this.state.adults + this.state.children + this.state.infants;
+    const guestsTotal = this.state.adultsCount + this.state.childrenCount + this.state.infantsCount;
 
     const Button = (
       <FilterButton

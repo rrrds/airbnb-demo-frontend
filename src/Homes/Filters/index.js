@@ -14,9 +14,9 @@ class Filters extends React.Component {
     startDate: null,
     endDate: null,
 
-    adults: 1,
-    children: 0,
-    infants: 0,
+    adultsCount: 1,
+    childrenCount: 0,
+    infantsCount: 0,
   };
 
   onCancel = () => {
@@ -68,9 +68,9 @@ class Filters extends React.Component {
 
             <Guests
               isActive={this.state.activeFilterId === 'guests'}
-              adults={this.state.adults}
-              children={this.state.children}
-              infants={this.state.infants}
+              adultsCount={this.state.adultsCount}
+              childrenCount={this.state.childrenCount}
+              infantsCount={this.state.infantsCount}
               onButtonClick={this.toggleOpen}
               onApply={this.onApply}
               onClose={this.onClose}
