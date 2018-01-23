@@ -86,14 +86,14 @@ class Filters extends React.Component {
               Room type
             </FilterButton>
             <FilterButton
-              onClick={e => this.toggleOpen('price')}
+              onClick={() => this.toggleOpen('price')}
               active={this.state.activeFilterId === 'price'}
               className="hidden-xs hidden-md"
             >
               Price
             </FilterButton>
             <FilterButton
-              onClick={e => this.toggleOpen('book')}
+              onClick={() => this.toggleOpen('book')}
               active={this.state.activeFilterId === 'book'}
               className="hidden-xs hidden-md"
             >
@@ -101,7 +101,7 @@ class Filters extends React.Component {
             </FilterButton>
 
             <FilterButton
-              onClick={e => this.toggleOpen('more')}
+              onClick={() => this.toggleOpen('more')}
               active={this.state.activeFilterId === 'more'}
             >
               More filters
