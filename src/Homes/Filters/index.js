@@ -3,6 +3,7 @@ import { Row, Col, Grid } from 'react-flexbox-grid';
 import { FilterButton } from '../styled';
 import Dates from './Dates';
 import Guests from './Guests';
+import RoomType from './RoomType';
 
 const isMobile = window.matchMedia('(max-width: 400px)').matches;
 
@@ -17,6 +18,10 @@ class Filters extends React.Component {
     adultsCount: 1,
     childrenCount: 0,
     infantsCount: 0,
+
+    entireHome: true,
+    privateRoom: false,
+    sharedRoom: false,
   };
 
   onCancel = () => {
@@ -78,13 +83,19 @@ class Filters extends React.Component {
               isMobile={isMobile}
             />
 
-            <FilterButton
-              onClick={e => this.toggleOpen('roomtype', e)}
-              active={this.state.activeFilterId === 'roomtype'}
+            <RoomType
+              isActive={this.state.activeFilterId === 'roomtype'}
+              entireHome={this.state.entireHome}
+              privateRoom={this.state.privateRoom}
+              sharedRoom={this.state.sharedRoom}
+              onButtonClick={this.toggleOpen}
+              onApply={this.onApply}
+              onClose={this.onClose}
+              onReset={this.onReset}
+              isMobile={isMobile}
               className="hidden-xs hidden-md"
-            >
-              Room type
-            </FilterButton>
+            />
+
             <FilterButton
               onClick={() => this.toggleOpen('price')}
               active={this.state.activeFilterId === 'price'}
