@@ -19,7 +19,7 @@ const Arrow = styled.button`
 export default function () {
   return (
     <Wrapper>
-      <Link to="/">
+      <Link to="/" href="/">
         <img src={logo} alt="logo" />
       </Link>
       <Arrow className="hidden-lg hidden-xl" />
