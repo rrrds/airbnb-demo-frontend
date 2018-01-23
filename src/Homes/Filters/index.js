@@ -1,27 +1,27 @@
-import React from "react";
-import { Row, Col, Grid } from "react-flexbox-grid";
-import { FilterButton } from "../styled";
-import Dates from "./Dates";
-import Guests from "./Guests";
+import React from 'react';
+import { Row, Col, Grid } from 'react-flexbox-grid';
+import { FilterButton } from '../styled';
+import Dates from './Dates';
+import Guests from './Guests';
 
-const isMobile = window.matchMedia("(max-width: 400px)").matches;
+const isMobile = window.matchMedia('(max-width: 400px)').matches;
 
 class Filters extends React.Component {
   state = {
     activeFilterId: false,
 
-    focusedInput: "startDate",
+    focusedInput: 'startDate',
     startDate: null,
     endDate: null,
 
     adults: 1,
     children: 0,
-    infants: 0
+    infants: 0,
   };
 
-  toggleOpen = filterId => {
+  toggleOpen = (filterId) => {
     this.setState(prevState => ({
-      activeFilterId: prevState.activeFilterId === filterId ? false : filterId
+      activeFilterId: prevState.activeFilterId === filterId ? false : filterId,
     }));
   };
 
@@ -29,7 +29,7 @@ class Filters extends React.Component {
     this.setState({ activeFilterId: false, startDate: null, endDate: null });
   };
 
-  onApply = filterState => {
+  onApply = (filterState) => {
     this.setState({ activeFilterId: false });
 
     this.setState(filterState);
@@ -37,9 +37,9 @@ class Filters extends React.Component {
 
   onReset = () => {
     this.setState({
-      focusedInput: "startDate",
+      focusedInput: 'startDate',
       startDate: null,
-      endDate: null
+      endDate: null,
     });
   };
 
@@ -53,7 +53,7 @@ class Filters extends React.Component {
         <Row middle="xs" start="xs">
           <Col xs={12}>
             <Dates
-              isActive={this.state.activeFilterId === "dates"}
+              isActive={this.state.activeFilterId === 'dates'}
               startDate={this.state.startDate}
               endDate={this.state.endDate}
               onDatesChange={this.onDatesChange}
@@ -67,7 +67,7 @@ class Filters extends React.Component {
             />
 
             <Guests
-              isActive={this.state.activeFilterId === "guests"}
+              isActive={this.state.activeFilterId === 'guests'}
               adults={this.state.adults}
               children={this.state.children}
               infants={this.state.infants}
@@ -79,30 +79,30 @@ class Filters extends React.Component {
             />
 
             <FilterButton
-              onClick={e => this.toggleOpen("roomtype", e)}
-              active={this.state.activeFilterId === "roomtype"}
+              onClick={e => this.toggleOpen('roomtype', e)}
+              active={this.state.activeFilterId === 'roomtype'}
               className="hidden-xs hidden-md"
             >
               Room type
             </FilterButton>
             <FilterButton
-              onClick={e => this.toggleOpen("price")}
-              active={this.state.activeFilterId === "price"}
+              onClick={e => this.toggleOpen('price')}
+              active={this.state.activeFilterId === 'price'}
               className="hidden-xs hidden-md"
             >
               Price
             </FilterButton>
             <FilterButton
-              onClick={e => this.toggleOpen("book")}
-              active={this.state.activeFilterId === "book"}
+              onClick={e => this.toggleOpen('book')}
+              active={this.state.activeFilterId === 'book'}
               className="hidden-xs hidden-md"
             >
               Instant book
             </FilterButton>
 
             <FilterButton
-              onClick={e => this.toggleOpen("more")}
-              active={this.state.activeFilterId === "more"}
+              onClick={e => this.toggleOpen('more')}
+              active={this.state.activeFilterId === 'more'}
             >
               More filters
             </FilterButton>

@@ -1,8 +1,8 @@
-import onClickOutside from "react-onclickoutside";
-import { PopupWrapper } from "../styled";
+import onClickOutside from 'react-onclickoutside';
+import { PopupWrapper } from '../styled';
 
 class Popup extends PopupWrapper {
-  handleClickOutside = e => {
+  handleClickOutside = (e) => {
     this.props.handleClickOutside();
   };
 }

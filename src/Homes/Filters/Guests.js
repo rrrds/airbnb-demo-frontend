@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { RoundButton, FilterButton } from "../styled";
-import Dropdown from "./Dropdown";
-import ResponsivePopup from "./Dropdown/ResponsivePopup";
+import React from 'react';
+import styled from 'styled-components';
+import { RoundButton, FilterButton } from '../styled';
+import Dropdown from './Dropdown';
+import ResponsivePopup from './Dropdown/ResponsivePopup';
 
-const filterId = "guests";
+const filterId = 'guests';
 
 const SpacedPopupWrapper = styled.div`
   padding: 24px 15px 0 24px;
@@ -42,40 +42,36 @@ const Description = Name.extend`
   margin-top: 7px;
 `;
 
-const pluralize = (word, count) => {
-  return count > 1 ? word + "s" : word;
-};
+const pluralize = (word, count) => (count > 1 ? `${word}s` : word);
 
-const getButtonText = (showSelectedData, guestsTotal) => {
-  return showSelectedData
-    ? `${guestsTotal} ${pluralize("guest", guestsTotal)}`
-    : "Guests";
-};
+const getButtonText = (showSelectedData, guestsTotal) => (showSelectedData
+  ? `${guestsTotal} ${pluralize('guest', guestsTotal)}`
+  : 'Guests');
 
 class Guests extends React.Component {
   state = {
     adults: 0,
     children: 0,
-    infants: 0
+    infants: 0,
   };
 
   componentWillReceiveProps(newProps) {
     this.setState({
       adults: newProps.adults,
       children: newProps.children,
-      infants: newProps.infants
+      infants: newProps.infants,
     });
   }
 
-  onDecrease = guestType => {
+  onDecrease = (guestType) => {
     this.setState(prevState => ({
-      [guestType]: prevState[guestType] - 1
+      [guestType]: prevState[guestType] - 1,
     }));
   };
 
-  onIncrease = guestType => {
+  onIncrease = (guestType) => {
     this.setState(prevState => ({
-      [guestType]: prevState[guestType] + 1
+      [guestType]: prevState[guestType] + 1,
     }));
   };
 
@@ -83,15 +79,15 @@ class Guests extends React.Component {
     this.props.onApply({
       adults: this.state.adults,
       children: this.state.children,
-      infants: this.state.infants
+      infants: this.state.infants,
     });
   };
 
-  onReset = e => {
+  onReset = (e) => {
     this.props.onApply({
       adults: 1,
       children: 0,
-      infants: 0
+      infants: 0,
     });
 
     this.props.onClose();
@@ -104,13 +100,13 @@ class Guests extends React.Component {
           <Name>Adults</Name>
           <Actions>
             <RoundButton
-              onClick={e => this.onDecrease("adults")}
+              onClick={e => this.onDecrease('adults')}
               disabled={this.state.adults < 1}
             >
               -
             </RoundButton>
             <Counter>{this.state.adults}</Counter>
-            <RoundButton onClick={e => this.onIncrease("adults")}>
+            <RoundButton onClick={e => this.onIncrease('adults')}>
               +
             </RoundButton>
           </Actions>
@@ -122,13 +118,13 @@ class Guests extends React.Component {
           </Name>
           <Actions>
             <RoundButton
-              onClick={e => this.onDecrease("children")}
+              onClick={e => this.onDecrease('children')}
               disabled={this.state.children < 1}
             >
               -
             </RoundButton>
             <Counter>{this.state.children}</Counter>
-            <RoundButton onClick={e => this.onIncrease("children")}>
+            <RoundButton onClick={e => this.onIncrease('children')}>
               +
             </RoundButton>
           </Actions>
@@ -140,13 +136,13 @@ class Guests extends React.Component {
           </Name>
           <Actions>
             <RoundButton
-              onClick={e => this.onDecrease("infants")}
+              onClick={e => this.onDecrease('infants')}
               disabled={this.state.infants < 1}
             >
               -
             </RoundButton>
             <Counter>{this.state.infants}</Counter>
-            <RoundButton onClick={e => this.onIncrease("infants")}>
+            <RoundButton onClick={e => this.onIncrease('infants')}>
               +
             </RoundButton>
           </Actions>
