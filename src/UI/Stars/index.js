@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import star from "./star.svg";
-import starEmpty from "./star_empty.svg";
+import star from './star.svg';
+import starEmpty from './star_empty.svg';
 
 const Wrapper = styled.div`
   display: flex;
@@ -14,7 +14,7 @@ const StarImg = styled.img`
   margin-right: 4px;
 `;
 
-export default function(props) {
+export default function (props) {
   return (
     <Wrapper>
       {[...Array(5)].map((e, i) => (

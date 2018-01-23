@@ -1,44 +1,44 @@
-import React from "react";
-import { Row, Col } from "react-flexbox-grid";
-import { TitleH2, HeaderRow } from "../../UI/styled";
-import SeeAllLink from "../../UI/SeeAllLink";
-import Carousel from "../../UI/Carousel";
+import React from 'react';
+import { Row, Col } from 'react-flexbox-grid';
+import { TitleH2, HeaderRow } from '../../UI/styled';
+import SeeAllLink from '../../UI/SeeAllLink';
+import Carousel from '../../UI/Carousel';
 
-import Card from "./Card";
-import image1 from "./1.png";
-import image2 from "./2.png";
-import image3 from "./3.png";
-import image4 from "./4.png";
+import Card from './Card';
+import image1 from './1.png';
+import image2 from './2.png';
+import image3 from './3.png';
+import image4 from './4.png';
 
 const experiences = [
   {
     image: image1,
-    text: "Forest therapy",
+    text: 'Forest therapy',
     price: 29,
     rating: 4,
-    reviews: 44
+    reviews: 44,
   },
   {
     image: image2,
-    text: "Whale watching",
+    text: 'Whale watching',
     price: 69,
     rating: 4,
-    reviews: 46
+    reviews: 46,
   },
   {
     image: image3,
-    text: "Table Mountain Summit, Cable Car Down",
+    text: 'Table Mountain Summit, Cable Car Down',
     price: 69,
     rating: 4,
-    reviews: 44
+    reviews: 44,
   },
   {
     image: image4,
-    text: "Salsa Night",
+    text: 'Salsa Night',
     price: 50,
     rating: 4,
-    reviews: 44
-  }
+    reviews: 44,
+  },
 ];
 
 const experiencesList = experiences.map((experience, index) => (
@@ -47,7 +47,7 @@ const experiencesList = experiences.map((experience, index) => (
   </Col>
 ));
 
-export default function() {
+export default function () {
   return (
     <div>
       <HeaderRow between="xs" middle="xs">
@@ -55,7 +55,7 @@ export default function() {
         <SeeAllLink to="/experiences" />
       </HeaderRow>
       <Row>
-        <Carousel showArrow={true}>{experiencesList}</Carousel>
+        <Carousel showArrow>{experiencesList}</Carousel>
       </Row>
     </div>
   );

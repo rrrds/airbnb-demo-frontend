@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import point from "./point.svg";
+import React from 'react';
+import styled from 'styled-components';
+import point from './point.svg';
 
 const MapButton = styled.button`
   position: fixed;
@@ -23,12 +23,10 @@ const ImageWrapper = styled.span`
   display: inline-block;
 `;
 
-export default props => {
-  return (
-    <MapButton className={props.className}>
-      <ImageWrapper>
-        <img src={point} alt="Open map" />
-      </ImageWrapper>
-    </MapButton>
-  );
-};
+export default props => (
+  <MapButton className={props.className}>
+    <ImageWrapper>
+      <img src={point} alt="Open map" />
+    </ImageWrapper>
+  </MapButton>
+);

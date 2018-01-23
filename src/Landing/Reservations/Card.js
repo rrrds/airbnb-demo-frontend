@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { CardLink, CardImg } from "../../UI/styled";
+import { CardLink, CardImg } from '../../UI/styled';
 
 const Type = styled.div`
   font-size: 10px;
@@ -30,7 +30,7 @@ const Price = styled.div`
   text-align: left;
 `;
 
-export default function(props) {
+export default function (props) {
   return (
     <CardLink>
       <CardImg src={props.reservation.image} />

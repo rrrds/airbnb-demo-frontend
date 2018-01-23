@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const RoundButton = styled.button`
   line-height: normal;
   font-size: 16px;
   text-align: center;
-  color: ${props => (props.active ? "#fff" : "#0f7276")};
-  background: ${props => (props.active ? "#008489" : "transparent")};
+  color: ${props => (props.active ? '#fff' : '#0f7276')};
+  background: ${props => (props.active ? '#008489' : 'transparent')};
   border-radius: 16px;
   border: none;
   width: 32px;
@@ -25,11 +25,11 @@ export const FilterButton = styled.button`
 
   padding: 7px 16px;
   margin: 12px 12px 12px 0;
-  background-color: ${props => (props.active ? "#008489" : "#fff")};
+  background-color: ${props => (props.active ? '#008489' : '#fff')};
 
   line-height: normal;
   font-size: 14px;
-  color: ${props => (props.active ? "#fff" : "#383838")};
+  color: ${props => (props.active ? '#fff' : '#383838')};
   cursor: pointer;
 `;
 
@@ -67,7 +67,7 @@ export const PopupButton = styled.button`
   font-size: 16px;
   text-align: center;
 
-  color: ${props => (props.primary ? "#0F7276" : "#636363")};
+  color: ${props => (props.primary ? '#0F7276' : '#636363')};
 
   border: none;
   background: none;

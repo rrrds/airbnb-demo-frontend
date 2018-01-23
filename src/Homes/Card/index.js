@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { CardLink } from "../../UI/styled";
-import Stars from "../../UI/Stars";
+import { CardLink } from '../../UI/styled';
+import Stars from '../../UI/Stars';
 
 const CardImg = styled.img`
   max-width: 100%;
@@ -31,7 +31,7 @@ const Rating = styled.div`
   margin-top: 6px;
 `;
 
-export default function(props) {
+export default function (props) {
   return (
     <CardLink>
       <CardImg src={props.home.image} />

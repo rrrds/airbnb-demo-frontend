@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { PortalWithState } from "react-portal";
-import cross from "./cross.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { PortalWithState } from 'react-portal';
+import cross from './cross.svg';
 
 const StyledPortal = styled.div`
   position: fixed;
@@ -74,10 +74,11 @@ const SaveButton = styled.button`
   cursor: pointer;
 `;
 
-export default props => {
-  return (
-    <PortalWithState defaultOpen>
-      {({ openPortal, closePortal, isOpen, portal }) => {
+export default props => (
+  <PortalWithState defaultOpen>
+    {({
+ openPortal, closePortal, isOpen, portal,
+}) => {
         const onClose = () => {
           props.onClose();
           closePortal();
@@ -88,23 +89,20 @@ export default props => {
           closePortal();
         };
 
-        portal(
-          <StyledPortal>
-            <PortalRow>
-              <Header>
-                <CloseButton onClick={onClose} />
+        portal(<StyledPortal>
+          <PortalRow>
+            <Header>
+              <CloseButton onClick={onClose} />
                 Dates
                 <ResetButton onClick={props.onReset}>Reset</ResetButton>
-              </Header>
-              {props.mobileInfoRow}
-            </PortalRow>
-            <FilterRow>{props.children}</FilterRow>
-            <PortalRow>
-              <SaveButton onClick={onApply}>Save</SaveButton>
-            </PortalRow>
-          </StyledPortal>
-        );
+            </Header>
+            {props.mobileInfoRow}
+          </PortalRow>
+          <FilterRow>{props.children}</FilterRow>
+          <PortalRow>
+            <SaveButton onClick={onApply}>Save</SaveButton>
+          </PortalRow>
+               </StyledPortal>);
       }}
-    </PortalWithState>
-  );
-};
+  </PortalWithState>
+);

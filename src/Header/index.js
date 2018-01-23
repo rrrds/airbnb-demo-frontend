@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import { Row, Grid } from "react-flexbox-grid";
+import React from 'react';
+import styled from 'styled-components';
+import { Row, Grid } from 'react-flexbox-grid';
 
-import Logo from "./Logo";
-import Search from "./Search";
-import Nav from "./Nav";
-import { FixedWrapper } from "../UI/styled";
+import Logo from './Logo';
+import Search from './Search';
+import Nav from './Nav';
+import { FixedWrapper } from '../UI/styled';
 
 const HeaderRow = styled(Row)`
   padding: 16px 8px;
@@ -13,7 +13,7 @@ const HeaderRow = styled(Row)`
   flex-wrap: nowrap;
 `;
 
-export default function() {
+export default function () {
   return (
     <FixedWrapper>
       <Grid>

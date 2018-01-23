@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Row } from "react-flexbox-grid";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Row } from 'react-flexbox-grid';
+import { Link } from 'react-router-dom';
 
 export const TitleH2 = styled.h2`
   line-height: 28px;

@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import { CardLink, CardImg } from "../../UI/styled";
-import Stars from "../../UI/Stars";
+import { CardLink, CardImg } from '../../UI/styled';
+import Stars from '../../UI/Stars';
 
 const DetailsRow = styled.div`
   text-align: left;
@@ -23,7 +23,7 @@ const Reviews = styled.span`
   font-size: 12px;
 `;
 
-export default function(props) {
+export default function (props) {
   return (
     <CardLink>
       <CardImg src={props.experience.image} />

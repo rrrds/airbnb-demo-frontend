@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { PopupButton, PopupOverlayWrapper } from "../../styled";
-import Popup from "../Popup";
+import React from 'react';
+import styled from 'styled-components';
+import { PopupButton, PopupOverlayWrapper } from '../../styled';
+import Popup from '../Popup';
 
 const ActionBbar = styled.div`
   display: flex;
@@ -9,18 +9,16 @@ const ActionBbar = styled.div`
   padding: 0 22px 22px 22px;
 `;
 
-export default props => {
-  return (
-    <PopupOverlayWrapper>
-      <Popup handleClickOutside={props.onClose}>
-        {props.children}
-        <ActionBbar>
-          <PopupButton onClick={props.onClose}>Cancel</PopupButton>
-          <PopupButton onClick={props.onApply} primary>
+export default props => (
+  <PopupOverlayWrapper>
+    <Popup handleClickOutside={props.onClose}>
+      {props.children}
+      <ActionBbar>
+        <PopupButton onClick={props.onClose}>Cancel</PopupButton>
+        <PopupButton onClick={props.onApply} primary>
             Apply
-          </PopupButton>
-        </ActionBbar>
-      </Popup>
-    </PopupOverlayWrapper>
-  );
-};
+        </PopupButton>
+      </ActionBbar>
+    </Popup>
+  </PopupOverlayWrapper>
+);

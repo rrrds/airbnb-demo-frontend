@@ -1,35 +1,35 @@
-import React from "react";
-import { Row, Col } from "react-flexbox-grid";
-import { TitleH2, HeaderRow } from "../../UI/styled";
-import Carousel from "../../UI/Carousel";
+import React from 'react';
+import { Row, Col } from 'react-flexbox-grid';
+import { TitleH2, HeaderRow } from '../../UI/styled';
+import Carousel from '../../UI/Carousel';
 
-import Card from "./Card";
-import image1 from "./1.png";
-import image1x2 from "./1@2x.png";
-import image2 from "./2.png";
-import image2x2 from "./2@2x.png";
-import image3 from "./3.png";
-import image3x2 from "./3@2x.png";
+import Card from './Card';
+import image1 from './1.png';
+import image1x2 from './1@2x.png';
+import image2 from './2.png';
+import image2x2 from './2@2x.png';
+import image3 from './3.png';
+import image3x2 from './3@2x.png';
 
 const explore = [
   {
-    name: "Homes",
+    name: 'Homes',
     image: image1,
     image2x: image1x2,
-    to: "/homes"
+    to: '/homes',
   },
   {
-    name: "Experiences",
+    name: 'Experiences',
     image: image2,
     image2x: image2x2,
-    to: "/experiences"
+    to: '/experiences',
   },
   {
-    name: "Restaurants",
+    name: 'Restaurants',
     image: image3,
     image2x: image3x2,
-    to: "/restaurants"
-  }
+    to: '/restaurants',
+  },
 ];
 
 const exploreList = explore.map((exp, index) => (
@@ -38,7 +38,7 @@ const exploreList = explore.map((exp, index) => (
   </Col>
 ));
 
-export default function() {
+export default function () {
   return (
     <div>
       <HeaderRow between="xs" middle="xs">

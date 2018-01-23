@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import arrow from "./arrow.svg";
-import { RoundButton } from "./styled";
+import React from 'react';
+import styled from 'styled-components';
+import arrow from './arrow.svg';
+import { RoundButton } from './styled';
 
 const Wrapper = styled.div`
   margin: 48px 0 14px 0;
@@ -19,7 +19,7 @@ const TextInfo = styled.div`
   color: #383838;
 `;
 
-export default function() {
+export default function () {
   return (
     <Wrapper>
       <Nav>
