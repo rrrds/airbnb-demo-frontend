@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import { Helmet } from 'react-helmet';
+import GoogleMap from 'google-map-react';
 import Filters from './Filters';
 import { FixedWrapper } from '../UI/styled';
 import HomesList from './List';
 import Paginator from './Paginator';
-import GoogleMap from 'google-map-react';
 import MapButton from './MapButton';
-import { Helmet } from 'react-helmet';
 
 import image1 from './1.png';
 import image2 from './2.png';
@@ -124,8 +124,7 @@ export default () => (
 
           <Row center="xs">
             <Footer>
-                Enter dates to see full pricing. Additional fees apply. Taxes
-                may be added.
+              Enter dates to see full pricing. Additional fees apply. Taxes may be added.
             </Footer>
           </Row>
         </Col>
@@ -136,8 +135,8 @@ export default () => (
         defaultCenter={{ lat: 59.95, lng: 30.33 }}
         defaultZoom={11}
         bootstrapURLKeys={{
-            key: process.env.REACT_APP_GOOGLE_API_KEY,
-          }}
+          key: process.env.REACT_APP_GOOGLE_API_KEY,
+        }}
       />
     </GoogleMapWrapper>
     <MapButton className="hidden-lg hidden-xl" />
