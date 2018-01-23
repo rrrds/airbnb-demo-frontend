@@ -77,22 +77,23 @@ const SaveButton = styled.button`
 export default props => (
   <PortalWithState defaultOpen>
     {({ closePortal, portal }) => {
-        const onClose = () => {
-          props.onClose();
-          closePortal();
-        };
+      const onClose = () => {
+        props.onClose();
+        closePortal();
+      };
 
-        const onApply = () => {
-          props.onApply();
-          closePortal();
-        };
+      const onApply = () => {
+        props.onApply();
+        closePortal();
+      };
 
-        portal(<StyledPortal>
+      const PortalContent = (
+        <StyledPortal>
           <PortalRow>
             <Header>
               <CloseButton onClick={onClose} />
-                Dates
-                <ResetButton onClick={props.onReset}>Reset</ResetButton>
+              Dates
+              <ResetButton onClick={props.onReset}>Reset</ResetButton>
             </Header>
             {props.mobileInfoRow}
           </PortalRow>
@@ -100,7 +101,10 @@ export default props => (
           <PortalRow>
             <SaveButton onClick={onApply}>Save</SaveButton>
           </PortalRow>
-        </StyledPortal>);
-      }}
+        </StyledPortal>
+      );
+
+      portal(PortalContent);
+    }}
   </PortalWithState>
 );
