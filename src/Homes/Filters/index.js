@@ -4,8 +4,11 @@ import { FilterButton } from '../styled';
 import Dates from './Dates';
 import Guests from './Guests';
 import RoomType from './RoomType';
+import Price from './Price';
 
 const isMobile = window.matchMedia('(max-width: 400px)').matches;
+
+const priceDataMock = Array.from({ length: 50 }, () => Math.floor(Math.random() * 100) + 1);
 
 class Filters extends React.Component {
   state = {
@@ -19,9 +22,14 @@ class Filters extends React.Component {
     childrenCount: 0,
     infantsCount: 0,
 
-    entireHome: true,
+    entireHome: false,
     privateRoom: false,
     sharedRoom: false,
+
+    priceData: priceDataMock,
+    selectedRange: [10, 1000],
+    minPrice: 10,
+    maxPrice: 1000,
   };
 
   onCancel = () => {
@@ -96,13 +104,20 @@ class Filters extends React.Component {
               className="hidden-xs hidden-md"
             />
 
-            <FilterButton
-              onClick={() => this.toggleOpen('price')}
-              active={this.state.activeFilterId === 'price'}
+            <Price
+              isActive={this.state.activeFilterId === 'price'}
+              priceData={this.state.priceData}
+              selectedRange={this.state.selectedRange}
+              minPrice={this.state.minPrice}
+              maxPrice={this.state.maxPrice}
+              onButtonClick={this.toggleOpen}
+              onApply={this.onApply}
+              onClose={this.onClose}
+              onReset={this.onReset}
+              isMobile={isMobile}
               className="hidden-xs hidden-md"
-            >
-              Price
-            </FilterButton>
+            />
+
             <FilterButton
               onClick={() => this.toggleOpen('book')}
               active={this.state.activeFilterId === 'book'}
