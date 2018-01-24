@@ -6,6 +6,32 @@ import ResponsivePopup from '../Dropdown/ResponsivePopup';
 
 const filterId = 'instantbook';
 
+const SpacedPopupWrapper = styled.div`
+  padding: 24px 16px 24px 16px;
+`;
+
+const Label = styled.label`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Name = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 18px;
+  color: #383838;
+  margin-bottom: 4px;
+  min-width: 200px;
+`;
+
+const Description = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 14px;
+  color: #383838;
+`;
+
 class InstantBook extends React.Component {
   state = {
     instantBook: false,
@@ -53,11 +79,19 @@ class InstantBook extends React.Component {
           onApply={this.onApply}
           onReset={this.onReset}
         >
-          <input
-            type="checkbox"
-            checked={this.state.instantBook}
-            onChange={this.handleCheckboxChange}
-          />
+          <SpacedPopupWrapper>
+            <Label>
+              <Name>
+                Instant Book
+                <Description>Listings you can book without waiting for host approval.</Description>
+              </Name>
+              <input
+                type="checkbox"
+                checked={this.state.instantBook}
+                onChange={this.handleCheckboxChange}
+              />
+            </Label>
+          </SpacedPopupWrapper>
         </ResponsivePopup>
 
         {Button}
