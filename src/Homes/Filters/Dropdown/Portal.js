@@ -104,7 +104,7 @@ export default props => (
         </StyledPortal>
       );
 
-      portal(PortalContent);
+      return portal(PortalContent);
     }}
   </PortalWithState>
 );
