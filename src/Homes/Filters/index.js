@@ -5,6 +5,7 @@ import Dates from './Dates';
 import Guests from './Guests';
 import RoomType from './RoomType';
 import Price from './Price';
+import InstantBook from './InstantBook';
 
 const isMobile = window.matchMedia('(max-width: 400px)').matches;
 
@@ -30,6 +31,8 @@ class Filters extends React.Component {
     selectedRange: [10, 1000],
     minPrice: 10,
     maxPrice: 1000,
+
+    instantBook: false,
   };
 
   onCancel = () => {
@@ -118,13 +121,16 @@ class Filters extends React.Component {
               className="hidden-xs hidden-md"
             />
 
-            <FilterButton
-              onClick={() => this.toggleOpen('book')}
-              active={this.state.activeFilterId === 'book'}
+            <InstantBook
+              isActive={this.state.activeFilterId === 'instantbook'}
+              instantBook={this.state.instantBook}
+              onButtonClick={this.toggleOpen}
+              onApply={this.onApply}
+              onClose={this.onClose}
+              onReset={this.onReset}
+              isMobile={isMobile}
               className="hidden-xs hidden-md"
-            >
-              Instant book
-            </FilterButton>
+            />
 
             <FilterButton
               onClick={() => this.toggleOpen('more')}
