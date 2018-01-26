@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const RoundButton = styled.button`
+  font-family: CircularAir;
   line-height: normal;
   font-size: 16px;
   text-align: center;
@@ -27,6 +28,7 @@ export const FilterButton = styled.button`
   margin: 12px 12px 12px 0;
   background-color: ${props => (props.active ? '#008489' : '#fff')};
 
+  font-family: CircularAir;
   line-height: normal;
   font-size: 14px;
   color: ${props => (props.active ? '#fff' : '#383838')};
@@ -38,7 +40,7 @@ export const PopupOverlayWrapper = styled.div`
   display: inline-block;
 
   :before {
-    content: "";
+    content: '';
     position: fixed;
     top: 0;
     left: 0;

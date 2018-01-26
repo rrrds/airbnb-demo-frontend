@@ -71,16 +71,15 @@ const Name = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
   white-space: nowrap;
-  line-height: normal;
   font-family: CircularAir;
   line-height: normal;
-  font-size: 16px;
-
+  font-size: 20px;
   color: #383838;
 `;
 
 const Description = Name.extend`
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 200;
   margin-top: 4px;
 `;
 

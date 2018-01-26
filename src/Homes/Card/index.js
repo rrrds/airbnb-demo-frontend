@@ -9,15 +9,22 @@ const CardImg = styled.img`
 `;
 
 const Info = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
   font-size: 15px;
   font-weight: bold;
+  color: #383838;
 
   text-align: left;
   margin-top: 8px;
 `;
 
 const SubInfo = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
   font-size: 15px;
+  font-weight: 200;
+  color: #383838;
 
   text-align: left;
   margin-top: 2px;
@@ -26,6 +33,8 @@ const SubInfo = styled.div`
 const Rating = styled.div`
   display: flex;
   justify-content: flex-start;
+  font-family: CircularAir;
+  line-height: normal;
   font-size: 12px;
 
   margin-top: 6px;

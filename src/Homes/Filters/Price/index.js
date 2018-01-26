@@ -22,7 +22,7 @@ const StyledHistogram = styled(Histogram)`
 const PriceRange = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 16px;
+  font-size: 20px;
   color: #383838;
   margin-bottom: 7px;
 `;
@@ -30,7 +30,8 @@ const PriceRange = styled.div`
 const PriceAverage = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: 200;
   color: #383838;
   margin-bottom: 32px;
 `;

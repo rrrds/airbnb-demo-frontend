@@ -23,6 +23,11 @@ const Actions = GuestAge.extend`
 `;
 
 const Counter = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 18px;
+  font-weight: 200;
+  color: #383838;
   min-width: 50px;
   text-align: center;
 `;
@@ -32,6 +37,7 @@ const Name = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
   white-space: nowrap;
+  font-family: CircularAir;
   line-height: normal;
   font-size: 20px;
   color: #383838;
@@ -39,6 +45,7 @@ const Name = styled.div`
 
 const Description = Name.extend`
   font-size: 16px;
+  font-weight: 200;
   margin-top: 7px;
 `;
 
@@ -49,7 +56,7 @@ const getButtonText = (showSelectedData, guestsData) => {
     const guestCount = guestsData.adultsCount + guestsData.childrenCount;
     let buttonText = `${guestCount} ${pluralize('guest', guestCount)}`;
 
-    if (guestsData.infantsCount > 0 ) {
+    if (guestsData.infantsCount > 0) {
       buttonText += `, ${guestsData.infantsCount} ${pluralize('infant', guestsData.infantsCount)}`;
     }
 

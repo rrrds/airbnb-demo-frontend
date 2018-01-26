@@ -57,7 +57,7 @@ const Label = styled.label`
 const Name = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 18px;
+  font-size: 20px;
   color: #383838;
   margin-bottom: 4px;
   margin-right: 30px;
@@ -68,6 +68,7 @@ const Description = styled.div`
   font-family: CircularAir;
   line-height: normal;
   font-size: 14px;
+  font-weight: 200;
   color: #383838;
 `;
 
