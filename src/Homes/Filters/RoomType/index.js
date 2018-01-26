@@ -89,11 +89,45 @@ const Icon = styled.img`
   margin: 0 0 0 30px;
 `;
 
-const getButtonText = showSelectedData => (showSelectedData ? '' : 'Room type');
+const typeToText = {
+  entireHome: 'Entire Home',
+  privateRoom: 'Private Room',
+  sharedRoom: 'Shared Room',
+};
+
+const getButtonText = (showSelectedData, values) => {
+  if (showSelectedData) {
+    const seletedData = Object.entries(values).reduce(
+      (prev, cur) => {
+        const [key, value] = cur;
+
+        if (value === true) {
+          return {
+            selectedCount: prev.selectedCount + 1,
+            selectedType: key,
+          };
+        }
+
+        return prev;
+      },
+      { selectedCount: 0, selectedType: null },
+    );
+
+    if (seletedData.selectedCount > 1) {
+      return `Room type · ${seletedData.selectedCount}`;
+    }
+
+    if (seletedData.selectedCount === 1) {
+      return typeToText[seletedData.selectedType];
+    }
+  }
+
+  return 'Room type';
+};
 
 const hasSelectedType = values => values.entireHome || values.privateRoom || values.sharedRoom;
 
-class RoomType extends React.Component {
+export default class RoomType extends React.Component {
   state = {
     entireHome: false,
     privateRoom: false,
@@ -190,7 +224,7 @@ class RoomType extends React.Component {
         onClick={e => this.props.onButtonClick(filterId, e)}
         active={this.props.isActive || hasSelectedType(this.state)}
       >
-        {getButtonText()}
+        {getButtonText(hasSelectedType(this.state), this.state)}
       </FilterButton>
     );
 
@@ -211,5 +245,3 @@ class RoomType extends React.Component {
     );
   }
 }
-
-export default RoomType;
