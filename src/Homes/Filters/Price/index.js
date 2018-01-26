@@ -111,7 +111,7 @@ class Price extends React.Component {
             <Rheostat
               min={this.props.minPrice}
               max={this.props.maxPrice}
-              values={this.state.selectedRange}
+              values={this.state.selectedRange || [0, 0]}
               handle={MyHandle}
               onChange={this.onChange}
               onValuesUpdated={this.onValuesUpdated}
