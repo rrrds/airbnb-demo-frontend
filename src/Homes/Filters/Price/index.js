@@ -38,23 +38,17 @@ const PriceAverage = styled.div`
 const selectedCustomRange = (min, max, values) =>
   values !== false && (min !== values[0] || max !== values[1]);
 
-const MyHandle = ({ style, ...passProps }) => (
-  <div
-    {...passProps}
-    style={{
-      ...style,
-      backgroundColor: '#fff',
-      border: '1px solid #008489',
-      borderRadius: '16px',
-      cursor: 'ew-resize',
-      marginLeft: -16,
-      marginTop: -13,
-      height: 32,
-      width: 32,
-      zIndex: 3,
-    }}
-  />
-);
+const Handle = styled.button`
+  background: #fff;
+  border: 1px solid #008489;
+  border-radius: 16px;
+  cursor: ew-resize;
+  margin-left: -16px;
+  margin-top: -13px;
+  height: 32px;
+  width: 32px;
+  z-index: 3;
+`;
 
 class Price extends React.Component {
   state = {
@@ -112,7 +106,7 @@ class Price extends React.Component {
               min={this.props.minPrice}
               max={this.props.maxPrice}
               values={this.state.selectedRange || [0, 0]}
-              handle={MyHandle}
+              handle={Handle}
               onChange={this.onChange}
               onValuesUpdated={this.onValuesUpdated}
             />
