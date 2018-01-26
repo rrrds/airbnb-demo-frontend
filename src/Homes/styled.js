@@ -8,14 +8,16 @@ export const RoundButton = styled.button`
   color: ${props => (props.active ? '#fff' : '#0f7276')};
   background: ${props => (props.active ? '#008489' : 'transparent')};
   border-radius: 16px;
-  border: none;
+  border: ${props => (props.noBorder ? 'none' : '1px solid #008489')};
   width: 32px;
   height: 32px;
   margin: 0 8px;
   cursor: pointer;
 
-  &:hover {
-    border: 1px solid #008489;
+  :disabled {
+    mix-blend-mode: normal;
+    opacity: 0.5;
+    cursor: auto;
   }
 `;
 
