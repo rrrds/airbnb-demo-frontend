@@ -105,6 +105,7 @@ class InstantBook extends React.Component {
   render() {
     const Button = (
       <FilterButton
+        className={this.props.className}
         onClick={() => this.props.onButtonClick(filterId)}
         active={this.props.isActive || this.state.instantBook}
       >

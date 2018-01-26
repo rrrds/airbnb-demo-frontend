@@ -184,6 +184,7 @@ class RoomType extends React.Component {
 
     const Button = (
       <FilterButton
+        className={this.props.className}
         onClick={e => this.props.onButtonClick(filterId, e)}
         active={this.props.isActive}
       >
