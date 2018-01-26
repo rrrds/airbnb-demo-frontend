@@ -91,6 +91,8 @@ const Icon = styled.img`
 
 const getButtonText = showSelectedData => (showSelectedData ? '' : 'Room type');
 
+const hasSelectedType = values => values.entireHome || values.privateRoom || values.sharedRoom;
+
 class RoomType extends React.Component {
   state = {
     entireHome: false,
@@ -186,7 +188,7 @@ class RoomType extends React.Component {
       <FilterButton
         className={this.props.className}
         onClick={e => this.props.onButtonClick(filterId, e)}
-        active={this.props.isActive}
+        active={this.props.isActive || hasSelectedType(this.state)}
       >
         {getButtonText()}
       </FilterButton>
