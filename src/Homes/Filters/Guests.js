@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { RoundButton, FilterButton } from '../styled';
 import Dropdown from './Dropdown';
 import ResponsivePopup from './Dropdown/ResponsivePopup';
+import minus from './minus.svg';
+import plus from './plus.svg';
 
 const filterId = 'guests';
 
@@ -16,6 +18,14 @@ const GuestAge = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 23px;
+`;
+
+const MinusButton = RoundButton.extend`
+  background: url(${minus}) center no-repeat;
+`;
+
+const PlusButton = RoundButton.extend`
+  background: url(${plus}) center no-repeat;
 `;
 
 const Actions = GuestAge.extend`
@@ -117,14 +127,12 @@ class Guests extends React.Component {
         <GuestAge>
           <Name>Adults</Name>
           <Actions>
-            <RoundButton
+            <MinusButton
               onClick={() => this.onDecrease('adultsCount')}
               disabled={this.state.adultsCount < 1}
-            >
-              -
-            </RoundButton>
+            />
             <Counter>{this.state.adultsCount}</Counter>
-            <RoundButton onClick={() => this.onIncrease('adultsCount')}>+</RoundButton>
+            <PlusButton onClick={() => this.onIncrease('adultsCount')} />
           </Actions>
         </GuestAge>
 
@@ -133,14 +141,12 @@ class Guests extends React.Component {
             Children<Description>Ages 2 — 12</Description>
           </Name>
           <Actions>
-            <RoundButton
+            <MinusButton
               onClick={() => this.onDecrease('childrenCount')}
               disabled={this.state.childrenCount < 1}
-            >
-              -
-            </RoundButton>
+            />
             <Counter>{this.state.childrenCount}</Counter>
-            <RoundButton onClick={() => this.onIncrease('childrenCount')}>+</RoundButton>
+            <PlusButton onClick={() => this.onIncrease('childrenCount')} />
           </Actions>
         </GuestAge>
 
@@ -149,14 +155,12 @@ class Guests extends React.Component {
             Infants<Description>Under 2</Description>
           </Name>
           <Actions>
-            <RoundButton
+            <MinusButton
               onClick={() => this.onDecrease('infantsCount')}
               disabled={this.state.infantsCount < 1}
-            >
-              -
-            </RoundButton>
+            />
             <Counter>{this.state.infantsCount}</Counter>
-            <RoundButton onClick={() => this.onIncrease('infantsCount')}>+</RoundButton>
+            <PlusButton onClick={() => this.onIncrease('infantsCount')} />
           </Actions>
         </GuestAge>
       </SpacedPopupWrapper>
