@@ -35,8 +35,11 @@ const PriceAverage = styled.div`
   margin-bottom: 32px;
 `;
 
-const selectedCustomRange = (min, max, values) =>
+const isSelectedCustomRange = (min, max, values) =>
   values !== false && (min !== values[0] || max !== values[1]);
+
+const getButtonText = (showSelectedData, values) =>
+  (showSelectedData ? `Up to $${values[1]}` : 'Price');
 
 const Handle = styled.button`
   background: #fff;
@@ -74,16 +77,18 @@ class Price extends React.Component {
   };
 
   render() {
+    const selectedCustomRange = isSelectedCustomRange(
+      this.props.minPrice,
+      this.props.maxPrice,
+      this.state.selectedRange,
+    );
     const Button = (
       <FilterButton
         className={this.props.className}
         onClick={() => this.props.onButtonClick(filterId)}
-        active={
-          this.props.isActive ||
-          selectedCustomRange(this.props.minPrice, this.props.maxPrice, this.state.selectedRange)
-        }
+        active={this.props.isActive || selectedCustomRange}
       >
-        Price
+        {getButtonText(selectedCustomRange, this.state.selectedRange)}
       </FilterButton>
     );
 
