@@ -1,6 +1,5 @@
 import React from 'react';
 import { Row, Col, Grid } from 'react-flexbox-grid';
-import { FilterButton } from '../styled';
 import Dates from './Dates';
 import Guests from './Guests';
 import RoomType from './RoomType';
@@ -132,12 +131,6 @@ class Filters extends React.Component {
               className="hidden-xs hidden-md"
             />
 
-            <FilterButton
-              onClick={() => this.toggleOpen('more')}
-              active={this.state.activeFilterId === 'more'}
-            >
-              More filters
-            </FilterButton>
           </Col>
         </Row>
       </Grid>
