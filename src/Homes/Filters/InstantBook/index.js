@@ -26,7 +26,7 @@ const Switch = styled(ToggleSwitch)`
     position: relative;
     transition: left 0.2s ease-in-out;
 
-    background: #ffffff url(${props => (props.on ? check : cross)}) center no-repeat;
+    background: #fff url(${props => (props.on ? check : cross)}) center no-repeat;
     border: 1px solid rgba(72, 72, 72, 0.3);
     box-sizing: border-box;
     border-radius: 20px;
@@ -37,10 +37,10 @@ const Switch = styled(ToggleSwitch)`
   &.on {
     background: #008489;
     border: 1px solid rgba(0, 132, 137, 0.3);
-  }
 
-  &.on .switch-toggle {
-    left: 23px;
+    .switch-toggle {
+      left: 23px;
+    }
   }
 `;
 
