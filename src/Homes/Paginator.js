@@ -24,10 +24,10 @@ export default function () {
     <Wrapper>
       <Nav>
         <RoundButton active>1</RoundButton>
-        <RoundButton>2</RoundButton>
-        <RoundButton>3</RoundButton>
-        <RoundButton>&hellip;</RoundButton>
-        <RoundButton>17</RoundButton>
+        <RoundButton noBorder>2</RoundButton>
+        <RoundButton noBorder>3</RoundButton>
+        <RoundButton noBorder>&hellip;</RoundButton>
+        <RoundButton noBorder>17</RoundButton>
         <RoundButton>
           <img src={arrow} alt="Next" />
         </RoundButton>
