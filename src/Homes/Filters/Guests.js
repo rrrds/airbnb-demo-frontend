@@ -44,8 +44,20 @@ const Description = Name.extend`
 
 const pluralize = (word, count) => (count > 1 ? `${word}s` : word);
 
-const getButtonText = (showSelectedData, guestsTotal) =>
-  (showSelectedData ? `${guestsTotal} ${pluralize('guest', guestsTotal)}` : 'Guests');
+const getButtonText = (showSelectedData, guestsData) => {
+  if (showSelectedData) {
+    const guestCount = guestsData.adultsCount + guestsData.childrenCount;
+    let buttonText = `${guestCount} ${pluralize('guest', guestCount)}`;
+
+    if (guestsData.infantsCount > 0 ) {
+      buttonText += `, ${guestsData.infantsCount} ${pluralize('infant', guestsData.infantsCount)}`;
+    }
+
+    return buttonText;
+  }
+
+  return 'Guests';
+};
 
 class Guests extends React.Component {
   state = {
@@ -150,7 +162,7 @@ class Guests extends React.Component {
         onClick={() => this.props.onButtonClick(filterId)}
         active={this.props.isActive || guestsTotal > 1}
       >
-        {getButtonText(this.props.isActive || guestsTotal > 1, guestsTotal)}
+        {getButtonText(this.props.isActive || guestsTotal > 1, this.state)}
       </FilterButton>
     );
 
