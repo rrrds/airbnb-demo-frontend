@@ -38,9 +38,6 @@ export const FilterButton = styled.button`
 `;
 
 export const PopupOverlayWrapper = styled.div`
-  position: relative;
-  display: inline-block;
-
   :before {
     content: '';
     position: fixed;

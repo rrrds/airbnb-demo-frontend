@@ -3,6 +3,11 @@ import styled from 'styled-components';
 import { PopupButton, PopupOverlayWrapper } from '../../styled';
 import Popup from '../Popup';
 
+const Overlay = PopupOverlayWrapper.extend`
+  position: relative;
+  display: inline-block;
+`;
+
 const ActionBbar = styled.div`
   display: flex;
   justify-content: space-between;
@@ -10,15 +15,15 @@ const ActionBbar = styled.div`
 `;
 
 export default props => (
-  <PopupOverlayWrapper>
+  <Overlay>
     <Popup handleClickOutside={props.onClose}>
       {props.children}
       <ActionBbar>
         <PopupButton onClick={props.onClose}>Cancel</PopupButton>
         <PopupButton onClick={props.onApply} primary>
-            Apply
+          Apply
         </PopupButton>
       </ActionBbar>
     </Popup>
-  </PopupOverlayWrapper>
+  </Overlay>
 );
