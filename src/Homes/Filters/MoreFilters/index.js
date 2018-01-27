@@ -14,10 +14,14 @@ import InstantBookSelect from '../InstantBook/InstantBookSelect';
 
 const filterId = 'more';
 
-const Popup = styled(ResponsivePopup)`
-  padding: 16px;
-  left: 0;
-  bottom: 0;
+const Content = styled.div`
+  padding: 8px;
+
+  @media only screen and (min-width: 992px) {
+    padding: 41px 81px;
+    left: 0;
+    bottom: 0;
+  }
 `;
 
 const Block = styled.div`
@@ -123,7 +127,7 @@ export default class MoreFilters extends React.Component {
 
     return (
       <Dropdown>
-        <Popup
+        <ResponsivePopup
           isActive={this.props.isActive}
           isMobile={this.props.isMobile}
           onClose={this.props.onClose}
@@ -132,6 +136,7 @@ export default class MoreFilters extends React.Component {
           name="All filters"
           isLargePopup
         >
+        <Content>
           {isMdOrLess && (
             <Block>
               <Title>Room type</Title>
@@ -199,7 +204,8 @@ export default class MoreFilters extends React.Component {
               onHandleChange={this.onHandleChange}
             />
           </Block>
-        </Popup>
+          </Content>
+        </ResponsivePopup>
 
         {Button}
       </Dropdown>

@@ -29,7 +29,6 @@ const Popup = onClickOutside(Wrapper, {
 
 const MainContainer = styled.div`
   flex: 1 1 auto;
-  padding: 47px 16px 0 81px;
   overflow-x: hidden;
   overflow-y: auto;
 `;

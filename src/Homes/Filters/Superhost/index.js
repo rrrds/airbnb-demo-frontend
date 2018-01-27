@@ -74,6 +74,7 @@ const MoreLink = styled.a`
   line-height: normal;
   font-size: 16px;
   color: #0f7276;
+  cursor: pointer;
 `;
 
 export default class Superhost extends React.Component {
