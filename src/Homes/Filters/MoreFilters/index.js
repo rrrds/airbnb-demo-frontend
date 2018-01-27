@@ -8,6 +8,9 @@ import RoomsBeds from '../RoomsBeds';
 import Superhost from '../Superhost';
 import Amenities from '../Amenities';
 import Facilities from '../Facilities';
+import RoomSelect from '../RoomType/RoomSelect';
+import Price from '../Price';
+import InstantBook from '../InstantBook';
 
 const filterId = 'more';
 
@@ -33,10 +36,16 @@ const getButtonText = () => 'More Filters';
 
 const isSomethingChanged = (obj1, obj2) => !isEqual(obj1, obj2);
 
+const isMdOrLess = window.matchMedia('(max-width: 992px)').matches;
+
 export default class MoreFilters extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      entireHome: props.entireHome,
+      privateRoom: props.privateRoom,
+      sharedRoom: props.sharedRoom,
+
       bedrooms: props.bedrooms,
       beds: props.beds,
       bathrooms: props.bathrooms,
@@ -58,6 +67,10 @@ export default class MoreFilters extends React.Component {
 
   componentWillReceiveProps(newProps) {
     this.setState({
+      entireHome: newProps.entireHome,
+      privateRoom: newProps.privateRoom,
+      sharedRoom: newProps.sharedRoom,
+
       bedrooms: newProps.bedrooms,
       beds: newProps.beds,
       bathrooms: newProps.bathrooms,
@@ -112,6 +125,18 @@ export default class MoreFilters extends React.Component {
           onReset={this.onReset}
           isLargePopup
         >
+          {isMdOrLess && (
+            <Block>
+              <Title>Room type</Title>
+              <RoomSelect
+                entireHome={this.state.entireHome}
+                privateRoom={this.state.privateRoom}
+                sharedRoom={this.state.sharedRoom}
+                handleCheckboxChange={this.onHandleChange}
+              />
+            </Block>
+          )}
+
           <Block>
             <Title>Rooms and beds</Title>
             <RoomsBeds
@@ -124,6 +149,7 @@ export default class MoreFilters extends React.Component {
 
           <Block>
             <Title>More options</Title>
+            {/* {isMdOrLess && <InstantBook />} */}
             <Superhost superhost={this.state.superhost} onHandleChange={this.onHandleChange} />
           </Block>
 
