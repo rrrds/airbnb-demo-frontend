@@ -33,6 +33,7 @@ const MainContainer = styled.div`
 const ActionBbar = styled.div`
   display: flex;
   flex: 1 0 auto;
+  justify-content: flex-end;
   padding: 8px 16px;
   background: #fff;
 `;
@@ -43,7 +44,7 @@ const Button = PopupButton.extend`
   color: ${props => (props.primary ? '#fff' : '#383838')};
   background: ${props => (props.primary ? '#008489' : '#fff')};
   border-radius: 4px;
-  padding: 12px 28px;
+  padding: ${props => (props.primary ? '12px 28px' : '12px')};
   margin-left: 16px;
 `;
 
