@@ -93,7 +93,7 @@ export default props => (
           <PortalRow>
             <Header>
               <CloseButton onClick={onClose} />
-              Dates
+              {props.name}
               <ResetButton onClick={props.onReset}>Reset</ResetButton>
             </Header>
             {props.mobileInfoRow}

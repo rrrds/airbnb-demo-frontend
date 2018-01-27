@@ -12,6 +12,7 @@ export default (props) => {
           onClose={props.onClose}
           onReset={props.onReset}
           mobileInfoRow={props.mobileInfoRow}
+          name={props.name}
         >
           {props.children}
         </Portal>

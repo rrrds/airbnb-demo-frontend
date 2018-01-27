@@ -185,6 +185,7 @@ class Guests extends React.Component {
           onClose={this.props.onClose}
           onApply={this.onApply}
           onReset={this.onReset}
+          name="Guests"
         >
           {GuestSelect}
         </ResponsivePopup>
