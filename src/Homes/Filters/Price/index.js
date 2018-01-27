@@ -1,58 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
 import Rheostat from 'rheostat';
 import './slider.css';
 import { FilterButton } from '../../styled';
 import Dropdown from '../Dropdown';
 import ResponsivePopup from '../Dropdown/ResponsivePopup';
-import Histogram from './Histogram';
+import PriceSelect from './PriceSelect';
 
 const filterId = 'price';
-
-const SpacedPopupWrapper = styled.div`
-  padding: 24px 24px 32px 24px;
-  min-width: 350px;
-`;
-
-const StyledHistogram = styled(Histogram)`
-  position: relative;
-  top: 10px;
-`;
-
-const PriceRange = styled.div`
-  font-family: CircularAir;
-  line-height: normal;
-  font-size: 20px;
-  color: #383838;
-  margin-bottom: 7px;
-`;
-
-const PriceAverage = styled.div`
-  font-family: CircularAir;
-  line-height: normal;
-  font-size: 16px;
-  font-weight: 200;
-  color: #383838;
-  margin-bottom: 32px;
-`;
 
 const isSelectedCustomRange = (min, max, values) =>
   values !== false && (min !== values[0] || max !== values[1]);
 
 const getButtonText = (showSelectedData, values) =>
   (showSelectedData ? `Up to $${values[1]}` : 'Price');
-
-const Handle = styled.button`
-  background: #fff;
-  border: 1px solid #008489;
-  border-radius: 16px;
-  cursor: ew-resize;
-  margin-left: -16px;
-  margin-top: -13px;
-  height: 32px;
-  width: 32px;
-  z-index: 3;
-`;
 
 class Price extends React.Component {
   state = {
@@ -65,12 +25,8 @@ class Price extends React.Component {
     });
   }
 
-  onChange = ({ values }) => {
-    this.setState({ selectedRange: values });
-  };
-
-  onValuesUpdated = ({ values }) => {
-    this.setState({ selectedRange: values });
+  onChange = (data) => {
+    this.setState(data);
   };
 
   onApply = () => {
@@ -102,21 +58,13 @@ class Price extends React.Component {
           onApply={this.onApply}
           onReset={this.onReset}
         >
-          <SpacedPopupWrapper>
-            <PriceRange>
-              ${this.state.selectedRange[0]} — ${this.state.selectedRange[1]}+
-            </PriceRange>
-            <PriceAverage>The average nightly price is $75.</PriceAverage>
-            <StyledHistogram data={this.props.priceData} />
-            <Rheostat
-              min={this.props.minPrice}
-              max={this.props.maxPrice}
-              values={this.state.selectedRange || [0, 0]}
-              handle={Handle}
-              onChange={this.onChange}
-              onValuesUpdated={this.onValuesUpdated}
-            />
-          </SpacedPopupWrapper>
+          <PriceSelect
+            selectedRange={this.state.selectedRange}
+            priceData={this.props.priceData}
+            minPrice={this.props.minPrice}
+            maxPrice={this.props.maxPrice}
+            onChange={this.onChange}
+          />
         </ResponsivePopup>
 
         {Button}
