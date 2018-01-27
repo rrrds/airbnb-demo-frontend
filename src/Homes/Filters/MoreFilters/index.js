@@ -31,7 +31,11 @@ const Title = styled.legend`
 const getButtonText = () => 'More Filters';
 
 export default class MoreFilters extends React.Component {
-  state = {};
+  state = {
+    bedrooms: 0,
+    beds: 0,
+    bathrooms: 0,
+  };
 
   componentWillReceiveProps(newProps) {
     this.setState({});
@@ -45,6 +49,10 @@ export default class MoreFilters extends React.Component {
 
   onApply = () => {
     this.props.onApply({});
+  };
+
+  onHandleChange = (changes) => {
+    this.setState(changes);
   };
 
   render() {
@@ -69,7 +77,12 @@ export default class MoreFilters extends React.Component {
         >
           <Block>
             <Title>Rooms and beds</Title>
-            <RoomsBeds />
+            <RoomsBeds
+              bedrooms={this.state.bedrooms}
+              beds={this.state.beds}
+              bathrooms={this.state.bathrooms}
+              onHandleChange={this.onHandleChange}
+            />
           </Block>
 
           <Block>

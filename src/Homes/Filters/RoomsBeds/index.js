@@ -52,46 +52,16 @@ const Name = styled.div`
 `;
 
 export default class RoomsBeds extends React.Component {
-  state = {
-    bedrooms: 0,
-    beds: 0,
-    bathrooms: 0,
-  };
-
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      bedrooms: newProps.bedrooms,
-      beds: newProps.beds,
-      bathrooms: newProps.bathrooms,
-    });
-  }
-
   onDecrease = (type) => {
-    this.setState(prevState => ({
-      [type]: prevState[type] - 1,
-    }));
+    this.props.onHandleChange({
+      [type]: this.props[type] - 1,
+    });
   };
 
   onIncrease = (type) => {
-    this.setState(prevState => ({
-      [type]: prevState[type] + 1,
-    }));
-  };
-
-  onApply = () => {
-    this.props.onApply({
-      ...this.state
+    this.props.onHandleChange({
+      [type]: this.props[type] + 1,
     });
-  };
-
-  onReset = () => {
-    this.props.onApply({
-      bedrooms: 0,
-      beds: 0,
-      bathrooms: 0,
-    });
-
-    this.props.onClose();
   };
 
   render() {
@@ -102,9 +72,9 @@ export default class RoomsBeds extends React.Component {
           <Actions>
             <MinusButton
               onClick={() => this.onDecrease('bedrooms')}
-              disabled={this.state.bedrooms < 1}
+              disabled={this.props.bedrooms < 1}
             />
-            <Counter>{this.state.bedrooms}</Counter>
+            <Counter>{this.props.bedrooms}+</Counter>
             <PlusButton onClick={() => this.onIncrease('bedrooms')} />
           </Actions>
         </Type>
@@ -112,25 +82,20 @@ export default class RoomsBeds extends React.Component {
         <Type>
           <Name>Beds</Name>
           <Actions>
-            <MinusButton
-              onClick={() => this.onDecrease('beds')}
-              disabled={this.state.beds < 1}
-            />
-            <Counter>{this.state.beds}</Counter>
+            <MinusButton onClick={() => this.onDecrease('beds')} disabled={this.props.beds < 1} />
+            <Counter>{this.props.beds}+</Counter>
             <PlusButton onClick={() => this.onIncrease('beds')} />
           </Actions>
         </Type>
 
         <Type>
-          <Name>
-            Bathrooms
-          </Name>
+          <Name>Bathrooms</Name>
           <Actions>
             <MinusButton
               onClick={() => this.onDecrease('bathrooms')}
-              disabled={this.state.bathrooms < 1}
+              disabled={this.props.bathrooms < 1}
             />
-            <Counter>{this.state.bathrooms}</Counter>
+            <Counter>{this.props.bathrooms}+</Counter>
             <PlusButton onClick={() => this.onIncrease('bathrooms')} />
           </Actions>
         </Type>
