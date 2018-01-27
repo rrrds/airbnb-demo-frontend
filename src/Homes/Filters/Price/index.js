@@ -1,5 +1,4 @@
 import React from 'react';
-import Rheostat from 'rheostat';
 import './slider.css';
 import { FilterButton } from '../../styled';
 import Dropdown from '../Dropdown';

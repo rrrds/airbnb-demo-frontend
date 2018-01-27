@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { RoundButton, FilterButton } from '../../styled';
+import { RoundButton } from '../../styled';
 import minus from '../minus.svg';
 import plus from '../plus.svg';
 

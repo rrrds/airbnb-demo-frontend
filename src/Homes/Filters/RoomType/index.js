@@ -1,12 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { FilterButton } from '../../styled';
 import Dropdown from '../Dropdown';
 import ResponsivePopup from '../Dropdown/ResponsivePopup';
-import iconEntire from './entire.svg';
-import iconPrivate from './private.svg';
-import iconshared from './shared.svg';
-import iconCheckOn from './check-on.svg';
 import RoomSelect from './RoomSelect';
 
 const filterId = 'roomtype';
