@@ -155,7 +155,6 @@ class Filters extends React.Component {
               onClose={this.onClose}
               onReset={this.onReset}
               isMobile={isMobile}
-
               entireHome={this.state.entireHome}
               privateRoom={this.state.privateRoom}
               sharedRoom={this.state.sharedRoom}
@@ -166,6 +165,7 @@ class Filters extends React.Component {
               bedrooms={this.state.bedrooms}
               beds={this.state.beds}
               bathrooms={this.state.bathrooms}
+              instantBook={this.state.instantBook}
               superhost={this.state.superhost}
               heating={this.state.heating}
               kitchen={this.state.kitchen}

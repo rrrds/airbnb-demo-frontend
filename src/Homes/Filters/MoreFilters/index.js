@@ -10,7 +10,7 @@ import Amenities from '../Amenities';
 import Facilities from '../Facilities';
 import RoomSelect from '../RoomType/RoomSelect';
 import PriceSelect from '../Price/PriceSelect';
-import InstantBook from '../InstantBook';
+import InstantBookSelect from '../InstantBook/InstantBookSelect';
 
 const filterId = 'more';
 
@@ -52,6 +52,7 @@ export default class MoreFilters extends React.Component {
       beds: props.beds,
       bathrooms: props.bathrooms,
 
+      instantBook: props.instantBook,
       superhost: props.superhost,
 
       heating: props.heating,
@@ -79,6 +80,7 @@ export default class MoreFilters extends React.Component {
       beds: newProps.beds,
       bathrooms: newProps.bathrooms,
 
+      instantBook: newProps.instantBook,
       superhost: newProps.superhost,
 
       heating: newProps.heating,
@@ -166,7 +168,12 @@ export default class MoreFilters extends React.Component {
 
           <Block>
             <Title>More options</Title>
-            {isMdOrLess && <InstantBook />}
+            {isMdOrLess && (
+              <InstantBookSelect
+                onClick={this.onHandleChange}
+                instantBook={this.state.instantBook}
+              />
+            )}
             <Superhost superhost={this.state.superhost} onHandleChange={this.onHandleChange} />
           </Block>
 
