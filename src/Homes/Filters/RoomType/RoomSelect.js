@@ -1,8 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FilterButton } from '../../styled';
-import Dropdown from '../Dropdown';
-import ResponsivePopup from '../Dropdown/ResponsivePopup';
 import iconEntire from './entire.svg';
 import iconPrivate from './private.svg';
 import iconshared from './shared.svg';
@@ -84,6 +81,10 @@ const Description = Name.extend`
 const Icon = styled.img`
   width: 32px;
   margin: 0 0 0 30px;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export default class RoomSelect extends React.Component {
