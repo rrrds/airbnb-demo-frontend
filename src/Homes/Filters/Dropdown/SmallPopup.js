@@ -1,12 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import { PopupButton, PopupOverlayWrapper } from '../../styled';
-import Popup from '../Popup';
+import onClickOutside from 'react-onclickoutside';
+import { PopupButton, PopupOverlayWrapper, PopupWrapper } from '../../styled';
 
 const Overlay = PopupOverlayWrapper.extend`
   position: relative;
   display: inline-block;
 `;
+
+const Popup = onClickOutside(PopupWrapper, {
+  handleClickOutside(instance) {
+    return instance.props.handleClickOutside;
+  },
+});
 
 const ActionBbar = styled.div`
   display: flex;
