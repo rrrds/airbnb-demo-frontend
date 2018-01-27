@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import isEqual from 'lodash/isEqual';
 import { FilterButton } from '../../styled';
 import Dropdown from '../Dropdown';
 import ResponsivePopup from '../Dropdown/ResponsivePopup';
@@ -30,37 +31,61 @@ const Title = styled.legend`
 
 const getButtonText = () => 'More Filters';
 
+const isSomethingChanged = (obj1, obj2) => !isEqual(obj1, obj2);
+
 export default class MoreFilters extends React.Component {
-  state = {
-    bedrooms: 0,
-    beds: 0,
-    bathrooms: 0,
+  constructor(props) {
+    super(props);
+    this.state = {
+      bedrooms: props.bedrooms,
+      beds: props.beds,
+      bathrooms: props.bathrooms,
 
-    superhost: false,
+      superhost: props.superhost,
 
-    heating: false,
-    kitchen: false,
-    tv: false,
-    internet: false,
+      heating: props.heating,
+      kitchen: props.kitchen,
+      tv: props.tv,
+      internet: props.internet,
 
-    elebator: false,
-    parking: false,
-    pool: false,
-    wheelchair: false,
-  };
+      elebator: props.elebator,
+      parking: props.parking,
+      pool: props.pool,
+      wheelchair: props.wheelchair,
+    };
+    this.baseState = this.state;
+  }
 
   componentWillReceiveProps(newProps) {
-    this.setState({});
+    this.setState({
+      bedrooms: newProps.bedrooms,
+      beds: newProps.beds,
+      bathrooms: newProps.bathrooms,
+
+      superhost: newProps.superhost,
+
+      heating: newProps.heating,
+      kitchen: newProps.kitchen,
+      tv: newProps.tv,
+      internet: newProps.internet,
+
+      elebator: newProps.elebator,
+      parking: newProps.parking,
+      pool: newProps.pool,
+      wheelchair: newProps.wheelchair,
+    });
   }
 
   onReset = () => {
-    this.props.onApply({});
+    this.props.onApply(this.baseState);
 
     this.props.onClose();
   };
 
   onApply = () => {
-    this.props.onApply({});
+    this.props.onApply({ ...this.state });
+
+    this.props.onClose();
   };
 
   onHandleChange = (changes) => {
@@ -71,7 +96,7 @@ export default class MoreFilters extends React.Component {
     const Button = (
       <FilterButton
         onClick={e => this.props.onButtonClick(filterId, e)}
-        active={this.props.isActive}
+        active={this.props.isActive || isSomethingChanged(this.baseState, this.state)}
       >
         {getButtonText()}
       </FilterButton>
