@@ -136,74 +136,74 @@ export default class MoreFilters extends React.Component {
           name="All filters"
           isLargePopup
         >
-        <Content>
-          {isMdOrLess && (
-            <Block>
-              <Title>Room type</Title>
-              <RoomSelect
-                entireHome={this.state.entireHome}
-                privateRoom={this.state.privateRoom}
-                sharedRoom={this.state.sharedRoom}
-                handleCheckboxChange={this.onHandleChange}
-              />
-            </Block>
-          )}
-
-          {isMdOrLess && (
-            <Block>
-              <Title>Price range</Title>
-              <PriceSelect
-                selectedRange={this.state.selectedRange}
-                priceData={this.props.priceData}
-                minPrice={this.props.minPrice}
-                maxPrice={this.props.maxPrice}
-                onChange={this.onHandleChange}
-              />
-            </Block>
-          )}
-
-          <Block>
-            <Title>Rooms and beds</Title>
-            <RoomsBeds
-              bedrooms={this.state.bedrooms}
-              beds={this.state.beds}
-              bathrooms={this.state.bathrooms}
-              onHandleChange={this.onHandleChange}
-            />
-          </Block>
-
-          <Block>
-            <Title>More options</Title>
+          <Content>
             {isMdOrLess && (
-              <InstantBookSelect
-                onClick={this.onHandleChange}
-                instantBook={this.state.instantBook}
-              />
+              <Block>
+                <Title>Room type</Title>
+                <RoomSelect
+                  entireHome={this.state.entireHome}
+                  privateRoom={this.state.privateRoom}
+                  sharedRoom={this.state.sharedRoom}
+                  handleCheckboxChange={this.onHandleChange}
+                />
+              </Block>
             )}
-            <Superhost superhost={this.state.superhost} onHandleChange={this.onHandleChange} />
-          </Block>
 
-          <Block>
-            <Title>Amenities</Title>
-            <Amenities
-              heating={this.state.heating}
-              kitchen={this.state.kitchen}
-              tv={this.state.tv}
-              internet={this.state.internet}
-              onHandleChange={this.onHandleChange}
-            />
-          </Block>
+            {isMdOrLess && (
+              <Block>
+                <Title>Price range</Title>
+                <PriceSelect
+                  selectedRange={this.state.selectedRange}
+                  priceData={this.props.priceData}
+                  minPrice={this.props.minPrice}
+                  maxPrice={this.props.maxPrice}
+                  onChange={this.onHandleChange}
+                />
+              </Block>
+            )}
 
-          <Block>
-            <Title>Facilities</Title>
-            <Facilities
-              elebator={this.state.elebator}
-              parking={this.state.parking}
-              pool={this.state.pool}
-              wheelchair={this.state.wheelchair}
-              onHandleChange={this.onHandleChange}
-            />
-          </Block>
+            <Block>
+              <Title>Rooms and beds</Title>
+              <RoomsBeds
+                bedrooms={this.state.bedrooms}
+                beds={this.state.beds}
+                bathrooms={this.state.bathrooms}
+                onHandleChange={this.onHandleChange}
+              />
+            </Block>
+
+            <Block>
+              <Title>More options</Title>
+              {isMdOrLess && (
+                <InstantBookSelect
+                  onClick={this.onHandleChange}
+                  instantBook={this.state.instantBook}
+                />
+              )}
+              <Superhost superhost={this.state.superhost} onHandleChange={this.onHandleChange} />
+            </Block>
+
+            <Block>
+              <Title>Amenities</Title>
+              <Amenities
+                heating={this.state.heating}
+                kitchen={this.state.kitchen}
+                tv={this.state.tv}
+                internet={this.state.internet}
+                onHandleChange={this.onHandleChange}
+              />
+            </Block>
+
+            <Block>
+              <Title>Facilities</Title>
+              <Facilities
+                elebator={this.state.elebator}
+                parking={this.state.parking}
+                pool={this.state.pool}
+                wheelchair={this.state.wheelchair}
+                onHandleChange={this.onHandleChange}
+              />
+            </Block>
           </Content>
         </ResponsivePopup>
 
