@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import ToggleSwitch from 'react-toggle-switch';
-import { FilterButton } from '../../styled';
-import Dropdown from '../Dropdown';
-import ResponsivePopup from '../Dropdown/ResponsivePopup';
 import cross from './cross.svg';
 import check from './check.svg';
 
@@ -72,35 +69,18 @@ const Description = styled.div`
   color: #383838;
 `;
 
+const MoreLink = styled.a`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 16px;
+  color: #0f7276;
+`;
+
 export default class Superhost extends React.Component {
-  state = {
-    superhost: false,
-  };
-
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      superhost: newProps.superhost,
-    });
-  }
-
-  onReset = () => {
-    this.props.onApply({
-      superhost: false,
-    });
-
-    this.props.onClose();
-  };
-
-  onApply = () => {
-    this.props.onApply({
-      superhost: this.state.superhost,
-    });
-  };
-
   handleCheckboxChange = () => {
-    this.setState(prevState => ({
-      superhost: !prevState.superhost,
-    }));
+    this.props.onHandleChange({
+      superhost: !this.props.superhost,
+    });
   };
 
   render() {
@@ -110,9 +90,9 @@ export default class Superhost extends React.Component {
           <Name>
             Superhost
             <Description>Stay with recognized hosts.</Description>
-            <a href="#">Learn more</a>
+            <MoreLink>Learn more</MoreLink>
           </Name>
-          <Switch onClick={this.handleCheckboxChange} on={this.state.superhost} />
+          <Switch onClick={this.handleCheckboxChange} on={this.props.superhost} />
         </Label>
       </SpacedPopupWrapper>
     );
