@@ -92,11 +92,11 @@ export default class Amenities extends React.Component {
           <Label>
             <Checkbox
               type="checkbox"
-              checked={this.props.elebator}
-              onChange={() => this.handleCheckboxChange('elebator')}
+              checked={this.props.elevator}
+              onChange={() => this.handleCheckboxChange('elevator')}
             />
-            <Indicator className={this.props.elebator && 'checked'} />
-            <Name>Elebator</Name>
+            <Indicator className={this.props.elevator && 'checked'} />
+            <Name>Elevator</Name>
           </Label>
         </Type>
 

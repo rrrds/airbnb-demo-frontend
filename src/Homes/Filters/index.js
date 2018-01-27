@@ -46,7 +46,7 @@ class Filters extends React.Component {
     tv: false,
     internet: false,
 
-    elebator: false,
+    elevator: false,
     parking: false,
     pool: false,
     wheelchair: false,
@@ -169,7 +169,7 @@ class Filters extends React.Component {
               kitchen={this.state.kitchen}
               tv={this.state.tv}
               internet={this.state.internet}
-              elebator={this.state.elebator}
+              elevator={this.state.elevator}
               parking={this.state.parking}
               pool={this.state.pool}
               wheelchair={this.state.wheelchair}

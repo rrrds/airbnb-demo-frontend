@@ -64,7 +64,7 @@ export default class MoreFilters extends React.Component {
       tv: props.tv,
       internet: props.internet,
 
-      elebator: props.elebator,
+      elevator: props.elevator,
       parking: props.parking,
       pool: props.pool,
       wheelchair: props.wheelchair,
@@ -92,7 +92,7 @@ export default class MoreFilters extends React.Component {
       tv: newProps.tv,
       internet: newProps.internet,
 
-      elebator: newProps.elebator,
+      elevator: newProps.elevator,
       parking: newProps.parking,
       pool: newProps.pool,
       wheelchair: newProps.wheelchair,
@@ -197,7 +197,7 @@ export default class MoreFilters extends React.Component {
             <Block>
               <Title>Facilities</Title>
               <Facilities
-                elebator={this.state.elebator}
+                elevator={this.state.elevator}
                 parking={this.state.parking}
                 pool={this.state.pool}
                 wheelchair={this.state.wheelchair}
