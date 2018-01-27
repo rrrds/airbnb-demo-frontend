@@ -159,6 +159,10 @@ class Filters extends React.Component {
               entireHome={this.state.entireHome}
               privateRoom={this.state.privateRoom}
               sharedRoom={this.state.sharedRoom}
+              selectedRange={this.state.selectedRange}
+              priceData={priceDataMock}
+              minPrice={this.state.minPrice}
+              maxPrice={this.state.maxPrice}
               bedrooms={this.state.bedrooms}
               beds={this.state.beds}
               bathrooms={this.state.bathrooms}

@@ -9,7 +9,7 @@ import Superhost from '../Superhost';
 import Amenities from '../Amenities';
 import Facilities from '../Facilities';
 import RoomSelect from '../RoomType/RoomSelect';
-import Price from '../Price';
+import PriceSelect from '../Price/PriceSelect';
 import InstantBook from '../InstantBook';
 
 const filterId = 'more';
@@ -46,6 +46,8 @@ export default class MoreFilters extends React.Component {
       privateRoom: props.privateRoom,
       sharedRoom: props.sharedRoom,
 
+      selectedRange: props.selectedRange,
+
       bedrooms: props.bedrooms,
       beds: props.beds,
       bathrooms: props.bathrooms,
@@ -70,6 +72,8 @@ export default class MoreFilters extends React.Component {
       entireHome: newProps.entireHome,
       privateRoom: newProps.privateRoom,
       sharedRoom: newProps.sharedRoom,
+
+      selectedRange: newProps.selectedRange,
 
       bedrooms: newProps.bedrooms,
       beds: newProps.beds,
@@ -133,6 +137,19 @@ export default class MoreFilters extends React.Component {
                 privateRoom={this.state.privateRoom}
                 sharedRoom={this.state.sharedRoom}
                 handleCheckboxChange={this.onHandleChange}
+              />
+            </Block>
+          )}
+
+          {isMdOrLess && (
+            <Block>
+              <Title>Price range</Title>
+              <PriceSelect
+                selectedRange={this.state.selectedRange}
+                priceData={this.props.priceData}
+                minPrice={this.props.minPrice}
+                maxPrice={this.props.maxPrice}
+                onChange={this.onHandleChange}
               />
             </Block>
           )}
