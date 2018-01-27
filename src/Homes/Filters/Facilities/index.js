@@ -17,6 +17,10 @@ const Type = styled.div`
   justify-content: space-between;
   margin-bottom: 23px;
   width: 50%;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Label = styled.label`

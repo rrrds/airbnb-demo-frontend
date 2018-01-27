@@ -65,7 +65,6 @@ const Name = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  white-space: nowrap;
   font-family: CircularAir;
   line-height: normal;
   font-size: 20px;
