@@ -8,6 +8,7 @@ import InstantBook from './InstantBook';
 import MoreFilters from './MoreFilters';
 
 const isMobile = window.matchMedia('(max-width: 400px)').matches;
+const isMdOrLess = window.matchMedia('(max-width: 992px)').matches;
 
 const priceDataMock = Array.from({ length: 50 }, () => Math.floor(Math.random() * 100) + 1);
 
@@ -110,7 +111,7 @@ class Filters extends React.Component {
               isMobile={isMobile}
             />
 
-            <RoomType
+            {!isMdOrLess && (<RoomType
               isActive={this.state.activeFilterId === 'roomtype'}
               entireHome={this.state.entireHome}
               privateRoom={this.state.privateRoom}
@@ -120,10 +121,9 @@ class Filters extends React.Component {
               onClose={this.onClose}
               onReset={this.onReset}
               isMobile={isMobile}
-              className="hidden-xs hidden-md"
-            />
+            />)}
 
-            <Price
+            {!isMdOrLess && (<Price
               isActive={this.state.activeFilterId === 'price'}
               priceData={this.state.priceData}
               selectedRange={this.state.selectedRange}
@@ -134,10 +134,9 @@ class Filters extends React.Component {
               onClose={this.onClose}
               onReset={this.onReset}
               isMobile={isMobile}
-              className="hidden-xs hidden-md"
-            />
+            />)}
 
-            <InstantBook
+            {!isMdOrLess && (<InstantBook
               isActive={this.state.activeFilterId === 'instantbook'}
               instantBook={this.state.instantBook}
               onButtonClick={this.toggleOpen}
@@ -145,8 +144,7 @@ class Filters extends React.Component {
               onClose={this.onClose}
               onReset={this.onReset}
               isMobile={isMobile}
-              className="hidden-xs hidden-md"
-            />
+            />)}
 
             <MoreFilters
               isActive={this.state.activeFilterId === 'more'}
