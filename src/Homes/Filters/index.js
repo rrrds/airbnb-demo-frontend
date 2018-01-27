@@ -33,6 +33,22 @@ class Filters extends React.Component {
     maxPrice: 1000,
 
     instantBook: false,
+
+    bedrooms: 0,
+    beds: 0,
+    bathrooms: 0,
+
+    superhost: false,
+
+    heating: false,
+    kitchen: false,
+    tv: false,
+    internet: false,
+
+    elebator: false,
+    parking: false,
+    pool: false,
+    wheelchair: false,
   };
 
   onCancel = () => {
@@ -139,6 +155,19 @@ class Filters extends React.Component {
               onClose={this.onClose}
               onReset={this.onReset}
               isMobile={isMobile}
+
+              bedrooms={this.state.bedrooms}
+              beds={this.state.beds}
+              bathrooms={this.state.bathrooms}
+              superhost={this.state.superhost}
+              heating={this.state.heating}
+              kitchen={this.state.kitchen}
+              tv={this.state.tv}
+              internet={this.state.internet}
+              elebator={this.state.elebator}
+              parking={this.state.parking}
+              pool={this.state.pool}
+              wheelchair={this.state.wheelchair}
             />
           </Col>
         </Row>
