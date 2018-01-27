@@ -6,6 +6,8 @@ const filterId = 'facilities';
 
 const SpacedPopupWrapper = styled.div`
   padding: 24px 16px 0 16px;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const Type = styled.div`
@@ -14,6 +16,7 @@ const Type = styled.div`
   align-items: top;
   justify-content: space-between;
   margin-bottom: 23px;
+  width: 50%;
 `;
 
 const Label = styled.label`
@@ -72,43 +75,10 @@ const Name = styled.div`
 `;
 
 export default class Amenities extends React.Component {
-  state = {
-    elebator: false,
-    parking: false,
-    pool: false,
-    wheelchair: false,
-  };
-
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      elebator: newProps.elebator,
-      parking: newProps.parking,
-      pool: newProps.pool,
-      wheelchair: newProps.wheelchair,
-    });
-  }
-
-  onReset = () => {
-    this.props.onApply({
-      elebator: false,
-      parking: false,
-      pool: false,
-      wheelchair: false,
-    });
-
-    this.props.onClose();
-  };
-
-  onApply = () => {
-    this.props.onApply({
-      ...this.state,
-    });
-  };
-
   handleCheckboxChange = (checkboxId) => {
-    this.setState(prevState => ({
-      [checkboxId]: !prevState[checkboxId],
-    }));
+    this.props.onHandleChange({
+      [checkboxId]: !this.props[checkboxId],
+    });
   };
 
   render() {
@@ -118,10 +88,10 @@ export default class Amenities extends React.Component {
           <Label>
             <Checkbox
               type="checkbox"
-              checked={this.state.elebator}
+              checked={this.props.elebator}
               onChange={() => this.handleCheckboxChange('elebator')}
             />
-            <Indicator className={this.state.elebator && 'checked'} />
+            <Indicator className={this.props.elebator && 'checked'} />
             <Name>Elebator</Name>
           </Label>
         </Type>
@@ -130,10 +100,10 @@ export default class Amenities extends React.Component {
           <Label>
             <Checkbox
               type="checkbox"
-              checked={this.state.parking}
+              checked={this.props.parking}
               onChange={() => this.handleCheckboxChange('parking')}
             />
-            <Indicator className={this.state.parking && 'checked'} />
+            <Indicator className={this.props.parking && 'checked'} />
             <Name>Free parking on premises</Name>
           </Label>
         </Type>
@@ -142,10 +112,10 @@ export default class Amenities extends React.Component {
           <Label>
             <Checkbox
               type="checkbox"
-              checked={this.state.pool}
+              checked={this.props.pool}
               onChange={() => this.handleCheckboxChange('pool')}
             />
-            <Indicator className={this.state.pool && 'checked'} />
+            <Indicator className={this.props.pool && 'checked'} />
             <Name>Pool</Name>
           </Label>
         </Type>
@@ -154,10 +124,10 @@ export default class Amenities extends React.Component {
           <Label>
             <Checkbox
               type="checkbox"
-              checked={this.state.wheelchair}
+              checked={this.props.wheelchair}
               onChange={() => this.handleCheckboxChange('wheelchair')}
             />
-            <Indicator className={this.state.wheelchair && 'checked'} />
+            <Indicator className={this.props.wheelchair && 'checked'} />
             <Name>Wheelchair accessible</Name>
           </Label>
         </Type>

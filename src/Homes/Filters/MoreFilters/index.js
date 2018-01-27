@@ -42,6 +42,11 @@ export default class MoreFilters extends React.Component {
     kitchen: false,
     tv: false,
     internet: false,
+
+    elebator: false,
+    parking: false,
+    pool: false,
+    wheelchair: false,
   };
 
   componentWillReceiveProps(newProps) {
@@ -110,7 +115,13 @@ export default class MoreFilters extends React.Component {
 
           <Block>
             <Title>Facilities</Title>
-            <Facilities />
+            <Facilities
+              elebator={this.state.elebator}
+              parking={this.state.parking}
+              pool={this.state.pool}
+              wheelchair={this.state.wheelchair}
+              onHandleChange={this.onHandleChange}
+            />
           </Block>
         </Popup>
 
