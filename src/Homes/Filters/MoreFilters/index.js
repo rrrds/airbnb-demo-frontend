@@ -166,7 +166,7 @@ export default class MoreFilters extends React.Component {
 
           <Block>
             <Title>More options</Title>
-            {/* {isMdOrLess && <InstantBook />} */}
+            {isMdOrLess && <InstantBook />}
             <Superhost superhost={this.state.superhost} onHandleChange={this.onHandleChange} />
           </Block>
 
