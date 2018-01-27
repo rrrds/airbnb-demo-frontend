@@ -3,12 +3,6 @@ import styled from 'styled-components';
 import onClickOutside from 'react-onclickoutside';
 import { PopupButton, PopupOverlayWrapper } from '../../styled';
 
-const ActionBbar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 0 22px 22px 22px;
-`;
-
 const Wrapper = styled.div`
   position: fixed;
   left: 0;
@@ -19,8 +13,8 @@ const Wrapper = styled.div`
   z-index: 20;
   border: 1px solid rgba(72, 72, 72, 0.2);
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
-  overflow-x: hidden;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Popup = onClickOutside(Wrapper, {
@@ -29,15 +23,39 @@ const Popup = onClickOutside(Wrapper, {
   },
 });
 
+const MainContainer = styled.div`
+  flex: 1 1 auto;
+  padding: 47px 16px 0 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+`;
+
+const ActionBbar = styled.div`
+  display: flex;
+  flex: 1 0 auto;
+  padding: 8px 16px;
+  background: #fff;
+`;
+
+const Button = PopupButton.extend`
+  font-size: 18px;
+  font-weight: ${props => (props.primary ? 'bold' : 'normal')};
+  color: ${props => (props.primary ? '#fff' : '#383838')};
+  background: ${props => (props.primary ? '#008489' : '#fff')};
+  border-radius: 4px;
+  padding: 12px 28px;
+  margin-left: 16px;
+`;
+
 export default props => (
   <PopupOverlayWrapper>
     <Popup handleClickOutside={props.onClose}>
-      {props.children}
+      <MainContainer>{props.children}</MainContainer>
       <ActionBbar>
-        <PopupButton onClick={props.onClose}>Cancel</PopupButton>
-        <PopupButton onClick={props.onApply} primary>
-          Apply
-        </PopupButton>
+        <Button onClick={props.onClose}>Cancel</Button>
+        <Button onClick={props.onApply} primary>
+          See homes
+        </Button>
       </ActionBbar>
     </Popup>
   </PopupOverlayWrapper>
