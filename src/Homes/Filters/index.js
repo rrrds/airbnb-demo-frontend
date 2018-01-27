@@ -5,6 +5,7 @@ import Guests from './Guests';
 import RoomType from './RoomType';
 import Price from './Price';
 import InstantBook from './InstantBook';
+import MoreFilters from './MoreFilters';
 
 const isMobile = window.matchMedia('(max-width: 400px)').matches;
 
@@ -131,6 +132,14 @@ class Filters extends React.Component {
               className="hidden-xs hidden-md"
             />
 
+            <MoreFilters
+              isActive={this.state.activeFilterId === 'more'}
+              onButtonClick={this.toggleOpen}
+              onApply={this.onApply}
+              onClose={this.onClose}
+              onReset={this.onReset}
+              isMobile={isMobile}
+            />
           </Col>
         </Row>
       </Grid>
