@@ -1,5 +1,6 @@
 import React from 'react';
-import Popup from './Popup';
+import SmallPopup from './SmallPopup';
+import LargePopup from './LargePopup';
 import Portal from './Portal';
 
 export default (props) => {
@@ -19,16 +20,16 @@ export default (props) => {
 
     if (props.isLargePopup) {
       return (
-        <Popup onApply={props.onApply} onClose={props.onClose} onReset={props.onReset}>
+        <LargePopup onApply={props.onApply} onClose={props.onClose} onReset={props.onReset}>
           {props.children}
-        </Popup>
+        </LargePopup>
       );
     }
 
     return (
-      <Popup onApply={props.onApply} onClose={props.onClose} onReset={props.onReset}>
+      <SmallPopup onApply={props.onApply} onClose={props.onClose} onReset={props.onReset}>
         {props.children}
-      </Popup>
+      </SmallPopup>
     );
   }
 
