@@ -6,6 +6,8 @@ const filterId = 'amenities';
 
 const SpacedPopupWrapper = styled.div`
   padding: 24px 16px 0 16px;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 const Type = styled.div`
@@ -14,6 +16,7 @@ const Type = styled.div`
   align-items: top;
   justify-content: space-between;
   margin-bottom: 23px;
+  width: 50%;
 `;
 
 const Label = styled.label`
@@ -71,55 +74,11 @@ const Name = styled.div`
   color: #383838;
 `;
 
-const Description = Name.extend`
-  font-size: 16px;
-  font-weight: 200;
-  margin-top: 4px;
-`;
-
-const Icon = styled.img`
-  width: 32px;
-  margin: 0 0 0 30px;
-`;
-
 export default class Amenities extends React.Component {
-  state = {
-    heating: false,
-    kitchen: false,
-    tv: false,
-    internet: false,
-  };
-
-  componentWillReceiveProps(newProps) {
-    this.setState({
-      heating: newProps.heating,
-      kitchen: newProps.kitchen,
-      tv: newProps.tv,
-      internet: newProps.internet,
-    });
-  }
-
-  onReset = () => {
-    this.props.onApply({
-      heating: false,
-      kitchen: false,
-      tv: false,
-      internet: false,
-    });
-
-    this.props.onClose();
-  };
-
-  onApply = () => {
-    this.props.onApply({
-      ...this.state,
-    });
-  };
-
   handleCheckboxChange = (checkboxId) => {
-    this.setState(prevState => ({
-      [checkboxId]: !prevState[checkboxId],
-    }));
+    this.props.onHandleChange({
+      [checkboxId]: !this.props[checkboxId],
+    });
   };
 
   render() {
@@ -129,10 +88,10 @@ export default class Amenities extends React.Component {
           <Label>
             <Checkbox
               type="checkbox"
-              checked={this.state.heating}
+              checked={this.props.heating}
               onChange={() => this.handleCheckboxChange('heating')}
             />
-            <Indicator className={this.state.heating && 'checked'} />
+            <Indicator className={this.props.heating && 'checked'} />
             <Name>Heating</Name>
           </Label>
         </Type>
@@ -141,10 +100,10 @@ export default class Amenities extends React.Component {
           <Label>
             <Checkbox
               type="checkbox"
-              checked={this.state.kitchen}
+              checked={this.props.kitchen}
               onChange={() => this.handleCheckboxChange('kitchen')}
             />
-            <Indicator className={this.state.kitchen && 'checked'} />
+            <Indicator className={this.props.kitchen && 'checked'} />
             <Name>Kitchen</Name>
           </Label>
         </Type>
@@ -153,10 +112,10 @@ export default class Amenities extends React.Component {
           <Label>
             <Checkbox
               type="checkbox"
-              checked={this.state.tv}
+              checked={this.props.tv}
               onChange={() => this.handleCheckboxChange('tv')}
             />
-            <Indicator className={this.state.tv && 'checked'} />
+            <Indicator className={this.props.tv && 'checked'} />
             <Name>TV</Name>
           </Label>
         </Type>
@@ -165,10 +124,10 @@ export default class Amenities extends React.Component {
           <Label>
             <Checkbox
               type="checkbox"
-              checked={this.state.internet}
+              checked={this.props.internet}
               onChange={() => this.handleCheckboxChange('internet')}
             />
-            <Indicator className={this.state.internet && 'checked'} />
+            <Indicator className={this.props.internet && 'checked'} />
             <Name>Wireless Internet</Name>
           </Label>
         </Type>

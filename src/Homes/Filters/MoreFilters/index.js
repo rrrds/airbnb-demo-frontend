@@ -35,6 +35,13 @@ export default class MoreFilters extends React.Component {
     bedrooms: 0,
     beds: 0,
     bathrooms: 0,
+
+    superhost: false,
+
+    heating: false,
+    kitchen: false,
+    tv: false,
+    internet: false,
   };
 
   componentWillReceiveProps(newProps) {
@@ -92,7 +99,13 @@ export default class MoreFilters extends React.Component {
 
           <Block>
             <Title>Amenities</Title>
-            <Amenities />
+            <Amenities
+              heating={this.state.heating}
+              kitchen={this.state.kitchen}
+              tv={this.state.tv}
+              internet={this.state.internet}
+              onHandleChange={this.onHandleChange}
+            />
           </Block>
 
           <Block>
