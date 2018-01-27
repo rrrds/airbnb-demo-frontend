@@ -17,7 +17,8 @@ const Popup = styled(ResponsivePopup)`
 `;
 
 const Block = styled.div`
-  border-bottom: 1px solid rgba(72, 72, 72, 0.3);
+  border-bottom: 1px solid rgba(72, 72, 72, 0.15);
+  margin-bottom: 23px;
 `;
 
 const Title = styled.legend`
@@ -29,7 +30,7 @@ const Title = styled.legend`
 
 const getButtonText = () => 'More Filters';
 
-class RoomType extends React.Component {
+export default class MoreFilters extends React.Component {
   state = {};
 
   componentWillReceiveProps(newProps) {
@@ -92,5 +93,3 @@ class RoomType extends React.Component {
     );
   }
 }
-
-export default RoomType;
