@@ -60,6 +60,7 @@ const ResetButton = styled.button`
 const FilterRow = styled.div`
   flex: 0 1 auto;
   flex-basis: 100%;
+  overflow-y: auto;
 `;
 
 const SaveButton = styled.button`

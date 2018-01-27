@@ -27,7 +27,7 @@ const PlusButton = RoundButton.extend`
 `;
 
 const Actions = Type.extend`
-  margin: 0 0 0 85px;
+  margin: 0 0 0 60px;
 `;
 
 const Counter = styled.div`
