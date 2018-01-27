@@ -64,7 +64,7 @@ class RoomType extends React.Component {
           onClose={this.props.onClose}
           onApply={this.onApply}
           onReset={this.onReset}
-          largePopup
+          isLargePopup
         >
           <Block>
             <Title>Rooms and beds</Title>
