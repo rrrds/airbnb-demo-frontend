@@ -17,7 +17,7 @@ const Popup = onClickOutside(PopupWrapper, {
 const ActionBbar = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 22px 22px 22px;
+  padding-bottom: 22px;
 `;
 
 export default props => (

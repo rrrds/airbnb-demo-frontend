@@ -61,6 +61,7 @@ export const PopupWrapper = styled.div`
   border: 1px solid rgba(72, 72, 72, 0.2);
   box-shadow: 0px 2px 4px rgba(72, 72, 72, 0.08);
   border-radius: 4px;
+  padding: 24px 16px 0 16px;
 `;
 
 export const PopupButton = styled.button`

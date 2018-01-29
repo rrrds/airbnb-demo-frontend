@@ -1,13 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { SpacedPopupWrapper } from '../styled';
 import iconEntire from './entire.svg';
 import iconPrivate from './private.svg';
 import iconshared from './shared.svg';
 import iconCheckOn from './check-on.svg';
-
-const SpacedPopupWrapper = styled.div`
-  padding: 24px 16px 0 16px;
-`;
 
 const Type = styled.div`
   display: flex;
@@ -68,14 +65,23 @@ const Name = styled.div`
   flex-wrap: nowrap;
   font-family: CircularAir;
   line-height: normal;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 200;
   color: #383838;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const Description = Name.extend`
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 200;
   margin-top: 4px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const Icon = styled.img`

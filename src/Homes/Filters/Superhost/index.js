@@ -51,21 +51,36 @@ const Label = styled.label`
 const Name = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 200;
   color: #383838;
   margin-bottom: 4px;
   margin-right: 30px;
   min-width: 200px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    font-weight: normal;
+  }
 `;
 
 const Description = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 16px;
-  font-weight: 200;
+  font-size: 14px;
   font-weight: 200;
   color: #383838;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    font-weight: normal;
+  }
 `;
 
 const MoreLink = styled.a`

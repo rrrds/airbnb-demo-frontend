@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Rheostat from 'rheostat';
+import { SpacedPopupWrapper } from '../styled';
 import './slider.css';
 import Histogram from './Histogram';
 
-const SpacedPopupWrapper = styled.div`
-  padding: 24px 24px 32px 24px;
-  min-width: 350px;
+const StyledWrapper = SpacedPopupWrapper.extend`
+  min-width: 300px;
 `;
 
 const StyledHistogram = styled(Histogram)`
@@ -17,18 +17,27 @@ const StyledHistogram = styled(Histogram)`
 const PriceRange = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 200;
   color: #383838;
   margin-bottom: 7px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 18px;
+  }
 `;
 
 const PriceAverage = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 200;
   color: #383838;
   margin-bottom: 32px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const Handle = styled.button`
@@ -43,6 +52,10 @@ const Handle = styled.button`
   z-index: 3;
 `;
 
+const Slider = styled.div`
+  padding: 0 16px;
+`;
+
 export default class PriceSelect extends React.Component {
   onChange = ({ values }) => {
     this.props.onChange({ selectedRange: values });
@@ -50,21 +63,23 @@ export default class PriceSelect extends React.Component {
 
   render() {
     return (
-      <SpacedPopupWrapper>
+      <StyledWrapper>
         <PriceRange>
           ${this.props.selectedRange[0]} — ${this.props.selectedRange[1]}+
         </PriceRange>
         <PriceAverage>The average nightly price is $75.</PriceAverage>
-        <StyledHistogram data={this.props.priceData} />
-        <Rheostat
-          min={this.props.minPrice}
-          max={this.props.maxPrice}
-          values={this.props.selectedRange || [0, 0]}
-          handle={Handle}
-          onChange={this.onChange}
-          onValuesUpdated={this.onChange}
-        />
-      </SpacedPopupWrapper>
+        <Slider>
+          <StyledHistogram data={this.props.priceData} />
+          <Rheostat
+            min={this.props.minPrice}
+            max={this.props.maxPrice}
+            values={this.props.selectedRange || [0, 0]}
+            handle={Handle}
+            onChange={this.onChange}
+            onValuesUpdated={this.onChange}
+          />
+        </Slider>
+      </StyledWrapper>
     );
   }
 }

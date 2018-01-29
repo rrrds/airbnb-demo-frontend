@@ -1,12 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import ToggleSwitch from 'react-toggle-switch';
+import { SpacedPopupWrapper } from '../styled';
 import cross from './cross.svg';
 import check from './check.svg';
-
-const SpacedPopupWrapper = styled.div`
-  padding: 24px 16px 24px 16px;
-`;
 
 const Label = styled.label`
   display: flex;
@@ -17,11 +14,20 @@ const Label = styled.label`
 const Name = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 200;
   color: #383838;
   margin-bottom: 4px;
   margin-right: 30px;
   min-width: 200px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    font-weight: normal;
+  }
 `;
 
 const Description = styled.div`
@@ -30,6 +36,10 @@ const Description = styled.div`
   font-size: 14px;
   font-weight: 200;
   color: #383838;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const Switch = styled(ToggleSwitch)`
@@ -67,6 +77,23 @@ const Switch = styled(ToggleSwitch)`
   }
 `;
 
+const MoreLink = styled.a`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 14px;
+  font-weight: 200;
+  color: #0f7276;
+  cursor: pointer;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 16px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
+`;
+
 export default class InstantBookSelect extends React.Component {
   handleCheckboxChange = () => {
     this.props.onClick({
@@ -81,6 +108,7 @@ export default class InstantBookSelect extends React.Component {
           <Name>
             Instant Book
             <Description>Listings you can book without waiting for host approval.</Description>
+            <MoreLink>Learn more</MoreLink>
           </Name>
           <Switch onClick={this.handleCheckboxChange} on={this.props.instantBook} />
         </Label>

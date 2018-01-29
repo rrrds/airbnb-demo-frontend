@@ -1,16 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RoundButton, FilterButton } from '../styled';
+import { SpacedPopupWrapper } from './styled';
 import Dropdown from './Dropdown';
 import ResponsivePopup from './Dropdown/ResponsivePopup';
 import minus from './minus.svg';
 import plus from './plus.svg';
 
 const filterId = 'guests';
-
-const SpacedPopupWrapper = styled.div`
-  padding: 24px 15px 0 24px;
-`;
 
 const GuestAge = styled.div`
   display: flex;
