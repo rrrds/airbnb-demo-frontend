@@ -22,6 +22,7 @@ const Label = styled.label`
   padding: 0 0 0 36px;
   position: relative;
   cursor: pointer;
+  min-width: 300px;
 `;
 
 const Checkbox = styled.input`

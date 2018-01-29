@@ -1,21 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RoundButton } from '../../styled';
+import { SpacedPopupWrapper } from '../styled';
 import minus from '../minus.svg';
 import plus from '../plus.svg';
 
 const filterId = 'roomsbeds';
-
-const SpacedPopupWrapper = styled.div`
-  padding: 24px 15px 0 24px;
-`;
 
 const Type = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 23px;
+  margin-bottom: 16px;
 `;
 
 const MinusButton = RoundButton.extend`
@@ -47,7 +44,8 @@ const Name = styled.div`
   white-space: nowrap;
   font-family: CircularAir;
   line-height: normal;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 200;
   color: #383838;
 `;
 

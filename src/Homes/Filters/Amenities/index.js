@@ -1,26 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { SpacedPopupWrapper, SeeAll, CheckboxRow } from '../styled';
 import iconCheckOn from './check-on.svg';
 
 const filterId = 'amenities';
 
-const SpacedPopupWrapper = styled.div`
-  padding: 24px 16px 0 16px;
+const StyledWrapper = SpacedPopupWrapper.extend`
   display: flex;
   flex-wrap: wrap;
-`;
-
-const Type = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: top;
-  justify-content: space-between;
-  margin-bottom: 23px;
-  width: 50%;
-
-  @media only screen and (max-width: 768px) {
-    width: 100%;
-  }
 `;
 
 const Label = styled.label`
@@ -74,7 +61,8 @@ const Name = styled.div`
   white-space: nowrap;
   font-family: CircularAir;
   line-height: normal;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 200;
   color: #383838;
 `;
 
@@ -87,8 +75,8 @@ export default class Amenities extends React.Component {
 
   render() {
     return (
-      <SpacedPopupWrapper>
-        <Type>
+      <StyledWrapper>
+        <CheckboxRow>
           <Label>
             <Checkbox
               type="checkbox"
@@ -98,9 +86,9 @@ export default class Amenities extends React.Component {
             <Indicator className={this.props.heating && 'checked'} />
             <Name>Heating</Name>
           </Label>
-        </Type>
+        </CheckboxRow>
 
-        <Type>
+        <CheckboxRow>
           <Label>
             <Checkbox
               type="checkbox"
@@ -110,9 +98,9 @@ export default class Amenities extends React.Component {
             <Indicator className={this.props.kitchen && 'checked'} />
             <Name>Kitchen</Name>
           </Label>
-        </Type>
+        </CheckboxRow>
 
-        <Type>
+        <CheckboxRow>
           <Label>
             <Checkbox
               type="checkbox"
@@ -122,9 +110,9 @@ export default class Amenities extends React.Component {
             <Indicator className={this.props.tv && 'checked'} />
             <Name>TV</Name>
           </Label>
-        </Type>
+        </CheckboxRow>
 
-        <Type>
+        <CheckboxRow>
           <Label>
             <Checkbox
               type="checkbox"
@@ -134,8 +122,10 @@ export default class Amenities extends React.Component {
             <Indicator className={this.props.internet && 'checked'} />
             <Name>Wireless Internet</Name>
           </Label>
-        </Type>
-      </SpacedPopupWrapper>
+        </CheckboxRow>
+
+        <SeeAll className="hidden-xs">See all amenities</SeeAll>
+      </StyledWrapper>
     );
   }
 }

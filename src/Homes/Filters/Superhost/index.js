@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ToggleSwitch from 'react-toggle-switch';
+import { SpacedPopupWrapper } from '../styled';
 import cross from './cross.svg';
 import check from './check.svg';
 
@@ -41,10 +42,6 @@ const Switch = styled(ToggleSwitch)`
   }
 `;
 
-const SpacedPopupWrapper = styled.div`
-  padding: 24px 16px 24px 16px;
-`;
-
 const Label = styled.label`
   display: flex;
   justify-content: space-between;
@@ -54,7 +51,8 @@ const Label = styled.label`
 const Name = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 200;
   color: #383838;
   margin-bottom: 4px;
   margin-right: 30px;
@@ -64,7 +62,8 @@ const Name = styled.div`
 const Description = styled.div`
   font-family: CircularAir;
   line-height: normal;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 200;
   font-weight: 200;
   color: #383838;
 `;
@@ -73,6 +72,7 @@ const MoreLink = styled.a`
   font-family: CircularAir;
   line-height: normal;
   font-size: 16px;
+  font-weight: 200;
   color: #0f7276;
   cursor: pointer;
 `;

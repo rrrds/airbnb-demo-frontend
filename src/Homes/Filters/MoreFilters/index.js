@@ -15,12 +15,10 @@ import InstantBookSelect from '../InstantBook/InstantBookSelect';
 const filterId = 'more';
 
 const Content = styled.div`
-  padding: 8px;
+  padding: 40px 8px;
 
   @media only screen and (min-width: 992px) {
-    padding: 41px 81px;
-    left: 0;
-    bottom: 0;
+    padding: 40px 16px 40px 80px;
   }
 `;
 
@@ -34,6 +32,8 @@ const Title = styled.legend`
   line-height: normal;
   font-size: 20px;
   color: #383838;
+  padding: 0;
+  margin-bottom: 24px;
 `;
 
 const getButtonText = () => 'More Filters';
