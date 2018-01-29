@@ -66,66 +66,64 @@ const Name = styled.div`
   color: #383838;
 `;
 
-export default class Amenities extends React.Component {
-  handleCheckboxChange = (checkboxId) => {
-    this.props.onHandleChange({
-      [checkboxId]: !this.props[checkboxId],
+export default (props) => {
+  const handleCheckboxChange = (checkboxId) => {
+    props.onHandleChange({
+      [checkboxId]: !props[checkboxId],
     });
   };
 
-  render() {
-    return (
-      <StyledWrapper>
-        <CheckboxRow>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              checked={this.props.elevator}
-              onChange={() => this.handleCheckboxChange('elevator')}
-            />
-            <Indicator className={this.props.elevator && 'checked'} />
-            <Name>Elevator</Name>
-          </Label>
-        </CheckboxRow>
+  return (
+    <StyledWrapper>
+      <CheckboxRow>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            checked={props.elevator}
+            onChange={() => handleCheckboxChange('elevator')}
+          />
+          <Indicator className={props.elevator && 'checked'} />
+          <Name>Elevator</Name>
+        </Label>
+      </CheckboxRow>
 
-        <CheckboxRow>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              checked={this.props.parking}
-              onChange={() => this.handleCheckboxChange('parking')}
-            />
-            <Indicator className={this.props.parking && 'checked'} />
-            <Name>Free parking on premises</Name>
-          </Label>
-        </CheckboxRow>
+      <CheckboxRow>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            checked={props.parking}
+            onChange={() => handleCheckboxChange('parking')}
+          />
+          <Indicator className={props.parking && 'checked'} />
+          <Name>Free parking on premises</Name>
+        </Label>
+      </CheckboxRow>
 
-        <CheckboxRow>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              checked={this.props.pool}
-              onChange={() => this.handleCheckboxChange('pool')}
-            />
-            <Indicator className={this.props.pool && 'checked'} />
-            <Name>Pool</Name>
-          </Label>
-        </CheckboxRow>
+      <CheckboxRow>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            checked={props.pool}
+            onChange={() => handleCheckboxChange('pool')}
+          />
+          <Indicator className={props.pool && 'checked'} />
+          <Name>Pool</Name>
+        </Label>
+      </CheckboxRow>
 
-        <CheckboxRow>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              checked={this.props.wheelchair}
-              onChange={() => this.handleCheckboxChange('wheelchair')}
-            />
-            <Indicator className={this.props.wheelchair && 'checked'} />
-            <Name>Wheelchair accessible</Name>
-          </Label>
-        </CheckboxRow>
+      <CheckboxRow>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            checked={props.wheelchair}
+            onChange={() => handleCheckboxChange('wheelchair')}
+          />
+          <Indicator className={props.wheelchair && 'checked'} />
+          <Name>Wheelchair accessible</Name>
+        </Label>
+      </CheckboxRow>
 
-        <SeeAll className="hidden-xs">See all facilities</SeeAll>
-      </StyledWrapper>
-    );
-  }
-}
+      <SeeAll className="hidden-xs">See all facilities</SeeAll>
+    </StyledWrapper>
+  );
+};

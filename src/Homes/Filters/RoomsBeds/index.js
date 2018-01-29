@@ -49,55 +49,47 @@ const Name = styled.div`
   color: #383838;
 `;
 
-export default class RoomsBeds extends React.Component {
-  onDecrease = (type) => {
-    this.props.onHandleChange({
-      [type]: this.props[type] - 1,
+export default (props) => {
+  const onDecrease = (type) => {
+    props.onHandleChange({
+      [type]: props[type] - 1,
     });
   };
 
-  onIncrease = (type) => {
-    this.props.onHandleChange({
-      [type]: this.props[type] + 1,
+  const onIncrease = (type) => {
+    props.onHandleChange({
+      [type]: props[type] + 1,
     });
   };
 
-  render() {
-    return (
-      <SpacedPopupWrapper>
-        <Type>
-          <Name>Bedrooms</Name>
-          <Actions>
-            <MinusButton
-              onClick={() => this.onDecrease('bedrooms')}
-              disabled={this.props.bedrooms < 1}
-            />
-            <Counter>{this.props.bedrooms}+</Counter>
-            <PlusButton onClick={() => this.onIncrease('bedrooms')} />
-          </Actions>
-        </Type>
+  return (
+    <SpacedPopupWrapper>
+      <Type>
+        <Name>Bedrooms</Name>
+        <Actions>
+          <MinusButton onClick={() => onDecrease('bedrooms')} disabled={props.bedrooms < 1} />
+          <Counter>{props.bedrooms}+</Counter>
+          <PlusButton onClick={() => onIncrease('bedrooms')} />
+        </Actions>
+      </Type>
 
-        <Type>
-          <Name>Beds</Name>
-          <Actions>
-            <MinusButton onClick={() => this.onDecrease('beds')} disabled={this.props.beds < 1} />
-            <Counter>{this.props.beds}+</Counter>
-            <PlusButton onClick={() => this.onIncrease('beds')} />
-          </Actions>
-        </Type>
+      <Type>
+        <Name>Beds</Name>
+        <Actions>
+          <MinusButton onClick={() => onDecrease('beds')} disabled={props.beds < 1} />
+          <Counter>{props.beds}+</Counter>
+          <PlusButton onClick={() => onIncrease('beds')} />
+        </Actions>
+      </Type>
 
-        <Type>
-          <Name>Bathrooms</Name>
-          <Actions>
-            <MinusButton
-              onClick={() => this.onDecrease('bathrooms')}
-              disabled={this.props.bathrooms < 1}
-            />
-            <Counter>{this.props.bathrooms}+</Counter>
-            <PlusButton onClick={() => this.onIncrease('bathrooms')} />
-          </Actions>
-        </Type>
-      </SpacedPopupWrapper>
-    );
-  }
-}
+      <Type>
+        <Name>Bathrooms</Name>
+        <Actions>
+          <MinusButton onClick={() => onDecrease('bathrooms')} disabled={props.bathrooms < 1} />
+          <Counter>{props.bathrooms}+</Counter>
+          <PlusButton onClick={() => onIncrease('bathrooms')} />
+        </Actions>
+      </Type>
+    </SpacedPopupWrapper>
+  );
+};

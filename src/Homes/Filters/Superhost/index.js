@@ -92,25 +92,23 @@ const MoreLink = styled.a`
   cursor: pointer;
 `;
 
-export default class Superhost extends React.Component {
-  handleCheckboxChange = () => {
-    this.props.onHandleChange({
-      superhost: !this.props.superhost,
+export default (props) => {
+  const handleCheckboxChange = () => {
+    props.onHandleChange({
+      superhost: !props.superhost,
     });
   };
 
-  render() {
-    return (
-      <SpacedPopupWrapper>
-        <Label>
-          <Name>
-            Superhost
-            <Description>Stay with recognized hosts.</Description>
-            <MoreLink>Learn more</MoreLink>
-          </Name>
-          <Switch onClick={this.handleCheckboxChange} on={this.props.superhost} />
-        </Label>
-      </SpacedPopupWrapper>
-    );
-  }
-}
+  return (
+    <SpacedPopupWrapper>
+      <Label>
+        <Name>
+          Superhost
+          <Description>Stay with recognized hosts.</Description>
+          <MoreLink>Learn more</MoreLink>
+        </Name>
+        <Switch onClick={handleCheckboxChange} on={props.superhost} />
+      </Label>
+    </SpacedPopupWrapper>
+  );
+};

@@ -93,63 +93,61 @@ const Icon = styled.img`
   }
 `;
 
-export default class RoomSelect extends React.Component {
-  handleCheckboxChange = (checkboxId) => {
-    this.props.handleCheckboxChange({
-      [checkboxId]: !this.props[checkboxId],
+export default (props) => {
+  const handleCheckboxChange = (checkboxId) => {
+    props.handleCheckboxChange({
+      [checkboxId]: !props[checkboxId],
     });
   };
 
-  render() {
-    return (
-      <SpacedPopupWrapper>
-        <Type>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              checked={this.props.entireHome}
-              onChange={() => this.handleCheckboxChange('entireHome')}
-            />
-            <Indicator className={this.props.entireHome && 'checked'} />
-            <Name>
-              Entire home
-              <Description>Have a place to yourself</Description>
-            </Name>
-          </Label>
-          <Icon src={iconEntire} alt="Entire home" />
-        </Type>
+  return (
+    <SpacedPopupWrapper>
+      <Type>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            checked={props.entireHome}
+            onChange={() => handleCheckboxChange('entireHome')}
+          />
+          <Indicator className={props.entireHome && 'checked'} />
+          <Name>
+            Entire home
+            <Description>Have a place to yourself</Description>
+          </Name>
+        </Label>
+        <Icon src={iconEntire} alt="Entire home" />
+      </Type>
 
-        <Type>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              checked={this.props.privateRoom}
-              onChange={() => this.handleCheckboxChange('privateRoom')}
-            />
-            <Indicator className={this.props.privateRoom && 'checked'} />
-            <Name>
-              Private room<Description>Have your own room and share some common spaces</Description>
-            </Name>
-          </Label>
-          <Icon src={iconPrivate} alt="Private room" />
-        </Type>
+      <Type>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            checked={props.privateRoom}
+            onChange={() => handleCheckboxChange('privateRoom')}
+          />
+          <Indicator className={props.privateRoom && 'checked'} />
+          <Name>
+            Private room<Description>Have your own room and share some common spaces</Description>
+          </Name>
+        </Label>
+        <Icon src={iconPrivate} alt="Private room" />
+      </Type>
 
-        <Type>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              name="sharedRoom"
-              checked={this.props.sharedRoom}
-              onChange={() => this.handleCheckboxChange('sharedRoom')}
-            />
-            <Indicator className={this.props.sharedRoom && 'checked'} />
-            <Name>
-              Shared room<Description>Stay in a shared space, like a common room</Description>
-            </Name>
-          </Label>
-          <Icon src={iconshared} alt="Shared room" />
-        </Type>
-      </SpacedPopupWrapper>
-    );
-  }
-}
+      <Type>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            name="sharedRoom"
+            checked={props.sharedRoom}
+            onChange={() => handleCheckboxChange('sharedRoom')}
+          />
+          <Indicator className={props.sharedRoom && 'checked'} />
+          <Name>
+            Shared room<Description>Stay in a shared space, like a common room</Description>
+          </Name>
+        </Label>
+        <Icon src={iconshared} alt="Shared room" />
+      </Type>
+    </SpacedPopupWrapper>
+  );
+};

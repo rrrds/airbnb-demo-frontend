@@ -94,25 +94,23 @@ const MoreLink = styled.a`
   }
 `;
 
-export default class InstantBookSelect extends React.Component {
-  handleCheckboxChange = () => {
-    this.props.onClick({
-      instantBook: !this.props.instantBook,
+export default (props) => {
+  const handleCheckboxChange = () => {
+    props.onClick({
+      instantBook: !props.instantBook,
     });
   };
 
-  render() {
-    return (
-      <SpacedPopupWrapper>
-        <Label>
-          <Name>
-            Instant Book
-            <Description>Listings you can book without waiting for host approval.</Description>
-            <MoreLink>Learn more</MoreLink>
-          </Name>
-          <Switch onClick={this.handleCheckboxChange} on={this.props.instantBook} />
-        </Label>
-      </SpacedPopupWrapper>
-    );
-  }
-}
+  return (
+    <SpacedPopupWrapper>
+      <Label>
+        <Name>
+          Instant Book
+          <Description>Listings you can book without waiting for host approval.</Description>
+          <MoreLink>Learn more</MoreLink>
+        </Name>
+        <Switch onClick={handleCheckboxChange} on={props.instantBook} />
+      </Label>
+    </SpacedPopupWrapper>
+  );
+};

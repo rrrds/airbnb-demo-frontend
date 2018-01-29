@@ -66,66 +66,64 @@ const Name = styled.div`
   color: #383838;
 `;
 
-export default class Amenities extends React.Component {
-  handleCheckboxChange = (checkboxId) => {
-    this.props.onHandleChange({
-      [checkboxId]: !this.props[checkboxId],
+export default (props) => {
+  const handleCheckboxChange = (checkboxId) => {
+    props.onHandleChange({
+      [checkboxId]: !props[checkboxId],
     });
   };
 
-  render() {
-    return (
-      <StyledWrapper>
-        <CheckboxRow>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              checked={this.props.heating}
-              onChange={() => this.handleCheckboxChange('heating')}
-            />
-            <Indicator className={this.props.heating && 'checked'} />
-            <Name>Heating</Name>
-          </Label>
-        </CheckboxRow>
+  return (
+    <StyledWrapper>
+      <CheckboxRow>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            checked={props.heating}
+            onChange={() => handleCheckboxChange('heating')}
+          />
+          <Indicator className={props.heating && 'checked'} />
+          <Name>Heating</Name>
+        </Label>
+      </CheckboxRow>
 
-        <CheckboxRow>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              checked={this.props.kitchen}
-              onChange={() => this.handleCheckboxChange('kitchen')}
-            />
-            <Indicator className={this.props.kitchen && 'checked'} />
-            <Name>Kitchen</Name>
-          </Label>
-        </CheckboxRow>
+      <CheckboxRow>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            checked={props.kitchen}
+            onChange={() => handleCheckboxChange('kitchen')}
+          />
+          <Indicator className={props.kitchen && 'checked'} />
+          <Name>Kitchen</Name>
+        </Label>
+      </CheckboxRow>
 
-        <CheckboxRow>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              checked={this.props.tv}
-              onChange={() => this.handleCheckboxChange('tv')}
-            />
-            <Indicator className={this.props.tv && 'checked'} />
-            <Name>TV</Name>
-          </Label>
-        </CheckboxRow>
+      <CheckboxRow>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            checked={props.tv}
+            onChange={() => handleCheckboxChange('tv')}
+          />
+          <Indicator className={props.tv && 'checked'} />
+          <Name>TV</Name>
+        </Label>
+      </CheckboxRow>
 
-        <CheckboxRow>
-          <Label>
-            <Checkbox
-              type="checkbox"
-              checked={this.props.internet}
-              onChange={() => this.handleCheckboxChange('internet')}
-            />
-            <Indicator className={this.props.internet && 'checked'} />
-            <Name>Wireless Internet</Name>
-          </Label>
-        </CheckboxRow>
+      <CheckboxRow>
+        <Label>
+          <Checkbox
+            type="checkbox"
+            checked={props.internet}
+            onChange={() => handleCheckboxChange('internet')}
+          />
+          <Indicator className={props.internet && 'checked'} />
+          <Name>Wireless Internet</Name>
+        </Label>
+      </CheckboxRow>
 
-        <SeeAll className="hidden-xs">See all amenities</SeeAll>
-      </StyledWrapper>
-    );
-  }
-}
+      <SeeAll className="hidden-xs">See all amenities</SeeAll>
+    </StyledWrapper>
+  );
+};

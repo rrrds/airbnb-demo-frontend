@@ -56,30 +56,28 @@ const Slider = styled.div`
   padding: 0 16px;
 `;
 
-export default class PriceSelect extends React.Component {
-  onChange = ({ values }) => {
-    this.props.onChange({ selectedRange: values });
+export default (props) => {
+  const onChange = ({ values }) => {
+    props.onChange({ selectedRange: values });
   };
 
-  render() {
-    return (
-      <StyledWrapper>
-        <PriceRange>
-          ${this.props.selectedRange[0]} — ${this.props.selectedRange[1]}+
-        </PriceRange>
-        <PriceAverage>The average nightly price is $75.</PriceAverage>
-        <Slider>
-          <StyledHistogram data={this.props.priceData} />
-          <Rheostat
-            min={this.props.minPrice}
-            max={this.props.maxPrice}
-            values={this.props.selectedRange || [0, 0]}
-            handle={Handle}
-            onChange={this.onChange}
-            onValuesUpdated={this.onChange}
-          />
-        </Slider>
-      </StyledWrapper>
-    );
-  }
-}
+  return (
+    <StyledWrapper>
+      <PriceRange>
+        ${props.selectedRange[0]} — ${props.selectedRange[1]}+
+      </PriceRange>
+      <PriceAverage>The average nightly price is $75.</PriceAverage>
+      <Slider>
+        <StyledHistogram data={props.priceData} />
+        <Rheostat
+          min={props.minPrice}
+          max={props.maxPrice}
+          values={props.selectedRange || [0, 0]}
+          handle={Handle}
+          onChange={onChange}
+          onValuesUpdated={onChange}
+        />
+      </Slider>
+    </StyledWrapper>
+  );
+};
