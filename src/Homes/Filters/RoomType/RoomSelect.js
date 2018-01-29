@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SpacedPopupWrapper } from '../styled';
+import { SpacedPopupWrapper, Checkbox, Indicator } from '../styled';
 import iconEntire from './entire.svg';
 import iconPrivate from './private.svg';
 import iconshared from './shared.svg';
@@ -20,43 +20,6 @@ const Label = styled.label`
   position: relative;
   cursor: pointer;
   min-width: 300px;
-`;
-
-const Checkbox = styled.input`
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-`;
-
-const Indicator = styled.div`
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 24px;
-  height: 24px;
-  background: #fff;
-  border: 1px solid rgba(72, 72, 72, 0.3);
-  border-radius: 4px;
-  cursor: pointer;
-
-  &.checked {
-    background: #008489;
-    border: 1px solid #008489;
-
-    :before {
-      display: block;
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 22px;
-      height: 22px;
-      background: url(${iconCheckOn});
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  }
 `;
 
 const Name = styled.div`
@@ -109,7 +72,7 @@ export default (props) => {
             checked={props.entireHome}
             onChange={() => handleCheckboxChange('entireHome')}
           />
-          <Indicator className={props.entireHome && 'checked'} />
+          <Indicator checked={props.entireHome} />
           <Name>
             Entire home
             <Description>Have a place to yourself</Description>
@@ -125,7 +88,7 @@ export default (props) => {
             checked={props.privateRoom}
             onChange={() => handleCheckboxChange('privateRoom')}
           />
-          <Indicator className={props.privateRoom && 'checked'} />
+          <Indicator checked={props.privateRoom} />
           <Name>
             Private room<Description>Have your own room and share some common spaces</Description>
           </Name>
@@ -141,7 +104,7 @@ export default (props) => {
             checked={props.sharedRoom}
             onChange={() => handleCheckboxChange('sharedRoom')}
           />
-          <Indicator className={props.sharedRoom && 'checked'} />
+          <Indicator checked={props.sharedRoom} />
           <Name>
             Shared room<Description>Stay in a shared space, like a common room</Description>
           </Name>

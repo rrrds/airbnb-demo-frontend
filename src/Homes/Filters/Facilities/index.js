@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SpacedPopupWrapper, SeeAll, CheckboxRow } from '../styled';
-import iconCheckOn from './check-on.svg';
+import { SpacedPopupWrapper, SeeAll, CheckboxRow, Checkbox, Indicator } from '../styled';
 
 const filterId = 'facilities';
 
@@ -15,43 +14,6 @@ const Label = styled.label`
   padding: 0 0 0 36px;
   position: relative;
   cursor: pointer;
-`;
-
-const Checkbox = styled.input`
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-`;
-
-const Indicator = styled.div`
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 24px;
-  height: 24px;
-  background: #fff;
-  border: 1px solid rgba(72, 72, 72, 0.3);
-  border-radius: 4px;
-  cursor: pointer;
-
-  &.checked {
-    background: #008489;
-    border: 1px solid #008489;
-
-    :before {
-      display: block;
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 22px;
-      height: 22px;
-      background: url(${iconCheckOn});
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  }
 `;
 
 const Name = styled.div`
@@ -82,7 +44,7 @@ export default (props) => {
             checked={props.elevator}
             onChange={() => handleCheckboxChange('elevator')}
           />
-          <Indicator className={props.elevator && 'checked'} />
+          <Indicator checked={props.elevator} />
           <Name>Elevator</Name>
         </Label>
       </CheckboxRow>
@@ -94,7 +56,7 @@ export default (props) => {
             checked={props.parking}
             onChange={() => handleCheckboxChange('parking')}
           />
-          <Indicator className={props.parking && 'checked'} />
+          <Indicator checked={props.parking} />
           <Name>Free parking on premises</Name>
         </Label>
       </CheckboxRow>
@@ -106,7 +68,7 @@ export default (props) => {
             checked={props.pool}
             onChange={() => handleCheckboxChange('pool')}
           />
-          <Indicator className={props.pool && 'checked'} />
+          <Indicator checked={props.pool} />
           <Name>Pool</Name>
         </Label>
       </CheckboxRow>
@@ -118,7 +80,7 @@ export default (props) => {
             checked={props.wheelchair}
             onChange={() => handleCheckboxChange('wheelchair')}
           />
-          <Indicator className={props.wheelchair && 'checked'} />
+          <Indicator checked={props.wheelchair} />
           <Name>Wheelchair accessible</Name>
         </Label>
       </CheckboxRow>

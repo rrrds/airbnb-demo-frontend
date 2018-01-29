@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SpacedPopupWrapper, SeeAll, CheckboxRow } from '../styled';
+import { SpacedPopupWrapper, SeeAll, CheckboxRow, Checkbox, Indicator } from '../styled';
 import iconCheckOn from './check-on.svg';
 
 const filterId = 'amenities';
@@ -15,43 +15,6 @@ const Label = styled.label`
   padding: 0 0 0 36px;
   position: relative;
   cursor: pointer;
-`;
-
-const Checkbox = styled.input`
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-`;
-
-const Indicator = styled.div`
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 24px;
-  height: 24px;
-  background: #fff;
-  border: 1px solid rgba(72, 72, 72, 0.3);
-  border-radius: 4px;
-  cursor: pointer;
-
-  &.checked {
-    background: #008489;
-    border: 1px solid #008489;
-
-    :before {
-      display: block;
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 22px;
-      height: 22px;
-      background: url(${iconCheckOn});
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  }
 `;
 
 const Name = styled.div`
@@ -82,7 +45,7 @@ export default (props) => {
             checked={props.heating}
             onChange={() => handleCheckboxChange('heating')}
           />
-          <Indicator className={props.heating && 'checked'} />
+          <Indicator checked={props.heating} />
           <Name>Heating</Name>
         </Label>
       </CheckboxRow>
@@ -94,7 +57,7 @@ export default (props) => {
             checked={props.kitchen}
             onChange={() => handleCheckboxChange('kitchen')}
           />
-          <Indicator className={props.kitchen && 'checked'} />
+          <Indicator checked={props.kitchen} />
           <Name>Kitchen</Name>
         </Label>
       </CheckboxRow>
@@ -106,7 +69,7 @@ export default (props) => {
             checked={props.tv}
             onChange={() => handleCheckboxChange('tv')}
           />
-          <Indicator className={props.tv && 'checked'} />
+          <Indicator checked={props.tv} />
           <Name>TV</Name>
         </Label>
       </CheckboxRow>
@@ -118,7 +81,7 @@ export default (props) => {
             checked={props.internet}
             onChange={() => handleCheckboxChange('internet')}
           />
-          <Indicator className={props.internet && 'checked'} />
+          <Indicator checked={props.internet} />
           <Name>Wireless Internet</Name>
         </Label>
       </CheckboxRow>
