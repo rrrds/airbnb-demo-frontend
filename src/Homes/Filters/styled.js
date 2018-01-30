@@ -21,16 +21,15 @@ export const SeeAll = styled.button`
 `;
 
 export const CheckboxRow = styled.div`
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: top;
   justify-content: space-between;
   margin-bottom: 23px;
-  width: 50%;
 
-  @media only screen and (max-width: 768px) {
-    width: 100%;
-    display: none;
+  @media only screen and (min-width: 768px) {
+    width: 50%;
+    display: flex;
   }
 `;
 

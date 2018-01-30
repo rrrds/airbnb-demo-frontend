@@ -13,6 +13,7 @@ const Type = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
+  max-width: 368px;
 `;
 
 const MinusButton = RoundButton.extend`

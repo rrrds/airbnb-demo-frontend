@@ -35,6 +35,10 @@ const Name = styled.div`
   @media only screen and (min-width: 768px) {
     font-size: 18px;
   }
+
+  @media only screen and (min-width: 992px) {
+    font-size: 16px;
+  }
 `;
 
 const Description = Name.extend`
@@ -45,14 +49,19 @@ const Description = Name.extend`
   @media only screen and (min-width: 768px) {
     font-size: 14px;
   }
+
+  @media only screen and (min-width: 992px) {
+    font-size: 12px;
+  }
 `;
 
 const Icon = styled.img`
   width: 32px;
   margin: 0 0 0 30px;
+  display: none;
 
-  @media only screen and (max-width: 768px) {
-    display: none;
+  @media only screen and (min-width: 768px) {
+    display: block;
   }
 `;
 

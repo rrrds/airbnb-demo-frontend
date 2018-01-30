@@ -9,6 +9,8 @@ const Label = styled.label`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 368px;
+  width: 100%;
 `;
 
 const Name = styled.div`
@@ -39,6 +41,10 @@ const Description = styled.div`
 
   @media only screen and (min-width: 768px) {
     font-size: 16px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    font-size: 14px;
   }
 `;
 
@@ -106,7 +112,12 @@ export default (props) => {
       <Label>
         <Name>
           Instant Book
-          <Description>Listings you can book without waiting for host approval.</Description>
+          <Description>
+            <div className="hidden-xs hidden-md">
+              Listings you can book without waiting for host approval.
+            </div>
+            <div className="hidden-lg hidden-xl">Secure a reservation instantly.</div>
+          </Description>
           <MoreLink>Learn more</MoreLink>
         </Name>
         <Switch onClick={handleCheckboxChange} on={props.instantBook} />

@@ -46,6 +46,7 @@ const Label = styled.label`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 368px;
 `;
 
 const Name = styled.div`

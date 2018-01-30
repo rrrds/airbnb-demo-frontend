@@ -25,6 +25,10 @@ const PriceRange = styled.div`
   @media only screen and (min-width: 768px) {
     font-size: 18px;
   }
+
+  @media only screen and (min-width: 992px) {
+    font-size: 16px;
+  }
 `;
 
 const PriceAverage = styled.div`
@@ -37,6 +41,10 @@ const PriceAverage = styled.div`
 
   @media only screen and (min-width: 768px) {
     font-size: 14px;
+  }
+
+  @media only screen and (min-width: 992px) {
+    font-size: 12px;
   }
 `;
 
