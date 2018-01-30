@@ -15,10 +15,24 @@ import InstantBookSelect from '../InstantBook/InstantBookSelect';
 const filterId = 'more';
 
 const Content = styled.div`
-  padding: 40px 8px;
+  padding: 40px 16px;
+
+  @media only screen and (min-width: 768px) {
+    padding: 40px -webkit-calc(50vw - 768px / 2 + 8px);
+    padding: 40px -o-calc(50vw - 768px / 2 + 8px);
+    padding: 40px calc(50vw - 768px / 2 + 8px);
+  }
 
   @media only screen and (min-width: 992px) {
-    padding: 40px 16px 40px 80px;
+    padding: 40px 16px 40px -webkit-calc(50vw - 992px / 2 + 8px);
+    padding: 40px 16px 40px -o-calc(50vw - 992px / 2 + 8px);
+    padding: 40px 16px 40px calc(50vw - 992px / 2 + 8px);
+  }
+
+  @media only screen and (min-width: 1200px) {
+    padding-left: -webkit-calc(50vw - 1200px / 2 + 8px);
+    padding-left: -o-calc(50vw - 1200px / 2 + 8px);
+    padding-left: calc(50vw - 1200px / 2 + 8px);
   }
 `;
 

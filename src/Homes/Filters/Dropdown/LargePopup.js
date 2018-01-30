@@ -16,7 +16,15 @@ const Wrapper = styled.div`
   flex-direction: column;
 
   @media only screen and (min-width: 992px) {
-    width: 66.6%;
+    width: -webkit-calc(50% - 992px / 2 + 992px * 0.66);
+    width: -o-calc(50% - 992px / 2 + 992px * 0.66);
+    width: calc(50% - 992px / 2 + 992px * 0.66);
+  }
+
+  @media only screen and (min-width: 1200px) {
+    width: -webkit-calc(50% - 1200px / 2 + 1200px * 0.66);
+    width: -o-calc(50% - 1200px / 2 + 1200px * 0.66);
+    width: calc(50% - 1200px / 2 + 1200px * 0.66);
   }
 `;
 
@@ -34,7 +42,7 @@ const MainContainer = styled.div`
 
 const ActionBbar = styled.div`
   display: flex;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   justify-content: flex-end;
   padding: 8px 16px;
   background: #fff;
