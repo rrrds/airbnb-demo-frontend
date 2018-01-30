@@ -16,14 +16,10 @@ const Wrapper = styled.div`
   flex-direction: column;
 
   @media only screen and (min-width: 992px) {
-    width: -webkit-calc(50% - 992px / 2 + 992px * 0.66);
-    width: -o-calc(50% - 992px / 2 + 992px * 0.66);
     width: calc(50% - 992px / 2 + 992px * 0.66);
   }
 
   @media only screen and (min-width: 1200px) {
-    width: -webkit-calc(50% - 1200px / 2 + 1200px * 0.66);
-    width: -o-calc(50% - 1200px / 2 + 1200px * 0.66);
     width: calc(50% - 1200px / 2 + 1200px * 0.66);
   }
 `;

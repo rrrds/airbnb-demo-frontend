@@ -98,13 +98,9 @@ const GoogleMapWrapper = styled.div`
   top: 0;
   padding-top: 136px;
   height: 100%;
-  width: -webkit-calc(50% - 992px / 2 + 992px * 0.333);
-  width: -o-calc(50% - 992px / 2 + 992px * 0.333);
   width: calc(50% - 992px / 2 + 992px * 0.333);
 
   @media only screen and (min-width: 1200px) {
-    width: -webkit-calc(50% - 1200px / 2 + 1200px * 0.333);
-    width: -o-calc(50% - 1200px / 2 + 1200px * 0.333);
     width: calc(50% - 1200px / 2 + 1200px * 0.333);
   }
 `;
