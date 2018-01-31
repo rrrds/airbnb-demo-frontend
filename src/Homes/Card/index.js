@@ -17,6 +17,10 @@ const Info = styled.div`
 
   text-align: left;
   margin-top: 8px;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 const SubInfo = styled.div`
