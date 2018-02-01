@@ -132,6 +132,7 @@ class Dates extends React.Component {
           onClose={this.props.onClose}
           onApply={this.onApply}
           onReset={this.onReset}
+          name="Dates"
         >
           {Picker}
         </ResponsivePopup>

@@ -60,6 +60,7 @@ const ResetButton = styled.button`
 const FilterRow = styled.div`
   flex: 0 1 auto;
   flex-basis: 100%;
+  overflow-y: auto;
 `;
 
 const SaveButton = styled.button`
@@ -92,7 +93,7 @@ export default props => (
           <PortalRow>
             <Header>
               <CloseButton onClick={onClose} />
-              Dates
+              {props.name}
               <ResetButton onClick={props.onReset}>Reset</ResetButton>
             </Header>
             {props.mobileInfoRow}
@@ -104,7 +105,7 @@ export default props => (
         </StyledPortal>
       );
 
-      portal(PortalContent);
+      return portal(PortalContent);
     }}
   </PortalWithState>
 );

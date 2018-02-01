@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { RoundButton, FilterButton } from '../styled';
+import { SpacedPopupWrapper } from './styled';
 import Dropdown from './Dropdown';
 import ResponsivePopup from './Dropdown/ResponsivePopup';
+import minus from './minus.svg';
+import plus from './plus.svg';
 
 const filterId = 'guests';
-
-const SpacedPopupWrapper = styled.div`
-  padding: 24px 15px 0 24px;
-`;
 
 const GuestAge = styled.div`
   display: flex;
@@ -18,11 +17,24 @@ const GuestAge = styled.div`
   margin-bottom: 23px;
 `;
 
+const MinusButton = RoundButton.extend`
+  background: url(${minus}) center no-repeat;
+`;
+
+const PlusButton = RoundButton.extend`
+  background: url(${plus}) center no-repeat;
+`;
+
 const Actions = GuestAge.extend`
   margin: 0 0 0 85px;
 `;
 
 const Counter = styled.div`
+  font-family: CircularAir;
+  line-height: normal;
+  font-size: 18px;
+  font-weight: 200;
+  color: #383838;
   min-width: 50px;
   text-align: center;
 `;
@@ -32,6 +44,7 @@ const Name = styled.div`
   flex-direction: column;
   flex-wrap: nowrap;
   white-space: nowrap;
+  font-family: CircularAir;
   line-height: normal;
   font-size: 20px;
   color: #383838;
@@ -39,13 +52,26 @@ const Name = styled.div`
 
 const Description = Name.extend`
   font-size: 16px;
+  font-weight: 200;
   margin-top: 7px;
 `;
 
 const pluralize = (word, count) => (count > 1 ? `${word}s` : word);
 
-const getButtonText = (showSelectedData, guestsTotal) =>
-  (showSelectedData ? `${guestsTotal} ${pluralize('guest', guestsTotal)}` : 'Guests');
+const getButtonText = (showSelectedData, guestsData) => {
+  if (showSelectedData) {
+    const guestCount = guestsData.adultsCount + guestsData.childrenCount;
+    let buttonText = `${guestCount} ${pluralize('guest', guestCount)}`;
+
+    if (guestsData.infantsCount > 0) {
+      buttonText += `, ${guestsData.infantsCount} ${pluralize('infant', guestsData.infantsCount)}`;
+    }
+
+    return buttonText;
+  }
+
+  return 'Guests';
+};
 
 class Guests extends React.Component {
   state = {
@@ -98,14 +124,12 @@ class Guests extends React.Component {
         <GuestAge>
           <Name>Adults</Name>
           <Actions>
-            <RoundButton
+            <MinusButton
               onClick={() => this.onDecrease('adultsCount')}
               disabled={this.state.adultsCount < 1}
-            >
-              -
-            </RoundButton>
+            />
             <Counter>{this.state.adultsCount}</Counter>
-            <RoundButton onClick={() => this.onIncrease('adultsCount')}>+</RoundButton>
+            <PlusButton onClick={() => this.onIncrease('adultsCount')} />
           </Actions>
         </GuestAge>
 
@@ -114,14 +138,12 @@ class Guests extends React.Component {
             Children<Description>Ages 2 — 12</Description>
           </Name>
           <Actions>
-            <RoundButton
+            <MinusButton
               onClick={() => this.onDecrease('childrenCount')}
               disabled={this.state.childrenCount < 1}
-            >
-              -
-            </RoundButton>
+            />
             <Counter>{this.state.childrenCount}</Counter>
-            <RoundButton onClick={() => this.onIncrease('childrenCount')}>+</RoundButton>
+            <PlusButton onClick={() => this.onIncrease('childrenCount')} />
           </Actions>
         </GuestAge>
 
@@ -130,14 +152,12 @@ class Guests extends React.Component {
             Infants<Description>Under 2</Description>
           </Name>
           <Actions>
-            <RoundButton
+            <MinusButton
               onClick={() => this.onDecrease('infantsCount')}
               disabled={this.state.infantsCount < 1}
-            >
-              -
-            </RoundButton>
+            />
             <Counter>{this.state.infantsCount}</Counter>
-            <RoundButton onClick={() => this.onIncrease('infantsCount')}>+</RoundButton>
+            <PlusButton onClick={() => this.onIncrease('infantsCount')} />
           </Actions>
         </GuestAge>
       </SpacedPopupWrapper>
@@ -150,7 +170,7 @@ class Guests extends React.Component {
         onClick={() => this.props.onButtonClick(filterId)}
         active={this.props.isActive || guestsTotal > 1}
       >
-        {getButtonText(this.props.isActive || guestsTotal > 1, guestsTotal)}
+        {getButtonText(this.props.isActive || guestsTotal > 1, this.state)}
       </FilterButton>
     );
 
@@ -162,6 +182,7 @@ class Guests extends React.Component {
           onClose={this.props.onClose}
           onApply={this.onApply}
           onReset={this.onReset}
+          name="Guests"
         >
           {GuestSelect}
         </ResponsivePopup>

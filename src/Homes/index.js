@@ -96,10 +96,13 @@ const GoogleMapWrapper = styled.div`
   position: fixed;
   right: 0;
   top: 0;
-
-  height: 100%;
-  width: 33.3333%;
   padding-top: 136px;
+  height: 100%;
+  width: calc(50% - 992px / 2 + 992px * 0.333);
+
+  @media only screen and (min-width: 1200px) {
+    width: calc(50% - 1200px / 2 + 1200px * 0.333);
+  }
 `;
 
 export default () => (
