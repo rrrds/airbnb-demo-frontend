@@ -6,6 +6,12 @@
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz#8a83f9335c7860effa2eeeca254332aa0aeed8f2"
 
+"@trainline/react-skeletor@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@trainline/react-skeletor/-/react-skeletor-1.0.2.tgz#a5cab1482ae59b187cb4e60de905cdb552b15b06"
+  dependencies:
+    prop-types "^15.5.10"
+
 abab@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
