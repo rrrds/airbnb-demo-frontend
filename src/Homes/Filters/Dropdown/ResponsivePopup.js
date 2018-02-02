@@ -1,26 +1,38 @@
 import React from 'react';
-import Popup from './Popup';
+import SmallPopup from './SmallPopup';
+import LargePopup from './LargePopup';
 import Portal from './Portal';
 
 export default (props) => {
-  if (props.isActive && props.isMobile) {
-    return (
-      <Portal
-        onApply={props.onApply}
-        onClose={props.onClose}
-        onReset={props.onReset}
-        mobileInfoRow={props.mobileInfoRow}
-      >
-        {props.children}
-      </Portal>
-    );
-  }
   if (props.isActive) {
+    if (props.isMobile) {
+      return (
+        <Portal
+          onApply={props.onApply}
+          onClose={props.onClose}
+          onReset={props.onReset}
+          mobileInfoRow={props.mobileInfoRow}
+          name={props.name}
+        >
+          {props.children}
+        </Portal>
+      );
+    }
+
+    if (props.isLargePopup) {
+      return (
+        <LargePopup onApply={props.onApply} onClose={props.onClose} onReset={props.onReset}>
+          {props.children}
+        </LargePopup>
+      );
+    }
+
     return (
-      <Popup onApply={props.onApply} onClose={props.onClose} onReset={props.onReset}>
+      <SmallPopup onApply={props.onApply} onClose={props.onClose} onReset={props.onReset}>
         {props.children}
-      </Popup>
+      </SmallPopup>
     );
   }
+
   return null;
 };

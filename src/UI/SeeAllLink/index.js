@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-import arrow from "./arrow.svg";
+import arrow from './arrow.svg';
 
 const StyledLink = styled(Link)`
   display: flex;
@@ -25,7 +25,7 @@ const ArrowImg = styled.img`
   height: 10px;
 `;
 
-export default function(props) {
+export default function (props) {
   return (
     <StyledLink to={props.to}>
       See All

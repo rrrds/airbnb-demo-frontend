@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Link = styled.a`
   margin: 0 16px;
@@ -15,7 +15,7 @@ const Nav = styled.nav`
   text-align: right;
 `;
 
-export default function(props) {
+export default function () {
   return (
     <Nav className="hidden-xs hidden-md">
       <Link href="#">Become a host</Link>

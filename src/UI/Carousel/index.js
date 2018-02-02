@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import arrowRight from "./arrow-right.svg";
+import React from 'react';
+import styled from 'styled-components';
+import arrowRight from './arrow-right.svg';
 
 const Wrapper = styled.div`
   position: relative;
@@ -40,7 +40,7 @@ const Arrow = styled.a`
   }
 `;
 
-export default function(props) {
+export default function (props) {
   return (
     <Wrapper>
       <Items>{props.children}</Items>

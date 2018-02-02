@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { PortalWithState } from "react-portal";
-import cross from "./cross.svg";
+import React from 'react';
+import styled from 'styled-components';
+import { PortalWithState } from 'react-portal';
+import cross from './cross.svg';
 
 const StyledPortal = styled.div`
   position: fixed;
@@ -60,6 +60,7 @@ const ResetButton = styled.button`
 const FilterRow = styled.div`
   flex: 0 1 auto;
   flex-basis: 100%;
+  overflow-y: auto;
 `;
 
 const SaveButton = styled.button`
@@ -74,37 +75,37 @@ const SaveButton = styled.button`
   cursor: pointer;
 `;
 
-export default props => {
-  return (
-    <PortalWithState defaultOpen>
-      {({ openPortal, closePortal, isOpen, portal }) => {
-        const onClose = () => {
-          props.onClose();
-          closePortal();
-        };
+export default props => (
+  <PortalWithState defaultOpen>
+    {({ closePortal, portal }) => {
+      const onClose = () => {
+        props.onClose();
+        closePortal();
+      };
 
-        const onApply = () => {
-          props.onApply();
-          closePortal();
-        };
+      const onApply = () => {
+        props.onApply();
+        closePortal();
+      };
 
-        portal(
-          <StyledPortal>
-            <PortalRow>
-              <Header>
-                <CloseButton onClick={onClose} />
-                Dates
-                <ResetButton onClick={props.onReset}>Reset</ResetButton>
-              </Header>
-              {props.mobileInfoRow}
-            </PortalRow>
-            <FilterRow>{props.children}</FilterRow>
-            <PortalRow>
-              <SaveButton onClick={onApply}>Save</SaveButton>
-            </PortalRow>
-          </StyledPortal>
-        );
-      }}
-    </PortalWithState>
-  );
-};
+      const PortalContent = (
+        <StyledPortal>
+          <PortalRow>
+            <Header>
+              <CloseButton onClick={onClose} />
+              {props.name}
+              <ResetButton onClick={props.onReset}>Reset</ResetButton>
+            </Header>
+            {props.mobileInfoRow}
+          </PortalRow>
+          <FilterRow>{props.children}</FilterRow>
+          <PortalRow>
+            <SaveButton onClick={onApply}>Save</SaveButton>
+          </PortalRow>
+        </StyledPortal>
+      );
+
+      return portal(PortalContent);
+    }}
+  </PortalWithState>
+);

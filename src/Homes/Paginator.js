@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import arrow from "./arrow.svg";
-import { RoundButton } from "./styled";
+import React from 'react';
+import styled from 'styled-components';
+import arrow from './arrow.svg';
+import { RoundButton } from './styled';
 
 const Wrapper = styled.div`
   margin: 48px 0 14px 0;
@@ -19,15 +19,15 @@ const TextInfo = styled.div`
   color: #383838;
 `;
 
-export default function() {
+export default function () {
   return (
     <Wrapper>
       <Nav>
         <RoundButton active>1</RoundButton>
-        <RoundButton>2</RoundButton>
-        <RoundButton>3</RoundButton>
-        <RoundButton>&hellip;</RoundButton>
-        <RoundButton>17</RoundButton>
+        <RoundButton noBorder>2</RoundButton>
+        <RoundButton noBorder>3</RoundButton>
+        <RoundButton noBorder>&hellip;</RoundButton>
+        <RoundButton noBorder>17</RoundButton>
         <RoundButton>
           <img src={arrow} alt="Next" />
         </RoundButton>

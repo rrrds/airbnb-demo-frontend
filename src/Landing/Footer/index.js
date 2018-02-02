@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { Grid, Row, Col } from "react-flexbox-grid";
+import React from 'react';
+import styled from 'styled-components';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import facebook from "./social/facebook.svg";
-import twitter from "./social/twitter.svg";
-import instagram from "./social/instagram.svg";
-import smallLogo from "./small_logo.svg";
-import arrowDown from "./arrow-down.svg";
+import facebook from './social/facebook.svg';
+import twitter from './social/twitter.svg';
+import instagram from './social/instagram.svg';
+import smallLogo from './small_logo.svg';
+import arrowDown from './arrow-down.svg';
 
 const FooterBlock = styled.footer`
   box-shadow: 0px -0.5px 0px rgba(72, 72, 72, 0.3);
@@ -94,7 +94,7 @@ const SmallLogo = styled.img`
   fill: #767676;
 `;
 
-export default function() {
+export default function () {
   return (
     <FooterBlock>
       <Grid>

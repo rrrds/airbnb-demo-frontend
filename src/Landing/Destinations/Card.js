@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { CardLink, CardImg } from "../../UI/styled";
+import React from 'react';
+import styled from 'styled-components';
+import { CardLink, CardImg } from '../../UI/styled';
 
 const Body = styled.div`
   font-size: 15px;
@@ -9,7 +9,7 @@ const Body = styled.div`
   text-align: left;
 `;
 
-export default function(props) {
+export default function (props) {
   return (
     <CardLink>
       <CardImg src={props.destination.image} />

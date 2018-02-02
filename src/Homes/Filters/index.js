@@ -1,35 +1,62 @@
-import React from "react";
-import { Row, Col, Grid } from "react-flexbox-grid";
-import { FilterButton } from "../styled";
-import Dates from "./Dates";
-import Guests from "./Guests";
+import React from 'react';
+import { Row, Col, Grid } from 'react-flexbox-grid';
+import Dates from './Dates';
+import Guests from './Guests';
+import RoomType from './RoomType';
+import Price from './Price';
+import InstantBook from './InstantBook';
+import MoreFilters from './MoreFilters';
 
-const isMobile = window.matchMedia("(max-width: 400px)").matches;
+const isMobile = window.matchMedia('(max-width: 400px)').matches;
+const isMdOrLess = window.matchMedia('(max-width: 992px)').matches;
+
+const priceDataMock = Array.from({ length: 50 }, () => Math.floor(Math.random() * 100) + 1);
 
 class Filters extends React.Component {
   state = {
     activeFilterId: false,
 
-    focusedInput: "startDate",
+    focusedInput: 'startDate',
     startDate: null,
     endDate: null,
 
-    adults: 1,
-    children: 0,
-    infants: 0
-  };
+    adultsCount: 1,
+    childrenCount: 0,
+    infantsCount: 0,
 
-  toggleOpen = filterId => {
-    this.setState(prevState => ({
-      activeFilterId: prevState.activeFilterId === filterId ? false : filterId
-    }));
+    entireHome: false,
+    privateRoom: false,
+    sharedRoom: false,
+
+    priceData: priceDataMock,
+    selectedRange: [10, 1000],
+    minPrice: 10,
+    maxPrice: 1000,
+
+    instantBook: false,
+
+    bedrooms: 0,
+    beds: 0,
+    bathrooms: 0,
+
+    superhost: false,
+
+    heating: false,
+    kitchen: false,
+    tv: false,
+    internet: false,
+
+    elevator: false,
+    parking: false,
+    pool: false,
+    wheelchair: false,
   };
 
   onCancel = () => {
     this.setState({ activeFilterId: false, startDate: null, endDate: null });
   };
 
-  onApply = filterState => {
+  onApply = (filterState) => {
     this.setState({ activeFilterId: false });
 
     this.setState(filterState);
@@ -37,14 +64,20 @@ class Filters extends React.Component {
 
   onReset = () => {
     this.setState({
-      focusedInput: "startDate",
+      focusedInput: 'startDate',
       startDate: null,
-      endDate: null
+      endDate: null,
     });
   };
 
   onClose = () => {
     this.setState({ activeFilterId: false });
+  };
+
+  toggleOpen = (filterId) => {
+    this.setState(prevState => ({
+      activeFilterId: prevState.activeFilterId === filterId ? false : filterId,
+    }));
   };
 
   render() {
@@ -53,7 +86,7 @@ class Filters extends React.Component {
         <Row middle="xs" start="xs">
           <Col xs={12}>
             <Dates
-              isActive={this.state.activeFilterId === "dates"}
+              isActive={this.state.activeFilterId === 'dates'}
               startDate={this.state.startDate}
               endDate={this.state.endDate}
               onDatesChange={this.onDatesChange}
@@ -67,10 +100,10 @@ class Filters extends React.Component {
             />
 
             <Guests
-              isActive={this.state.activeFilterId === "guests"}
-              adults={this.state.adults}
-              children={this.state.children}
-              infants={this.state.infants}
+              isActive={this.state.activeFilterId === 'guests'}
+              adultsCount={this.state.adultsCount}
+              childrenCount={this.state.childrenCount}
+              infantsCount={this.state.infantsCount}
               onButtonClick={this.toggleOpen}
               onApply={this.onApply}
               onClose={this.onClose}
@@ -78,34 +111,69 @@ class Filters extends React.Component {
               isMobile={isMobile}
             />
 
-            <FilterButton
-              onClick={e => this.toggleOpen("roomtype", e)}
-              active={this.state.activeFilterId === "roomtype"}
-              className="hidden-xs hidden-md"
-            >
-              Room type
-            </FilterButton>
-            <FilterButton
-              onClick={e => this.toggleOpen("price")}
-              active={this.state.activeFilterId === "price"}
-              className="hidden-xs hidden-md"
-            >
-              Price
-            </FilterButton>
-            <FilterButton
-              onClick={e => this.toggleOpen("book")}
-              active={this.state.activeFilterId === "book"}
-              className="hidden-xs hidden-md"
-            >
-              Instant book
-            </FilterButton>
+            {!isMdOrLess && (<RoomType
+              isActive={this.state.activeFilterId === 'roomtype'}
+              entireHome={this.state.entireHome}
+              privateRoom={this.state.privateRoom}
+              sharedRoom={this.state.sharedRoom}
+              onButtonClick={this.toggleOpen}
+              onApply={this.onApply}
+              onClose={this.onClose}
+              onReset={this.onReset}
+              isMobile={isMobile}
+            />)}
 
-            <FilterButton
-              onClick={e => this.toggleOpen("more")}
-              active={this.state.activeFilterId === "more"}
-            >
-              More filters
-            </FilterButton>
+            {!isMdOrLess && (<Price
+              isActive={this.state.activeFilterId === 'price'}
+              priceData={this.state.priceData}
+              selectedRange={this.state.selectedRange}
+              minPrice={this.state.minPrice}
+              maxPrice={this.state.maxPrice}
+              onButtonClick={this.toggleOpen}
+              onApply={this.onApply}
+              onClose={this.onClose}
+              onReset={this.onReset}
+              isMobile={isMobile}
+            />)}
+
+            {!isMdOrLess && (<InstantBook
+              isActive={this.state.activeFilterId === 'instantbook'}
+              instantBook={this.state.instantBook}
+              onButtonClick={this.toggleOpen}
+              onApply={this.onApply}
+              onClose={this.onClose}
+              onReset={this.onReset}
+              isMobile={isMobile}
+            />)}
+
+            <MoreFilters
+              isActive={this.state.activeFilterId === 'more'}
+              onButtonClick={this.toggleOpen}
+              onApply={this.onApply}
+              onClose={this.onClose}
+              onReset={this.onReset}
+              isMobile={isMobile}
+              entireHome={this.state.entireHome}
+              privateRoom={this.state.privateRoom}
+              sharedRoom={this.state.sharedRoom}
+              selectedRange={this.state.selectedRange}
+              priceData={priceDataMock}
+              minPrice={this.state.minPrice}
+              maxPrice={this.state.maxPrice}
+              bedrooms={this.state.bedrooms}
+              beds={this.state.beds}
+              bathrooms={this.state.bathrooms}
+              instantBook={this.state.instantBook}
+              superhost={this.state.superhost}
+              heating={this.state.heating}
+              kitchen={this.state.kitchen}
+              tv={this.state.tv}
+              internet={this.state.internet}
+              elevator={this.state.elevator}
+              parking={this.state.parking}
+              pool={this.state.pool}
+              wheelchair={this.state.wheelchair}
+            />
           </Col>
         </Row>
       </Grid>

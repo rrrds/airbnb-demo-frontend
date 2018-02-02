@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import logo from "./logo.svg";
-import arrow from "./arrow-down.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import logo from './logo.svg';
+import arrow from './arrow-down.svg';
 
 const Wrapper = styled.div`
   display: flex;
@@ -16,10 +16,10 @@ const Arrow = styled.button`
   margin-left: 5px;
 `;
 
-export default function() {
+export default function () {
   return (
     <Wrapper>
-      <Link to="/">
+      <Link to="/" href="/">
         <img src={logo} alt="logo" />
       </Link>
       <Arrow className="hidden-lg hidden-xl" />

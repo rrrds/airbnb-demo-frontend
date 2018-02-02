@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import searchIcon from "./search.svg";
+import searchIcon from './search.svg';
 
 const Input = styled.input`
   height: 48px;
