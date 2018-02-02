@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import times from 'lodash/times';
 import star from './star.svg';
 import starEmpty from './star_empty.svg';
 
@@ -18,9 +18,7 @@ export default function (props) {
   return (
     <Wrapper>
       {props.children !== false &&
-        [...Array(5)].map((e, i) => (
-          <StarImg key={i.toString()} src={i < props.children ? star : starEmpty} />
-        ))}
+        times(5, i => <StarImg key={i.toString()} src={i < props.children ? star : starEmpty} />)}
     </Wrapper>
   );
 }
