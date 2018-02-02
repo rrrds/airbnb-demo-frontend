@@ -47,7 +47,7 @@ const GoogleMapWrapper = styled.div`
 
 export default class Homes extends React.Component {
   state = {
-    homes: [],
+    homes: [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined],
   };
 
   componentWillMount = () => {
@@ -55,11 +55,7 @@ export default class Homes extends React.Component {
       .then(response => response.json())
       .then((data) => {
         const homes = data.items.map(i => transformHomeData(i));
-
         this.setState({ homes });
-      })
-      .catch((ex) => {
-        console.log('error', ex);
       });
   };
 
