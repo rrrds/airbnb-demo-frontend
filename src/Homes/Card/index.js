@@ -1,14 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import { createSkeletonElement } from '@trainline/react-skeletor';
 
 import { CardLink } from '../../UI/styled';
 import Stars from '../../UI/Stars';
 
-const CardImg = styled.img`
-  max-width: 100%;
-`;
+const CardImg = createSkeletonElement(
+  styled.img`
+    max-width: 100%;
+  `,
+  () => ({
+    height: '190px',
+    width: '100%',
+  }),
+);
 
-const Info = styled.div`
+const Info = createSkeletonElement(styled.div`
   font-family: CircularAir;
   line-height: normal;
   font-size: 15px;
@@ -21,9 +28,9 @@ const Info = styled.div`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-`;
+`);
 
-const SubInfo = styled.div`
+const SubInfo = createSkeletonElement(styled.div`
   font-family: CircularAir;
   line-height: normal;
   font-size: 15px;
@@ -32,9 +39,9 @@ const SubInfo = styled.div`
 
   text-align: left;
   margin-top: 2px;
-`;
+`);
 
-const Rating = styled.div`
+const Rating = createSkeletonElement(styled.div`
   display: flex;
   justify-content: flex-start;
   font-family: CircularAir;
@@ -42,7 +49,7 @@ const Rating = styled.div`
   font-size: 12px;
 
   margin-top: 6px;
-`;
+`);
 
 export default function (props) {
   return (
