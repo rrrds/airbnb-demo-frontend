@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row } from 'react-flexbox-grid';
+import times from 'lodash/times';
 import { TitleH2, HeaderRow } from '../../UI/styled';
 import SeeAllLink from '../../UI/SeeAllLink';
 import HomesList from '../../Homes/List';
@@ -8,7 +9,7 @@ import { getList } from '../../Homes/api';
 
 export default class Homes extends React.Component {
   state = {
-    homes: [undefined, undefined, undefined, undefined, undefined, undefined],
+    homes: times(6, () => undefined),
   };
 
   componentWillMount = () => {

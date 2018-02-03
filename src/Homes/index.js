@@ -4,6 +4,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Helmet } from 'react-helmet';
 import GoogleMap from 'google-map-react';
 import 'whatwg-fetch';
+import times from 'lodash/times';
 import Filters from './Filters';
 import { FixedWrapper } from '../UI/styled';
 import HomesList from './List';
@@ -45,7 +46,7 @@ const GoogleMapWrapper = styled.div`
 
 export default class Homes extends React.Component {
   state = {
-    homes: [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined],
+    homes: times(8, () => undefined),
   };
 
   componentWillMount = () => {
