@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { createSkeletonElement } from '@trainline/react-skeletor';
+import { createSkeletonElement, createSkeletonProvider } from '@trainline/react-skeletor';
 
 import { CardLink } from '../../UI/styled';
 import Stars from '../../UI/Stars';
@@ -51,20 +51,39 @@ const Rating = createSkeletonElement(styled.div`
   margin-top: 6px;
 `);
 
-export default function (props) {
-  return (
-    <CardLink>
-      <CardImg src={props.home.image} />
-      <Info>
-        ${props.home.price} {props.home.text}
-      </Info>
-      <SubInfo>
-        {props.home.type} &middot; {props.home.beds} beds
-      </SubInfo>
-      <Rating>
-        <Stars>{props.home.stars}</Stars>
-        {props.home.host}
-      </Rating>
-    </CardLink>
-  );
-}
+export const Card = props => (
+  <CardLink>
+    <CardImg src={props.home.image} />
+    <Info>
+      ${props.home.price} {props.home.text}
+    </Info>
+    <SubInfo>
+      {props.home.type} &middot; {props.home.beds} beds
+    </SubInfo>
+    <Rating>
+      <Stars>{props.home.stars}</Stars>
+      {props.home.host}
+    </Rating>
+  </CardLink>
+);
+
+export const SkeletonCard = createSkeletonProvider(
+  {
+    home: {
+      text: '______________ _ _ __ _ ______',
+      price: '__',
+      stars: false,
+      beds: 0,
+      type: '________',
+      host: '__ _______',
+    },
+  },
+  ({ home }) => home === undefined,
+  () => ({
+    color: 'grey',
+    backgroundColor: 'grey',
+    borderRadius: '4px',
+    opacity: 0.3,
+    width: 'max-content',
+  }),
+)(Card);

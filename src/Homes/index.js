@@ -7,7 +7,7 @@ import 'whatwg-fetch';
 import times from 'lodash/times';
 import Filters from './Filters';
 import { FixedWrapper } from '../UI/styled';
-import HomesList from './List';
+import { SkeletonCard } from './Card';
 import Paginator from './Paginator';
 import MapButton from './MapButton';
 import { getList } from './api';
@@ -56,6 +56,12 @@ export default class Homes extends React.Component {
   };
 
   render() {
+    const homesList = this.state.homes.map((home, index) => (
+      <Col key={index.toString()} xs={12} md={6} lg={6}>
+        <SkeletonCard home={home} />
+      </Col>
+    ));
+
     return (
       <div>
         <Helmet>
@@ -69,7 +75,7 @@ export default class Homes extends React.Component {
           <Row>
             <Col xs={12} md={12} lg={8}>
               <Row>
-                <HomesList homes={this.state.homes} xs={12} md={6} lg={6} />
+                {homesList}
               </Row>
 
               <Row center="xs">
