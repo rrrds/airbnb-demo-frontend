@@ -9,9 +9,7 @@ import { FixedWrapper } from '../UI/styled';
 import HomesList from './List';
 import Paginator from './Paginator';
 import MapButton from './MapButton';
-import { transformHomeData } from './styled';
-
-const apiUrl = 'https://airbnb-demo-api.now.sh/v1/homes';
+import { getList } from './api';
 
 const Content = styled(Grid)`
   padding-top: 136px;
@@ -51,12 +49,9 @@ export default class Homes extends React.Component {
   };
 
   componentWillMount = () => {
-    fetch(`${apiUrl}?limit=8&offset=0`)
-      .then(response => response.json())
-      .then((data) => {
-        const homes = data.items.map(i => transformHomeData(i));
-        this.setState({ homes });
-      });
+    getList(8, 0).then((homes) => {
+      this.setState({ homes });
+    });
   };
 
   render() {

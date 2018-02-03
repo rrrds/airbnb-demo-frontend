@@ -4,9 +4,7 @@ import { TitleH2, HeaderRow } from '../../UI/styled';
 import SeeAllLink from '../../UI/SeeAllLink';
 import HomesList from '../../Homes/List';
 import Carousel from '../../UI/Carousel';
-import { transformHomeData } from '../../Homes/styled';
-
-const apiUrl = 'https://airbnb-demo-api.now.sh/v1/homes';
+import { getList } from '../../Homes/api';
 
 export default class Homes extends React.Component {
   state = {
@@ -14,13 +12,9 @@ export default class Homes extends React.Component {
   };
 
   componentWillMount = () => {
-    fetch(`${apiUrl}?limit=6&offset=0`)
-      .then(response => response.json())
-      .then((data) => {
-        const homes = data.items.map(i => transformHomeData(i));
-
-        this.setState({ homes });
-      });
+    getList(6, 0).then((homes) => {
+      this.setState({ homes });
+    });
   };
 
   render() {
