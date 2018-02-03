@@ -1,30 +1,5 @@
 import styled from 'styled-components';
 
-const formatHost = (reviewsCount, isSuperhost) => {
-  if (isSuperhost) {
-    return `${reviewsCount} · Superhost`;
-  }
-
-  return reviewsCount;
-};
-
-const formatKind = kind =>
-  kind.charAt(0).toUpperCase() +
-  kind
-    .slice(1)
-    .split('_')
-    .join(' ');
-
-export const transformHomeData = inData => ({
-  text: inData.name,
-  image: inData.images[0].picture,
-  price: inData.price,
-  stars: inData.rating,
-  beds: inData.bedsCount,
-  type: formatKind(inData.kind),
-  host: formatHost(inData.reviewsCount, inData.isSuperhost),
-});
-
 export const RoundButton = styled.button`
   font-family: CircularAir;
   line-height: normal;
