@@ -9,6 +9,7 @@ const formatHost = (reviewsCount, isSuperhost) => {
 export const kindToText = {
   entire_home: 'Entire home',
   private_room: 'Private room',
+  shared_room: 'Shared room',
 };
 
 export const transformHomeData = inData => ({
