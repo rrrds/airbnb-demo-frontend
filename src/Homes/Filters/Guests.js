@@ -59,11 +59,11 @@ const Description = Name.extend`
 
 const getButtonText = (showSelectedData, guestsData) => {
   if (showSelectedData) {
-    const guestCount = guestsData.adultsCount + guestsData.childrenCount;
-    let buttonText = `${guestCount} ${pluralize('guest', guestCount)}`;
+    const adultTotal = guestsData.adultsCount + guestsData.childrenCount;
+    const buttonText = `${adultTotal} ${pluralize('guest', adultTotal)}`;
 
     if (guestsData.infantsCount > 0) {
-      buttonText += `, ${guestsData.infantsCount} ${pluralize('infant', guestsData.infantsCount)}`;
+      return `${buttonText}, ${guestsData.infantsCount} ${pluralize('infant', guestsData.infantsCount)}`;
     }
 
     return buttonText;
