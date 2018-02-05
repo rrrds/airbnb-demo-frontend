@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import pluralize from 'pluralize';
 import { RoundButton, FilterButton } from '../styled';
 import { SpacedPopupWrapper } from './styled';
 import Dropdown from './Dropdown';
@@ -56,15 +57,13 @@ const Description = Name.extend`
   margin-top: 7px;
 `;
 
-const pluralize = (word, count) => (count > 1 ? `${word}s` : word);
-
 const getButtonText = (showSelectedData, guestsData) => {
   if (showSelectedData) {
-    const guestCount = guestsData.adultsCount + guestsData.childrenCount;
-    let buttonText = `${guestCount} ${pluralize('guest', guestCount)}`;
+    const adultTotal = guestsData.adultsCount + guestsData.childrenCount;
+    const buttonText = `${adultTotal} ${pluralize('guest', adultTotal)}`;
 
     if (guestsData.infantsCount > 0) {
-      buttonText += `, ${guestsData.infantsCount} ${pluralize('infant', guestsData.infantsCount)}`;
+      return `${buttonText}, ${guestsData.infantsCount} ${pluralize('infant', guestsData.infantsCount)}`;
     }
 
     return buttonText;

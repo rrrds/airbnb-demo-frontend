@@ -3,18 +3,14 @@ import styled from 'styled-components';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import { Helmet } from 'react-helmet';
 import GoogleMap from 'google-map-react';
+import 'whatwg-fetch';
+import times from 'lodash/times';
 import Filters from './Filters';
 import { FixedWrapper } from '../UI/styled';
-import HomesList from './List';
+import { SkeletonCard } from './Card';
 import Paginator from './Paginator';
 import MapButton from './MapButton';
-
-import image1 from './1.png';
-import image2 from './2.png';
-import image3 from './3.png';
-import image4 from './4.png';
-import image5 from './5.png';
-import image6 from './6.png';
+import { getList } from './api';
 
 const Content = styled(Grid)`
   padding-top: 136px;
@@ -34,63 +30,6 @@ const Footer = styled.div`
   padding: 25px 0;
 `;
 
-const homes = [
-  {
-    image: image1,
-    text: 'La Salentina, see, nature & relax',
-    price: 82,
-    stars: 4,
-    host: '97 · Superhost',
-    type: 'Entire house',
-    beds: 9,
-  },
-  {
-    image: image2,
-    text: 'Your private 3 bedr. riad and exclusi…',
-    price: 82,
-    stars: 4,
-    host: '161 · Superhost',
-    type: 'Entire house',
-    beds: 5,
-  },
-  {
-    image: image3,
-    text: 'Dreamy Tropical Tree House',
-    price: 200,
-    stars: 5,
-    host: '364 · Superhost',
-    type: 'Entire treehouse',
-    beds: 1,
-  },
-  {
-    image: image4,
-    text: 'La Salentina, see, nature & relax',
-    price: 82,
-    stars: 4,
-    host: '97 · Superhost',
-    type: 'Entire house',
-    beds: 9,
-  },
-  {
-    image: image5,
-    text: 'Your private 3 bedr. riad and exclusi…',
-    price: 82,
-    stars: 4,
-    host: '161 · Superhost',
-    type: 'Entire house',
-    beds: 5,
-  },
-  {
-    image: image6,
-    text: 'Dreamy Tropical Tree House',
-    price: 200,
-    stars: 3,
-    host: '364 · Superhost',
-    type: 'Entire treehouse',
-    beds: 1,
-  },
-];
-
 const GoogleMapWrapper = styled.div`
   box-sizing: border-box;
   position: fixed;
@@ -105,43 +44,63 @@ const GoogleMapWrapper = styled.div`
   }
 `;
 
-export default () => (
-  <div>
-    <Helmet>
-      <title>Airbnb — Homes</title>
-    </Helmet>
+export default class Homes extends React.Component {
+  state = {
+    homes: times(8, () => undefined),
+  };
 
-    <FiltersWrapper>
-      <Filters />
-    </FiltersWrapper>
-    <Content>
-      <Row>
-        <Col xs={12} md={12} lg={8}>
+  componentWillMount = () => {
+    getList(8, 0).then((homes) => {
+      this.setState({ homes });
+    });
+  };
+
+  render() {
+    const homesList = this.state.homes.map((home, index) => (
+      <Col key={index.toString()} xs={12} md={6} lg={6}>
+        <SkeletonCard home={home} />
+      </Col>
+    ));
+
+    return (
+      <div>
+        <Helmet>
+          <title>Airbnb — Homes</title>
+        </Helmet>
+
+        <FiltersWrapper>
+          <Filters />
+        </FiltersWrapper>
+        <Content>
           <Row>
-            <HomesList homes={homes} xs={12} md={6} lg={6} />
-          </Row>
+            <Col xs={12} md={12} lg={8}>
+              <Row>
+                {homesList}
+              </Row>
 
-          <Row center="xs">
-            <Paginator />
-          </Row>
+              <Row center="xs">
+                <Paginator />
+              </Row>
 
-          <Row center="xs">
-            <Footer>
-              Enter dates to see full pricing. Additional fees apply. Taxes may be added.
-            </Footer>
+              <Row center="xs">
+                <Footer>
+                  Enter dates to see full pricing. Additional fees apply. Taxes may be added.
+                </Footer>
+              </Row>
+            </Col>
           </Row>
-        </Col>
-      </Row>
-    </Content>
-    <GoogleMapWrapper className="hidden-xs hidden-md">
-      <GoogleMap
-        defaultCenter={{ lat: 59.95, lng: 30.33 }}
-        defaultZoom={11}
-        bootstrapURLKeys={{
-          key: process.env.REACT_APP_GOOGLE_API_KEY,
-        }}
-      />
-    </GoogleMapWrapper>
-    <MapButton className="hidden-lg hidden-xl" />
-  </div>
-);
+        </Content>
+        <GoogleMapWrapper className="hidden-xs hidden-md">
+          <GoogleMap
+            defaultCenter={{ lat: 59.95, lng: 30.33 }}
+            defaultZoom={11}
+            bootstrapURLKeys={{
+              key: process.env.REACT_APP_GOOGLE_API_KEY,
+            }}
+          />
+        </GoogleMapWrapper>
+        <MapButton className="hidden-lg hidden-xl" />
+      </div>
+    );
+  }
+}

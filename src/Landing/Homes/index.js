@@ -1,56 +1,42 @@
 import React from 'react';
-import { Row } from 'react-flexbox-grid';
+import { Row, Col } from 'react-flexbox-grid';
+import times from 'lodash/times';
 import { TitleH2, HeaderRow } from '../../UI/styled';
 import SeeAllLink from '../../UI/SeeAllLink';
-import HomesList from '../../Homes/List';
+import { SkeletonCard } from '../../Homes/Card';
 import Carousel from '../../UI/Carousel';
+import { getList } from '../../Homes/api';
 
-import image1 from './1.png';
-import image2 from './2.png';
-import image3 from './3.png';
+export default class Homes extends React.Component {
+  state = {
+    homes: times(6, () => undefined),
+  };
 
-const homes = [
-  {
-    image: image1,
-    text: 'La Salentina, see, nature & relax',
-    price: 82,
-    rating: 4,
-    host: '97 · Superhost',
-    type: 'Entire house',
-    beds: 9,
-  },
-  {
-    image: image2,
-    text: 'Your private 3 bedr. riad and exclusi…',
-    price: 82,
-    rating: 4,
-    host: '161 · Superhost',
-    type: 'Entire house',
-    beds: 5,
-  },
-  {
-    image: image3,
-    text: 'Dreamy Tropical Tree House',
-    price: 200,
-    rating: 5,
-    host: '364 · Superhost',
-    type: 'Entire treehouse',
-    beds: 1,
-  },
-];
+  componentWillMount = () => {
+    getList(6, 0).then((homes) => {
+      this.setState({ homes });
+    });
+  };
 
-export default function () {
-  return (
-    <div>
-      <HeaderRow between="xs" middle="xs">
-        <TitleH2>Homes</TitleH2>
-        <SeeAllLink to="/homes" />
-      </HeaderRow>
-      <Row>
-        <Carousel showArrow>
-          <HomesList homes={homes} xs={8} md={5} lg={4} />
-        </Carousel>
-      </Row>
-    </div>
-  );
+  render() {
+    const homesList = this.state.homes.map((home, index) => (
+      <Col key={index.toString()} xs={8} md={5} lg={4}>
+        <SkeletonCard home={home} />
+      </Col>
+    ));
+
+    return (
+      <div>
+        <HeaderRow between="xs" middle="xs">
+          <TitleH2>Homes</TitleH2>
+          <SeeAllLink to="/homes" />
+        </HeaderRow>
+        <Row>
+          <Carousel showArrow>
+            {homesList}
+          </Carousel>
+        </Row>
+      </div>
+    );
+  }
 }
