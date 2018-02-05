@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import pluralize from 'pluralize';
 import { RoundButton, FilterButton } from '../styled';
 import { SpacedPopupWrapper } from './styled';
 import Dropdown from './Dropdown';
@@ -55,8 +56,6 @@ const Description = Name.extend`
   font-weight: 200;
   margin-top: 7px;
 `;
-
-const pluralize = (word, count) => (count > 1 ? `${word}s` : word);
 
 const getButtonText = (showSelectedData, guestsData) => {
   if (showSelectedData) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { createSkeletonElement, createSkeletonProvider } from '@trainline/react-skeletor';
+import pluralize from 'pluralize';
 import { kindToText } from '../helpers';
 import { CardLink } from '../../UI/styled';
 import Stars from '../../UI/Stars';
@@ -58,7 +59,7 @@ export const Card = props => (
       ${props.home.price} {props.home.text}
     </Info>
     <SubInfo>
-      {kindToText[props.home.type]} &middot; {props.home.beds} beds
+      {kindToText[props.home.type]} &middot; {props.home.beds} {pluralize('bed', props.home.beds)}
     </SubInfo>
     <Rating>
       <Stars>{props.home.stars}</Stars>
