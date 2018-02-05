@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { createSkeletonElement, createSkeletonProvider } from '@trainline/react-skeletor';
-
+import { kindToText } from '../helpers';
 import { CardLink } from '../../UI/styled';
 import Stars from '../../UI/Stars';
 
@@ -58,11 +58,12 @@ export const Card = props => (
       ${props.home.price} {props.home.text}
     </Info>
     <SubInfo>
-      {props.home.type} &middot; {props.home.beds} beds
+      {kindToText[props.home.type]} &middot; {props.home.beds} beds
     </SubInfo>
     <Rating>
       <Stars>{props.home.stars}</Stars>
-      {props.home.host}
+      {props.home.reviewsCount}
+      {props.home.isSuperhost && ' · Superhost'}
     </Rating>
   </CardLink>
 );
@@ -76,6 +77,8 @@ export const SkeletonCard = createSkeletonProvider(
       beds: 0,
       type: '________',
       host: '__ _______',
+      reviewsCount: 0,
+      isSuperhost: false,
     },
   },
   ({ home }) => home === undefined,

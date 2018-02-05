@@ -1,11 +1,3 @@
-const formatHost = (reviewsCount, isSuperhost) => {
-  if (isSuperhost) {
-    return `${reviewsCount} · Superhost`;
-  }
-
-  return reviewsCount;
-};
-
 export const kindToText = {
   entire_home: 'Entire home',
   private_room: 'Private room',
@@ -18,6 +10,7 @@ export const transformHomeData = inData => ({
   price: inData.price,
   stars: inData.rating,
   beds: inData.bedsCount,
-  type: kindToText[inData.kind],
-  host: formatHost(inData.reviewsCount, inData.isSuperhost),
+  type: inData.kind,
+  reviewsCount: inData.reviewsCount,
+  isSuperhost: inData.isSuperhost,
 });
