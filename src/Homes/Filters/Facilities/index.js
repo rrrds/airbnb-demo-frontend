@@ -2,8 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { SpacedPopupWrapper, SeeAll, CheckboxRow, Checkbox, Indicator } from '../styled';
 
-const filterId = 'facilities';
-
 const StyledWrapper = SpacedPopupWrapper.extend`
   display: flex;
   flex-wrap: wrap;

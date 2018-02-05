@@ -4,7 +4,6 @@ import { SpacedPopupWrapper, Checkbox, Indicator } from '../styled';
 import iconEntire from './entire.svg';
 import iconPrivate from './private.svg';
 import iconshared from './shared.svg';
-import iconCheckOn from './check-on.svg';
 
 const Type = styled.div`
   display: flex;
