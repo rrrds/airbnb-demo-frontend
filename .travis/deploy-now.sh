@@ -1,6 +1,8 @@
 #!/bin/bash
 set -ev
 
+find "${TRAVIS_BUILD_DIR}/build" -type f -name "*.map" -size +1M -exec rm {} \;
+
 DEPLOYMENT_URL=$(now deploy \
     --public \
     --static \
