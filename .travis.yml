@@ -12,7 +12,7 @@ script:
 deploy:  
   - provider: script
     skip_cleanup: true
-    script: .travis/deploy-now.sh
+    script: chmod +x .travis/deploy-now.sh && .travis/deploy-now.sh
     on:
       branch:
         - master
