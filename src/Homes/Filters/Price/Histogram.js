@@ -8,6 +8,7 @@ const Bar = styled.div`
   height: ${props => props.size}px;
 `;
 
-const generateBars = data => data.map((value, index) => <Bar key={index} size={value} />);
+const generateBars = data =>
+  data.map((value, index) => <Bar key={index.toString()} size={value} />);
 
 export default props => <div className={props.className}>{generateBars(props.data)}</div>;

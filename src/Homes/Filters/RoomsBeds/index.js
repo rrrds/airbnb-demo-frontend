@@ -5,8 +5,6 @@ import { SpacedPopupWrapper } from '../styled';
 import minus from '../minus.svg';
 import plus from '../plus.svg';
 
-const filterId = 'roomsbeds';
-
 const Type = styled.div`
   display: flex;
   flex-direction: row;

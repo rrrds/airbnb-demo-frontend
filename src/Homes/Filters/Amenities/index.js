@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SpacedPopupWrapper, SeeAll, CheckboxRow, Checkbox, Indicator } from '../styled';
-import iconCheckOn from './check-on.svg';
-
-const filterId = 'amenities';
 
 const StyledWrapper = SpacedPopupWrapper.extend`
   display: flex;

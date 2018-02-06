@@ -5,8 +5,6 @@ import { SpacedPopupWrapper } from '../styled';
 import cross from './cross.svg';
 import check from './check.svg';
 
-const filterId = 'superhost';
-
 const Switch = styled(ToggleSwitch)`
   width: 64px;
   min-width: 64px;
